@@ -1,17 +1,76 @@
-﻿@{
+﻿@model RS.DataModel.ContactModel
+@{
     ViewBag.Title = "Contact";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
 
-<address>
-    One Microsoft Way<br />
-    Redmond, WA 98052-6399<br />
-    <abbr title="Phone">P:</abbr>
-    425.555.0100
-</address>
+<div class="form-group">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1 headerText">
+            Contacts
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-offset-1 col-md-6">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="form-group">
+                        <label for="Name">पूरा नाम</label><span class="required">*</span>
+                        @Html.TextBoxFor(model => model.Name, new { @class = "form-control", placeholder = "Full Name", @maxlength = 100 })
+                        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label for="PhoneNumber">फ़ोन नंबर</label><span class="required">*</span>
+                        @Html.TextBoxFor(model => model.PhoneNumber, new { @class = "form-control", placeholder = "Phone Number", @maxlength = 10})
+                        @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label for="EmailId">ईमेल</label>
+                        @Html.TextBoxFor(model => model.EmailId, new { @class = "form-control", placeholder = "EmailId", @maxlength = 100 })
+                        @Html.ValidationMessageFor(model => model.EmailId, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label for="Subject">विषय</label><span class="required">*</span>
+                        @Html.TextBoxFor(model => model.Subject, new { @class = "form-control", placeholder = "Subject", @maxlength = 200 })
+                        @Html.ValidationMessageFor(model => model.Subject, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label for="Subject">प्रधान भाग</label><span class="required">*</span>
+                        @Html.TextBoxFor(model => model.Body, new { @class = "form-control", placeholder = "Body", @maxlength = 500 })
+                        @Html.ValidationMessageFor(model => model.Body, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="row">
+                    <button type="button" class="btn btn-danger">Submit</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-5">
+            <div class="row text-center">
+                <div class="col-md-12">  <b><u>Satya Prakash Rathore</u></b> <br />
+                Masjid Bonda Circle, Kondapur <br />
+                Hyderbad, Telengana
+                Phone Number : 7799190555
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="col-md-12">
+                    <b><u>Satya Prakash Rathore</u></b> <br />
+                    Masjid Bonda Circle, Kondapur <br />
+                    Hyderbad, Telengana
+                    Phone Number : 7799190555
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-1"> </div>
+</div>
 
-<address>
-    <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-</address>
+

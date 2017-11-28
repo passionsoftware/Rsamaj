@@ -9,3 +9,16 @@ E:\rathore samaj\applicationcode\WebApplication2\RS.BusinessLogicLayer\bin\Debug
 E:\rathore samaj\applicationcode\WebApplication2\RS.BusinessLogicLayer\bin\Debug\RS.DataModel.pdb
 E:\rathore samaj\applicationcode\WebApplication2\RS.BusinessLogicLayer\bin\Debug\EntityFramework.dll
 E:\rathore samaj\applicationcode\WebApplication2\RS.BusinessLogicLayer\bin\Debug\EntityFramework.xml
+C:\devlopment\testapp_rs\Rsamaj\RS.BusinessLogicLayer\bin\Debug\RS.BusinessLogicLayer.dll
+C:\devlopment\testapp_rs\Rsamaj\RS.BusinessLogicLayer\bin\Debug\RS.BusinessLogicLayer.pdb
+C:\devlopment\testapp_rs\Rsamaj\RS.BusinessLogicLayer\bin\Debug\RS.DataAccessLayer.dll
+C:\devlopment\testapp_rs\Rsamaj\RS.BusinessLogicLayer\bin\Debug\RS.DataModel.dll
+C:\devlopment\testapp_rs\Rsamaj\RS.BusinessLogicLayer\bin\Debug\EntityFramework.dll
+C:\devlopment\testapp_rs\Rsamaj\RS.BusinessLogicLayer\bin\Debug\RS.DataAccessLayer.pdb
+C:\devlopment\testapp_rs\Rsamaj\RS.BusinessLogicLayer\bin\Debug\RS.DataAccessLayer.dll.config
+C:\devlopment\testapp_rs\Rsamaj\RS.BusinessLogicLayer\bin\Debug\RS.DataModel.pdb
+C:\devlopment\testapp_rs\Rsamaj\RS.BusinessLogicLayer\bin\Debug\EntityFramework.xml
+C:\devlopment\testapp_rs\Rsamaj\RS.BusinessLogicLayer\obj\Debug\RS.BusinessLogicLayer.csprojResolveAssemblyReference.cache
+C:\devlopment\testapp_rs\Rsamaj\RS.BusinessLogicLayer\obj\Debug\RS.BusinessLogicLayer.csproj.CoreCompileInputs.cache
+C:\devlopment\testapp_rs\Rsamaj\RS.BusinessLogicLayer\obj\Debug\RS.BusinessLogicLayer.dll
+C:\devlopment\testapp_rs\Rsamaj\RS.BusinessLogicLayer\obj\Debug\RS.BusinessLogicLayer.pdb

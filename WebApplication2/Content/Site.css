@@ -23,10 +23,22 @@
 {
     color:#72b1e6;
     font-size:35px;
+    text-align:center;
     /*text-decoration:underline;*/
-    border-bottom: solid 1px #0c2f67;
+    /*border-bottom: solid 1px #0c2f67;*/
     font-family:Buxton Sketch !important;
 }
+
+
+.headerText:after {
+        background: #248c69 none repeat scroll 0 0;
+        content: "";
+        display: block;
+        height: 4px;
+        margin: 0.31225em auto 0;
+        position: relative;
+        width: 14%;
+    }
 
 .navbar-nav {
     float: right !important;

@@ -23,6 +23,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -155,7 +156,13 @@
     <Compile Include="Areas\admin\Controllers\LoginController.cs" />
     <Compile Include="Areas\admin\Controllers\NewsController.cs" />
     <Compile Include="Areas\admin\Controllers\RathoreDetailsController.cs" />
+    <Compile Include="Controllers\AboutController.cs" />
+    <Compile Include="Controllers\ContactsController.cs" />
+    <Compile Include="Controllers\EventController.cs" />
+    <Compile Include="Controllers\GallaryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\NewsController.cs" />
+    <Compile Include="Controllers\RathoreDetailController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -205,8 +212,6 @@
     <Content Include="Areas\admin\Views\web.config" />
     <Content Include="Areas\admin\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\admin\Views\Gallary\Index.cshtml" />
-    <Content Include="Areas\admin\Views\RathoreDetail\AddRathoreDetail.cshtml" />
-    <Content Include="Areas\admin\Views\RathoreDetail\Index.cshtml" />
     <Content Include="Areas\admin\Views\_ViewStart.cshtml" />
     <Content Include="Areas\admin\Views\Albums\Index.cshtml" />
     <Content Include="Areas\admin\Views\Contacts\Index.cshtml" />
@@ -236,7 +241,9 @@
     <Content Include="Scripts\_references.js" />
     <Content Include="Style\index.css" />
     <Content Include="Style\bootstrap.min.css" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -252,6 +259,12 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_GridPager.cshtml" />
     <Content Include="Views\Shared\_Grid.cshtml" />
+    <Content Include="Views\Contacts\Index.cshtml" />
+    <Content Include="Views\About\Index.cshtml" />
+    <Content Include="Views\RathoreDetail\Index.cshtml" />
+    <Content Include="Views\Event\Index.cshtml" />
+    <Content Include="Views\Gallary\Index.cshtml" />
+    <Content Include="Views\News\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -9,3 +9,16 @@ E:\rathore samaj\applicationcode\WebApplication2\RS.BusinessLogicLayer\obj\Relea
 E:\rathore samaj\applicationcode\WebApplication2\RS.BusinessLogicLayer\obj\Release\RS.BusinessLogicLayer.pdb
 E:\rathore samaj\applicationcode\WebApplication2\RS.BusinessLogicLayer\bin\Release\EntityFramework.dll
 E:\rathore samaj\applicationcode\WebApplication2\RS.BusinessLogicLayer\bin\Release\EntityFramework.xml
+C:\devlopment\testapp_rs\Rsamaj\RS.BusinessLogicLayer\bin\Release\RS.BusinessLogicLayer.dll
+C:\devlopment\testapp_rs\Rsamaj\RS.BusinessLogicLayer\bin\Release\RS.BusinessLogicLayer.pdb
+C:\devlopment\testapp_rs\Rsamaj\RS.BusinessLogicLayer\bin\Release\RS.DataAccessLayer.dll
+C:\devlopment\testapp_rs\Rsamaj\RS.BusinessLogicLayer\bin\Release\RS.DataModel.dll
+C:\devlopment\testapp_rs\Rsamaj\RS.BusinessLogicLayer\bin\Release\EntityFramework.dll
+C:\devlopment\testapp_rs\Rsamaj\RS.BusinessLogicLayer\bin\Release\RS.DataAccessLayer.pdb
+C:\devlopment\testapp_rs\Rsamaj\RS.BusinessLogicLayer\bin\Release\RS.DataAccessLayer.dll.config
+C:\devlopment\testapp_rs\Rsamaj\RS.BusinessLogicLayer\bin\Release\RS.DataModel.pdb
+C:\devlopment\testapp_rs\Rsamaj\RS.BusinessLogicLayer\bin\Release\EntityFramework.xml
+C:\devlopment\testapp_rs\Rsamaj\RS.BusinessLogicLayer\obj\Release\RS.BusinessLogicLayer.csprojResolveAssemblyReference.cache
+C:\devlopment\testapp_rs\Rsamaj\RS.BusinessLogicLayer\obj\Release\RS.BusinessLogicLayer.csproj.CoreCompileInputs.cache
+C:\devlopment\testapp_rs\Rsamaj\RS.BusinessLogicLayer\obj\Release\RS.BusinessLogicLayer.dll
+C:\devlopment\testapp_rs\Rsamaj\RS.BusinessLogicLayer\obj\Release\RS.BusinessLogicLayer.pdb

@@ -10,3 +10,16 @@ E:\rathore samaj\applicationcode\WebApplication2\RS.DataAccessLayer\bin\Release\
 E:\rathore samaj\applicationcode\WebApplication2\RS.DataAccessLayer\bin\Release\EntityFramework.SqlServer.dll
 E:\rathore samaj\applicationcode\WebApplication2\RS.DataAccessLayer\bin\Release\EntityFramework.xml
 E:\rathore samaj\applicationcode\WebApplication2\RS.DataAccessLayer\bin\Release\EntityFramework.SqlServer.xml
+C:\devlopment\testapp_rs\Rsamaj\RS.DataAccessLayer\bin\Release\RS.DataAccessLayer.dll.config
+C:\devlopment\testapp_rs\Rsamaj\RS.DataAccessLayer\bin\Release\RS.DataAccessLayer.dll
+C:\devlopment\testapp_rs\Rsamaj\RS.DataAccessLayer\bin\Release\RS.DataAccessLayer.pdb
+C:\devlopment\testapp_rs\Rsamaj\RS.DataAccessLayer\bin\Release\EntityFramework.dll
+C:\devlopment\testapp_rs\Rsamaj\RS.DataAccessLayer\bin\Release\EntityFramework.SqlServer.dll
+C:\devlopment\testapp_rs\Rsamaj\RS.DataAccessLayer\bin\Release\RS.DataModel.dll
+C:\devlopment\testapp_rs\Rsamaj\RS.DataAccessLayer\bin\Release\RS.DataModel.pdb
+C:\devlopment\testapp_rs\Rsamaj\RS.DataAccessLayer\bin\Release\EntityFramework.xml
+C:\devlopment\testapp_rs\Rsamaj\RS.DataAccessLayer\bin\Release\EntityFramework.SqlServer.xml
+C:\devlopment\testapp_rs\Rsamaj\RS.DataAccessLayer\obj\Release\RS.DataAccessLayer.csprojResolveAssemblyReference.cache
+C:\devlopment\testapp_rs\Rsamaj\RS.DataAccessLayer\obj\Release\RS.DataAccessLayer.csproj.CoreCompileInputs.cache
+C:\devlopment\testapp_rs\Rsamaj\RS.DataAccessLayer\obj\Release\RS.DataAccessLayer.dll
+C:\devlopment\testapp_rs\Rsamaj\RS.DataAccessLayer\obj\Release\RS.DataAccessLayer.pdb

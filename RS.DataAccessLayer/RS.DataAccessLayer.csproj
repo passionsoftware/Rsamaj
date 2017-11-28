@@ -51,6 +51,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AlbumDL.cs" />
+    <Compile Include="ContactDetailDL.cs" />
+    <Compile Include="EventDL.cs" />
+    <Compile Include="GallaryDL.cs" />
+    <Compile Include="LoginDL.cs" />
+    <Compile Include="NewsDL.cs" />
     <Compile Include="RathoreDetailDL.cs" />
     <Compile Include="entitydata\rathoresam.Context.cs">
       <AutoGen>True</AutoGen>

@@ -40,6 +40,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AlbumBL.cs" />
+    <Compile Include="ContactDetailBL.cs" />
+    <Compile Include="EventBL.cs" />
+    <Compile Include="GallaryBL.cs" />
+    <Compile Include="LoginBL.cs" />
+    <Compile Include="NewBL.cs" />
     <Compile Include="RathoreDetailBL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
