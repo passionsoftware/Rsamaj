@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,6 +11,7 @@ namespace RS.DataModel
     {
         public int AlbumId { get; set; }
 
+        [Required(ErrorMessage ="Album Name is Required")]
         public string AlbumName { get; set; }
 
         public string BriefDesc { get; set; }

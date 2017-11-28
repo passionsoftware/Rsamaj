@@ -96,3 +96,5 @@ C:\devlopment\testapp_rs\Rsamaj\WebApplication2\obj\Debug\Web.UI.csprojResolveAs
 C:\devlopment\testapp_rs\Rsamaj\WebApplication2\obj\Debug\Web.UI.csproj.CoreCompileInputs.cache
 C:\devlopment\testapp_rs\Rsamaj\WebApplication2\obj\Debug\WebApplication2.dll
 C:\devlopment\testapp_rs\Rsamaj\WebApplication2\obj\Debug\WebApplication2.pdb
+E:\rathore samaj\applicationcode\WebApplication2\WebApplication2\bin\EntityFramework.SqlServer.dll
+E:\rathore samaj\applicationcode\WebApplication2\WebApplication2\bin\EntityFramework.SqlServer.xml
