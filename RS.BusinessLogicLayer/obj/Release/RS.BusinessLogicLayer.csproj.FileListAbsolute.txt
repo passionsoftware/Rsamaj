@@ -7,3 +7,5 @@ E:\rathore samaj\applicationcode\WebApplication2\RS.BusinessLogicLayer\bin\Relea
 E:\rathore samaj\applicationcode\WebApplication2\RS.BusinessLogicLayer\obj\Release\RS.BusinessLogicLayer.csprojResolveAssemblyReference.cache
 E:\rathore samaj\applicationcode\WebApplication2\RS.BusinessLogicLayer\obj\Release\RS.BusinessLogicLayer.dll
 E:\rathore samaj\applicationcode\WebApplication2\RS.BusinessLogicLayer\obj\Release\RS.BusinessLogicLayer.pdb
+E:\rathore samaj\applicationcode\WebApplication2\RS.BusinessLogicLayer\bin\Release\EntityFramework.dll
+E:\rathore samaj\applicationcode\WebApplication2\RS.BusinessLogicLayer\bin\Release\EntityFramework.xml

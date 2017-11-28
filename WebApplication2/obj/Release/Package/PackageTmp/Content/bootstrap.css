@@ -4501,8 +4501,9 @@ textarea.input-group-sm > .input-group-btn > .btn {
 }
 
 .navbar-inverse {
-  background-color: #222222;
-  border-color: #080808;
+  background-color: #412469;
+  border-bottom-color: #19d0af ;
+  border-bottom-width: 4px;
 }
 
 .navbar-inverse .navbar-brand {
@@ -4521,12 +4522,17 @@ textarea.input-group-sm > .input-group-btn > .btn {
 
 .navbar-inverse .navbar-nav > li > a {
   color: #999999;
+   margin-left:4px;
 }
 
 .navbar-inverse .navbar-nav > li > a:hover,
 .navbar-inverse .navbar-nav > li > a:focus {
   color: #ffffff;
-  background-color: transparent;
+  background-color: #de0301;
+  border-radius :10px;
+  margin-left:4px;
+  
+  /*padding :4px;*/
 }
 
 .navbar-inverse .navbar-nav > .active > a,

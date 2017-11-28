@@ -5,3 +5,8 @@ E:\rathore samaj\applicationcode\WebApplication2\RS.DataAccessLayer\bin\Release\
 E:\rathore samaj\applicationcode\WebApplication2\RS.DataAccessLayer\obj\Release\RS.DataAccessLayer.csprojResolveAssemblyReference.cache
 E:\rathore samaj\applicationcode\WebApplication2\RS.DataAccessLayer\obj\Release\RS.DataAccessLayer.dll
 E:\rathore samaj\applicationcode\WebApplication2\RS.DataAccessLayer\obj\Release\RS.DataAccessLayer.pdb
+E:\rathore samaj\applicationcode\WebApplication2\RS.DataAccessLayer\bin\Release\RS.DataAccessLayer.dll.config
+E:\rathore samaj\applicationcode\WebApplication2\RS.DataAccessLayer\bin\Release\EntityFramework.dll
+E:\rathore samaj\applicationcode\WebApplication2\RS.DataAccessLayer\bin\Release\EntityFramework.SqlServer.dll
+E:\rathore samaj\applicationcode\WebApplication2\RS.DataAccessLayer\bin\Release\EntityFramework.xml
+E:\rathore samaj\applicationcode\WebApplication2\RS.DataAccessLayer\bin\Release\EntityFramework.SqlServer.xml

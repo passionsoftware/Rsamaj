@@ -44,3 +44,5 @@ E:\rathore samaj\applicationcode\WebApplication2\WebApplication2\bin\Newtonsoft.
 E:\rathore samaj\applicationcode\WebApplication2\WebApplication2\obj\Release\Web.UI.csprojResolveAssemblyReference.cache
 E:\rathore samaj\applicationcode\WebApplication2\WebApplication2\obj\Release\WebApplication2.dll
 E:\rathore samaj\applicationcode\WebApplication2\WebApplication2\obj\Release\WebApplication2.pdb
+E:\rathore samaj\applicationcode\WebApplication2\WebApplication2\bin\EntityFramework.dll
+E:\rathore samaj\applicationcode\WebApplication2\WebApplication2\bin\EntityFramework.xml
