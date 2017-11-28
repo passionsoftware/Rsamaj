@@ -1,0 +1,11 @@
+E:\rathore samaj\applicationcode\WebApplication2\RS.BusinessLogicLayer\bin\Debug\RS.BusinessLogicLayer.dll
+E:\rathore samaj\applicationcode\WebApplication2\RS.BusinessLogicLayer\bin\Debug\RS.BusinessLogicLayer.pdb
+E:\rathore samaj\applicationcode\WebApplication2\RS.BusinessLogicLayer\obj\Debug\RS.BusinessLogicLayer.csprojResolveAssemblyReference.cache
+E:\rathore samaj\applicationcode\WebApplication2\RS.BusinessLogicLayer\obj\Debug\RS.BusinessLogicLayer.dll
+E:\rathore samaj\applicationcode\WebApplication2\RS.BusinessLogicLayer\obj\Debug\RS.BusinessLogicLayer.pdb
+E:\rathore samaj\applicationcode\WebApplication2\RS.BusinessLogicLayer\bin\Debug\RS.DataAccessLayer.dll
+E:\rathore samaj\applicationcode\WebApplication2\RS.BusinessLogicLayer\bin\Debug\RS.DataModel.dll
+E:\rathore samaj\applicationcode\WebApplication2\RS.BusinessLogicLayer\bin\Debug\RS.DataAccessLayer.pdb
+E:\rathore samaj\applicationcode\WebApplication2\RS.BusinessLogicLayer\bin\Debug\RS.DataModel.pdb
+E:\rathore samaj\applicationcode\WebApplication2\RS.BusinessLogicLayer\bin\Debug\EntityFramework.dll
+E:\rathore samaj\applicationcode\WebApplication2\RS.BusinessLogicLayer\bin\Debug\EntityFramework.xml

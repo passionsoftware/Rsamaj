@@ -1,0 +1,12 @@
+E:\rathore samaj\applicationcode\WebApplication2\RS.DataAccessLayer\bin\Debug\RS.DataAccessLayer.dll
+E:\rathore samaj\applicationcode\WebApplication2\RS.DataAccessLayer\bin\Debug\RS.DataAccessLayer.pdb
+E:\rathore samaj\applicationcode\WebApplication2\RS.DataAccessLayer\obj\Debug\RS.DataAccessLayer.csprojResolveAssemblyReference.cache
+E:\rathore samaj\applicationcode\WebApplication2\RS.DataAccessLayer\obj\Debug\RS.DataAccessLayer.dll
+E:\rathore samaj\applicationcode\WebApplication2\RS.DataAccessLayer\obj\Debug\RS.DataAccessLayer.pdb
+E:\rathore samaj\applicationcode\WebApplication2\RS.DataAccessLayer\bin\Debug\RS.DataModel.dll
+E:\rathore samaj\applicationcode\WebApplication2\RS.DataAccessLayer\bin\Debug\RS.DataModel.pdb
+E:\rathore samaj\applicationcode\WebApplication2\RS.DataAccessLayer\bin\Debug\RS.DataAccessLayer.dll.config
+E:\rathore samaj\applicationcode\WebApplication2\RS.DataAccessLayer\bin\Debug\EntityFramework.dll
+E:\rathore samaj\applicationcode\WebApplication2\RS.DataAccessLayer\bin\Debug\EntityFramework.SqlServer.dll
+E:\rathore samaj\applicationcode\WebApplication2\RS.DataAccessLayer\bin\Debug\EntityFramework.xml
+E:\rathore samaj\applicationcode\WebApplication2\RS.DataAccessLayer\bin\Debug\EntityFramework.SqlServer.xml

@@ -1,0 +1,22 @@
+﻿
+.mine {
+    background-color :  green;
+}
+
+.navbar-inverse {
+    background-color: #4e3f7c !important;
+    color: aqua !important;
+}
+
+    .navbar-inverse .navbar-brand {
+        color: aqua !important;
+    }
+
+.navbar {
+    border-radius: 0 !important;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    color: #f3ecf3 !important;
+    font-size: 18px !important;
+}

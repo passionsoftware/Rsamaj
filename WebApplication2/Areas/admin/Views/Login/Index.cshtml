@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>..:: Admin Login :..</title>
+
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/admin.css" rel="stylesheet" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+
+    <style>
+        .navbar-inverse .navbar-brand {
+            color: #ff6a00 !important;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar navbar-inverse" style="border-bottom: 5px solid rgba(65, 226, 204, 0.6196078431372549)">
+        <div class="container">
+            <div class="navbar-header">
+
+                @Html.ActionLink("Rathore Samaj - Admin Login ", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        <div class="row">
+            <div class="col-lg-offset-3 col-lg-5 col-sm-12 col-md-offset-3 col-md-5">
+                <div class="panel panel-info" style="margin-top:20px">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Administrator Login</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-lg-12 col-sm-12 col-md-12">
+
+                                <div class="input-group">
+                                    <span class="input-group-addon" id="basic-addon1">
+                                        <i class="fa fa-user-secret" aria-hidden="true"></i>
+                                    </span>
+                                    <input class="form-control" placeholder="Username" aria-describedby="basic-addon1">
+                                </div>
+                            </div>
+                            <br />
+                            <div class="col-lg-12 col-sm-12 col-md-12">
+                                <div class="input-group">
+                                    <span class="input-group-addon" id="basic-addon1">
+                                        <i class="fa fa-unlock-alt fa-2" aria-hidden="true"></i>
+                                    </span>
+                                    <input class="form-control" placeholder="Password" aria-describedby="basic-addon1">
+                                </div>
+
+                            </div>
+                            <br />
+                            <div class="col-lg-12 col-sm-12 col-md-12 right" style="text-align:right">
+
+                                <button type="button" class="btn btn-default">Forget Password</button> &nbsp;  <button type="button" class="btn btn-danger">Submit</button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer class="col-lg-12" style="bottom:1px;position:fixed">
+        <hr />
+        <p style="margin-left:20px;">  &copy; Rathore  Samaj - @DateTime.Now.Year - <span style="color:orangered"> Designed and Code by <b> Passion software</b></span></p>
+    </footer>
+</body>
+</html>

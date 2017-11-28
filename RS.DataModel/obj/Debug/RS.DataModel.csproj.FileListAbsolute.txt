@@ -1,0 +1,5 @@
+E:\rathore samaj\applicationcode\WebApplication2\RS.DataModel\bin\Debug\RS.DataModel.dll
+E:\rathore samaj\applicationcode\WebApplication2\RS.DataModel\bin\Debug\RS.DataModel.pdb
+E:\rathore samaj\applicationcode\WebApplication2\RS.DataModel\obj\Debug\RS.DataModel.csprojResolveAssemblyReference.cache
+E:\rathore samaj\applicationcode\WebApplication2\RS.DataModel\obj\Debug\RS.DataModel.dll
+E:\rathore samaj\applicationcode\WebApplication2\RS.DataModel\obj\Debug\RS.DataModel.pdb

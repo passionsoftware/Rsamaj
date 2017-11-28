@@ -1,0 +1,9 @@
+E:\rathore samaj\applicationcode\WebApplication2\RS.BusinessLogicLayer\bin\Release\RS.BusinessLogicLayer.dll
+E:\rathore samaj\applicationcode\WebApplication2\RS.BusinessLogicLayer\bin\Release\RS.BusinessLogicLayer.pdb
+E:\rathore samaj\applicationcode\WebApplication2\RS.BusinessLogicLayer\bin\Release\RS.DataAccessLayer.dll
+E:\rathore samaj\applicationcode\WebApplication2\RS.BusinessLogicLayer\bin\Release\RS.DataModel.dll
+E:\rathore samaj\applicationcode\WebApplication2\RS.BusinessLogicLayer\bin\Release\RS.DataAccessLayer.pdb
+E:\rathore samaj\applicationcode\WebApplication2\RS.BusinessLogicLayer\bin\Release\RS.DataModel.pdb
+E:\rathore samaj\applicationcode\WebApplication2\RS.BusinessLogicLayer\obj\Release\RS.BusinessLogicLayer.csprojResolveAssemblyReference.cache
+E:\rathore samaj\applicationcode\WebApplication2\RS.BusinessLogicLayer\obj\Release\RS.BusinessLogicLayer.dll
+E:\rathore samaj\applicationcode\WebApplication2\RS.BusinessLogicLayer\obj\Release\RS.BusinessLogicLayer.pdb

@@ -1,0 +1,7 @@
+E:\rathore samaj\applicationcode\WebApplication2\RS.DataAccessLayer\bin\Release\RS.DataAccessLayer.dll
+E:\rathore samaj\applicationcode\WebApplication2\RS.DataAccessLayer\bin\Release\RS.DataAccessLayer.pdb
+E:\rathore samaj\applicationcode\WebApplication2\RS.DataAccessLayer\bin\Release\RS.DataModel.dll
+E:\rathore samaj\applicationcode\WebApplication2\RS.DataAccessLayer\bin\Release\RS.DataModel.pdb
+E:\rathore samaj\applicationcode\WebApplication2\RS.DataAccessLayer\obj\Release\RS.DataAccessLayer.csprojResolveAssemblyReference.cache
+E:\rathore samaj\applicationcode\WebApplication2\RS.DataAccessLayer\obj\Release\RS.DataAccessLayer.dll
+E:\rathore samaj\applicationcode\WebApplication2\RS.DataAccessLayer\obj\Release\RS.DataAccessLayer.pdb

@@ -1,0 +1,243 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="RSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="RS_Album">
+    <Key>
+      <PropertyRef Name="AlbumId" />
+    </Key>
+    <Property Name="AlbumId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AlbumName" Type="nvarchar" MaxLength="100" />
+    <Property Name="BriefDesc" Type="nvarchar" MaxLength="400" />
+    <Property Name="Location" Type="nvarchar" MaxLength="200" />
+    <Property Name="District" Type="nvarchar" MaxLength="200" />
+    <Property Name="CreatedOn" Type="datetime" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="ModifiedBy" Type="int" />
+    <Property Name="ModifiedOn" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="RS_ContactUs">
+    <Key>
+      <PropertyRef Name="ContactusId" />
+    </Key>
+    <Property Name="ContactusId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="200" />
+    <Property Name="PhoneNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="EmailId" Type="varchar" MaxLength="100" />
+    <Property Name="Subject" Type="nvarchar" MaxLength="200" />
+    <Property Name="Body" Type="ntext" />
+    <Property Name="CreatedOn" Type="datetime" />
+    <Property Name="Location" Type="varchar" MaxLength="100" />
+    <Property Name="IpAddress" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="RS_Country">
+    <Key>
+      <PropertyRef Name="CountryId" />
+    </Key>
+    <Property Name="CountryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CountryName" Type="nvarchar" MaxLength="200" />
+    <Property Name="CreatedOn" Type="datetime" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="ModifiedBy" Type="int" />
+    <Property Name="ModifiedOn" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="RS_District">
+    <Key>
+      <PropertyRef Name="DistrictId" />
+    </Key>
+    <Property Name="DistrictId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StateId" Type="int" />
+    <Property Name="DistrictName" Type="nvarchar" MaxLength="200" />
+    <Property Name="CreatedOn" Type="datetime" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="ModifiedBy" Type="int" />
+    <Property Name="ModifiedOn" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="RS_Event">
+    <Key>
+      <PropertyRef Name="EventId" />
+    </Key>
+    <Property Name="EventId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EventType" Type="int" />
+    <Property Name="Subject" Type="nvarchar" MaxLength="200" />
+    <Property Name="Body" Type="ntext" />
+    <Property Name="EventDateFrom" Type="datetime" />
+    <Property Name="EventTimeFrom" Type="nvarchar" MaxLength="100" />
+    <Property Name="EventDateTo" Type="datetime" />
+    <Property Name="EventTimeTo" Type="nvarchar" MaxLength="100" />
+    <Property Name="Location" Type="int" />
+    <Property Name="District" Type="int" />
+    <Property Name="CreatedOn" Type="datetime" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="ModifiedBy" Type="int" />
+    <Property Name="ModifiedOn" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="RS_EventType">
+    <Key>
+      <PropertyRef Name="EventTypeId" />
+    </Key>
+    <Property Name="EventTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EventType" Type="nvarchar" MaxLength="200" />
+    <Property Name="CreatedOn" Type="datetime" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="ModifiedBy" Type="int" />
+    <Property Name="ModifiedOn" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="RS_Gallary">
+    <Key>
+      <PropertyRef Name="PhotoId" />
+    </Key>
+    <Property Name="PhotoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AlbumId" Type="int" />
+    <Property Name="PhotoLink" Type="varchar" MaxLength="200" />
+    <Property Name="PostedOn" Type="datetime" />
+    <Property Name="Location" Type="nvarchar" MaxLength="100" />
+    <Property Name="PhotoDescription" Type="nvarchar" MaxLength="400" />
+    <Property Name="CreatedOn" Type="datetime" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="ModifiedBy" Type="int" />
+    <Property Name="ModifiedOn" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="IsCoverPhoto" Type="bit" />
+    <Property Name="Likes" Type="int" />
+  </EntityType>
+  <EntityType Name="RS_Location">
+    <Key>
+      <PropertyRef Name="LocationId" />
+    </Key>
+    <Property Name="LocationId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DistrictId" Type="int" />
+    <Property Name="LocationName" Type="nvarchar" MaxLength="200" />
+    <Property Name="CreatedOn" Type="datetime" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="ModifiedBy" Type="int" />
+    <Property Name="ModifiedOn" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="RS_News">
+    <Key>
+      <PropertyRef Name="NewsId" />
+    </Key>
+    <Property Name="NewsId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Newstype" Type="int" />
+    <Property Name="Subject" Type="nvarchar" MaxLength="500" />
+    <Property Name="Body" Type="ntext" />
+    <Property Name="Photo" Type="varchar" MaxLength="200" />
+    <Property Name="Location" Type="int" />
+    <Property Name="District" Type="int" />
+    <Property Name="CreatedOn" Type="datetime" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="ModifiedBy" Type="int" />
+    <Property Name="ModifiedOn" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="RS_NewsType">
+    <Key>
+      <PropertyRef Name="NewsTypeId" />
+    </Key>
+    <Property Name="NewsTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NewsType" Type="nvarchar" MaxLength="200" />
+    <Property Name="CreatedOn" Type="datetime" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="ModifiedBy" Type="int" />
+    <Property Name="ModifiedOn" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="RS_RathoreDetails">
+    <Key>
+      <PropertyRef Name="RathoreDetailId" />
+    </Key>
+    <Property Name="RathoreDetailId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="200" />
+    <Property Name="FatherName" Type="nvarchar" MaxLength="200" />
+    <Property Name="MotherName" Type="nvarchar" MaxLength="200" />
+    <Property Name="FatherNameId" Type="int" />
+    <Property Name="MotherNameId" Type="int" />
+    <Property Name="DateOfBirth" Type="datetime" />
+    <Property Name="PhoneNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="Occupation" Type="nvarchar" MaxLength="200" />
+    <Property Name="IsMarried" Type="bit" />
+    <Property Name="SpouseName" Type="nvarchar" MaxLength="200" />
+    <Property Name="SpouseNameId" Type="int" />
+    <Property Name="CurrentCountry" Type="int" />
+    <Property Name="CurrentState" Type="int" />
+    <Property Name="CurrentDistrict" Type="int" />
+    <Property Name="CurrentLocation" Type="int" />
+    <Property Name="CurrentAddress" Type="varchar" MaxLength="400" />
+    <Property Name="NativeCountry" Type="int" />
+    <Property Name="NativeState" Type="int" />
+    <Property Name="NativeDistrict" Type="int" />
+    <Property Name="NativeLocation" Type="int" />
+    <Property Name="NativeAddress" Type="varchar" MaxLength="400" />
+    <Property Name="EmailId" Type="varchar" MaxLength="200" />
+    <Property Name="FinalEducation" Type="nvarchar" MaxLength="200" />
+    <Property Name="NoOfChildern" Type="int" />
+    <Property Name="CreatedOn" Type="datetime" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="ModifiedBy" Type="int" />
+    <Property Name="ModifiedOn" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="100" />
+    <Property Name="Password" Type="nvarchar" MaxLength="200" />
+    <Property Name="LastLogin" Type="datetime" />
+    <Property Name="LoginCount" Type="int" />
+    <Property Name="Role" Type="int" />
+  </EntityType>
+  <EntityType Name="RS_Role">
+    <Key>
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="RoleId" Type="int" Nullable="false" />
+    <Property Name="RoleType" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="RS_State">
+    <Key>
+      <PropertyRef Name="StateId" />
+    </Key>
+    <Property Name="StateId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CountryId" Type="int" />
+    <Property Name="StateName" Type="nvarchar" MaxLength="200" />
+    <Property Name="CreatedOn" Type="datetime" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="ModifiedBy" Type="int" />
+    <Property Name="ModifiedOn" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="RS_UserDetail">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="100" />
+    <Property Name="Password" Type="nvarchar" MaxLength="200" />
+    <Property Name="EmailId" Type="varchar" MaxLength="200" />
+    <Property Name="LocationId" Type="int" />
+    <Property Name="StateId" Type="int" />
+    <Property Name="DistrictId" Type="int" />
+    <Property Name="CountryId" Type="int" />
+    <Property Name="Address" Type="nvarchar" MaxLength="400" />
+    <Property Name="PhoneNumber" Type="nvarchar" MaxLength="200" />
+    <Property Name="CreatedOn" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityContainer Name="RSModelStoreContainer">
+    <EntitySet Name="RS_Album" EntityType="Self.RS_Album" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RS_ContactUs" EntityType="Self.RS_ContactUs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RS_Country" EntityType="Self.RS_Country" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RS_District" EntityType="Self.RS_District" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RS_Event" EntityType="Self.RS_Event" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RS_EventType" EntityType="Self.RS_EventType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RS_Gallary" EntityType="Self.RS_Gallary" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RS_Location" EntityType="Self.RS_Location" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RS_News" EntityType="Self.RS_News" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RS_NewsType" EntityType="Self.RS_NewsType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RS_RathoreDetails" EntityType="Self.RS_RathoreDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RS_Role" EntityType="Self.RS_Role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RS_State" EntityType="Self.RS_State" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RS_UserDetail" EntityType="Self.RS_UserDetail" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
