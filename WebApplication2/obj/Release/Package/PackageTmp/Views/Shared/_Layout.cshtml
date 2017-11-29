@@ -3,7 +3,8 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>Rathore Samaj</title>
+   <link src="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
@@ -16,25 +17,34 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @*@Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
+                <a class="navbar-brand" href="#"><img width="50" src="images/rathore-rajput-logo-wallpapers.jpg" style="border: solid 2px #ebed5d" /></a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Home" ? "activelink" : "")">@Html.ActionLink("Home ", "Index", "Home")</li>
+                    <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "About" ? "activelink" : "")">@Html.ActionLink("About", "Index", "About")</li>
+                    <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "RathoreDetail" ? "activelink" : "")">@Html.ActionLink("Rathore Detail", "Index", "RathoreDetail")</li>
+                    <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "News" ? "activelink" : "")">@Html.ActionLink("News", "Index", "News")</li>
+                    <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Event" ? "activelink" : "")">@Html.ActionLink("Events", "Index", "Event")</li>
+                    <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Gallary" ? "activelink" : "")">@Html.ActionLink("Gallary", "Index", "Gallary")</li>
+                    <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Contacts" ? "activelink" : "")">@Html.ActionLink("Contact Us ", "Index", "Contacts")</li>
+                    @*<li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>*@
                 </ul>
             </div>
         </div>
     </div>
-    <div class="container body-content">
+    <div class="container body-content" style="margin-top:100px">
         @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
+      
+       
     </div>
+    <div class="footer col-md-12 " style="padding-top: 10px; padding-bottom: 10px; height: 50px; font-size: 16px; font-family: Calibri; color: #f0ad4e; text-align:right">
 
+        <p style="margin-left:20px;">  &copy; Rathore  Samaj - 2017 - <span style="color:orangered"> Designed and Code by <b> Passion software</b></span></p>
+    </div>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)

@@ -31,7 +31,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/25/2017 21:34:58</publishTime>
     </File>
     <File Include="Areas/admin/Views/Login/Index.cshtml">
-      <publishTime>11/25/2017 21:46:21</publishTime>
+      <publishTime>11/29/2017 00:03:00</publishTime>
     </File>
     <File Include="Areas/admin/Views/News/Index.cshtml">
       <publishTime>11/25/2017 21:35:58</publishTime>
@@ -67,7 +67,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/19/2017 18:05:57</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
-      <publishTime>11/03/2015 17:43:42</publishTime>
+      <publishTime>09/11/2013 09:10:04</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.SqlServer.dll">
+      <publishTime>09/11/2013 09:10:04</publishTime>
     </File>
     <File Include="bin/GridMvc.dll">
       <publishTime>09/25/2013 14:34:54</publishTime>
@@ -139,13 +142,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/18/2015 20:19:46</publishTime>
     </File>
     <File Include="bin/RS.BusinessLogicLayer.dll">
-      <publishTime>11/28/2017 13:18:28</publishTime>
+      <publishTime>11/29/2017 13:01:08</publishTime>
     </File>
     <File Include="bin/RS.DataAccessLayer.dll">
-      <publishTime>11/28/2017 13:18:24</publishTime>
+      <publishTime>11/29/2017 13:01:07</publishTime>
     </File>
     <File Include="bin/RS.DataModel.dll">
-      <publishTime>11/27/2017 22:29:02</publishTime>
+      <publishTime>11/29/2017 13:01:07</publishTime>
     </File>
     <File Include="bin/System.Web.Helpers.dll">
       <publishTime>01/28/2015 04:04:30</publishTime>
@@ -169,7 +172,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/28/2015 04:04:30</publishTime>
     </File>
     <File Include="bin/WebApplication2.dll">
-      <publishTime>11/28/2017 13:18:32</publishTime>
+      <publishTime>11/29/2017 13:01:09</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
       <publishTime>09/10/2013 17:28:38</publishTime>
@@ -181,7 +184,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/25/2017 15:54:53</publishTime>
     </File>
     <File Include="Content/bootstrap.css">
-      <publishTime>11/28/2017 13:16:47</publishTime>
+      <publishTime>11/29/2017 00:03:00</publishTime>
     </File>
     <File Include="Content/bootstrap.min.css">
       <publishTime>02/19/2017 18:04:58</publishTime>
@@ -193,7 +196,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/25/2017 21:48:47</publishTime>
     </File>
     <File Include="Content/Site.css">
-      <publishTime>11/25/2017 20:16:21</publishTime>
+      <publishTime>11/29/2017 00:03:00</publishTime>
     </File>
     <File Include="Events.html">
       <publishTime>02/28/2017 19:09:24</publishTime>
@@ -244,10 +247,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/25/2017 18:15:55</publishTime>
     </File>
     <File Include="Index.html">
-      <publishTime>11/28/2017 13:03:05</publishTime>
+      <publishTime>11/29/2017 00:03:01</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>11/27/2017 22:24:27</publishTime>
+      <publishTime>11/29/2017 00:09:19</publishTime>
     </File>
     <File Include="Places.html">
       <publishTime>02/28/2017 19:10:26</publishTime>
@@ -345,14 +348,32 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Style/index.css">
       <publishTime>02/22/2017 22:51:32</publishTime>
     </File>
+    <File Include="Views/About/Index.cshtml">
+      <publishTime>11/29/2017 00:03:01</publishTime>
+    </File>
+    <File Include="Views/Contacts/Index.cshtml">
+      <publishTime>11/29/2017 12:50:54</publishTime>
+    </File>
+    <File Include="Views/Event/Index.cshtml">
+      <publishTime>11/29/2017 00:03:01</publishTime>
+    </File>
+    <File Include="Views/Gallary/Index.cshtml">
+      <publishTime>11/29/2017 00:03:01</publishTime>
+    </File>
     <File Include="Views/Home/About.cshtml">
-      <publishTime>02/19/2017 18:04:38</publishTime>
+      <publishTime>11/29/2017 00:03:01</publishTime>
     </File>
     <File Include="Views/Home/Contact.cshtml">
-      <publishTime>02/19/2017 18:04:38</publishTime>
+      <publishTime>11/29/2017 00:03:01</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>02/19/2017 18:04:38</publishTime>
+      <publishTime>11/29/2017 00:03:01</publishTime>
+    </File>
+    <File Include="Views/News/Index.cshtml">
+      <publishTime>11/29/2017 00:03:01</publishTime>
+    </File>
+    <File Include="Views/RathoreDetail/Index.cshtml">
+      <publishTime>11/29/2017 00:03:01</publishTime>
     </File>
     <File Include="Views/Shared/Error.cshtml">
       <publishTime>02/19/2017 18:04:38</publishTime>
@@ -364,7 +385,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/25/2017 21:48:44</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>02/19/2017 18:04:38</publishTime>
+      <publishTime>11/29/2017 00:03:01</publishTime>
     </File>
     <File Include="Views/Web.config">
       <publishTime>02/19/2017 18:04:38</publishTime>
@@ -373,7 +394,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/19/2017 18:04:38</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>11/28/2017 13:18:36</publishTime>
+      <publishTime>11/29/2017 12:45:17</publishTime>
     </File>
   </ItemGroup>
 </Project>
