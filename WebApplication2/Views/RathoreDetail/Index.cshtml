@@ -1,22 +1,51 @@
-﻿
+﻿@model RS.DataModel.RathoreDetailDisplayModel
 @{
     ViewBag.Title = "Index";
 }
 
 <div class="form-group">
     <div class="row">
-        <div class="col-md-10 col-md-offset-1 headerText">
-            Rathores Details
+        <div class="col-md-12 subheaderText " style="text-align:left">
+            <u> स्थान के आधार पर राठौड़ का विस्तार</u>
         </div>
     </div>
+    <br />
     <div class="row">
 
-        <div class="col-md-1"> </div>
-        <div class="col-md-10">
-            You can search the Rathores from here  with their detail.
+       
+        <div class="col-md-12" style="text-align:left">
+            आपको यहाँ बस राठौर बंधू की जानकारी प्राप्त हो सकती है, आप सभी को अनुरोध है की इसका दुरुपयोग नहीं करे. ये बस आप की सुविधा के लिए बना है taki आप सभी ज्यादा से ज्यादा राठौर बंधू से जुड़ सकते है और सामाजिक कार्य मे अपनी सहभागिता दिखा सकते है. ज्यादा जानकारी के लिए सपर्क पेज मे दिए  सदस्यों से संपर्क  करे. 
         </div>
-        <div class="col-md-1"> </div>
+       
     </div>
-
+    <br />
+    <div class="row">
+        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+            @foreach (var item in Model.StateBasedDetails)
+            {
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingOne">
+                        <h4 class="panel-title">
+                            <a role="button" data-toggle="collapse" data-parent="#accordion" href="#@item.Name" aria-expanded="true" aria-controls="collapseOne">
+                               @item.Name                               @item.Value
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="@item.Name" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                        <div class="panel-body">
+                            <ul>
+                            @foreach (var dest in Model.DistrictBasedDetails)
+                            {
+                                if (item.Id == dest.Id)
+                                {
+                                <li>@dest.Name  - @dest.Value</li>
+                                }
+                            }</ul>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+        </div>
 </div>
 

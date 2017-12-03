@@ -13,23 +13,27 @@ namespace RS.DataModel
         public int ContactusId { get; set; }
 
 
-        [Required(ErrorMessage ="Name is required!!")]
-        [StringLength(50, MinimumLength = 5, ErrorMessage = "Invalid Name!!")]
+        [Required(ErrorMessage = "नाम अनिवार्य है !!")]
+        [StringLength(50, MinimumLength = 5, ErrorMessage = "काम से काम ५ शब्दों में जानकारी दे!!")]
         public string Name { get; set; }
 
-        [StringLength(10, MinimumLength = 10,ErrorMessage = "Invalid Phone number!!")]
-        [Required(ErrorMessage = "Phone Number is required!!")]
+        [StringLength(10, MinimumLength = 10,ErrorMessage = "काम से काम १० शब्दों में फ़ोन नंबर भरे !!")]
+        [Required(ErrorMessage = "फ़ोन नंबर अनिवार्य है !!")]
         public string PhoneNumber { get; set; }
 
-        [EmailAddress(ErrorMessage = "Invalid Email Address!!")]
+        [EmailAddress(ErrorMessage = "सही ईमेल दे !!")]
         public string EmailId { get; set; }
 
-        [Required(ErrorMessage = "Subject is required!!")]
+        [StringLength(100, MinimumLength = 5, ErrorMessage = "काम से काम ५  शब्दों में जानकारी दे !!")]
+        [Required(ErrorMessage = "विषय अनिवार्य है !!")]
         public string Subject { get; set; }
 
+
+        [StringLength(300, MinimumLength = 20, ErrorMessage = "काम से काम २० शब्दों में जानकारी दे !!")]
+        [Required(ErrorMessage = "जानकारी अनिवार्य है!!")]
         public string Body { get; set; }
 
-        public DateTime CreatedOn { get; set; }
+        public DateTime? CreatedOn { get; set; }
 
         public string Location { get; set; }
 

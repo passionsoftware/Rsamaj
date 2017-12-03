@@ -14,109 +14,112 @@
             वेबसाइट मे कुछ नए नाम , कार्यक्रम या लिखे हुए जानकारी को बदलने के लिए कृपया निचे दिए देय फॉर्म भरे या दिए हुए सदस्यों से समपर्क साधे| आप को अगर वेबसाइट मे अपने अनुरूप या अपने कराये के अनुरूप कुछ विगयपन देना है तो उपयुक्त लोगो से संपर्क करे.
         </div>
     </div>
-    @if(ViewBag.Saved == true )
-    {
-        <div class="alert alert-success" role="alert">@ViewBag.Message</div>
-    }
+
     <div class="row" style="margin-top:30px;">
+           
+            @using (Html.BeginForm("Index", "Contacts", FormMethod.Post, new { role = "form", @novalidate = "novalidate" }))
+            {
+                <div class="col-md-offset-1 col-md-6">
+                    <div class="row">
+                        @if (ViewBag.Saved == true)
+                        {
+                            <div class="alert alert-success" role="alert">@ViewBag.Message</div>
+                        }
+                    </div>
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="form-group">
+                                <label for="Name">पूरा नाम</label> <span class="text-required">*</span>
+                                @Html.TextBoxFor(model => model.Name, new { @class = "form-control", placeholder = "Full Name", @maxlength = 50 })
+                                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-error" })
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <label for="PhoneNumber">फ़ोन नंबर</label> <span class="text-required">*</span>
+                                @Html.TextBoxFor(model => model.PhoneNumber, new { @class = "form-control", placeholder = "Phone Number", @maxlength = 10 })
+                                @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-error" })
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <label for="EmailId">ईमेल</label>
+                                @Html.TextBoxFor(model => model.EmailId, new { @class = "form-control", placeholder = "EmailId", @maxlength = 100 })
+                                @Html.ValidationMessageFor(model => model.EmailId, "", new { @class = "text-error" })
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <label for="Subject">विषय</label> <span class="text-required">*</span>
+                                @Html.TextBoxFor(model => model.Subject, new { @class = "form-control", placeholder = "Subject", @maxlength = 100 })
+                                @Html.ValidationMessageFor(model => model.Subject, "", new { @class = "text-error" })
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <label for="Subject">प्रधान भाग</label> <span class="text-required">*</span>
+                                @Html.TextAreaFor(model => model.Body, new { @class = "form-control", placeholder = "Body", @maxlength = 500, @height = 400 })
+                                @Html.ValidationMessageFor(model => model.Body, "", new { @class = "text-error" })
+                            </div>
+                        </div>
+                        <div class="row">
+                            <button type="submit" class="btn btn-danger">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            }
+            <div class="col-md-2">
+                &nbsp;
+            </div>
+            <div class="col-md-4" style="font-size:20px;margin-top:20px;">
+                <div class="row text-left" style="margin-left:20px">
 
-        @using (Html.BeginForm("Index", "Contacts", FormMethod.Post, new { role = "form", @novalidate = "novalidate" }))
-        {
-        <div class="col-md-offset-1 col-md-6">
-            <div class="col-md-12">
-                <div class="row">
-                    <div class="form-group">
-                        <label for="Name">पूरा नाम</label>
-                        @Html.TextBoxFor(model => model.Name, new { @class = "form-control", placeholder = "Full Name", @maxlength = 50 })
-                        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                    <div class="col-md-12">
+                        <b><u> अशोक राठौर</u> </b>
+                        <br /> सेक्टर  ४, भिलाई
+                        <br /> दुर्ग
+                        <br />छत्तीसगढ़,
+                        <br /> <i class="fa fa-phone" aria-hidden="true" style="color:red"></i> +91 - 8770756259
                     </div>
+                    <br />
+
                 </div>
-                <div class="row">
-                    <div class="form-group">
-                        <label for="PhoneNumber">फ़ोन नंबर</label>
-                        @Html.TextBoxFor(model => model.PhoneNumber, new { @class = "form-control", placeholder = "Phone Number", @maxlength = 10 })
-                        @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })
+                <div class="row text-left" style="margin-left:20px">
+                    <div class="col-md-12">
+                        <b>
+                            <u>
+                                राकेश राठौर
+                            </u>
+                        </b>
+                        <br /> राजकिशोर नगर,
+                        <br /> बिलासपुर,
+                        <br />छत्तीसगढ़
+                        <br /> <i class="fa fa-phone" aria-hidden="true" style="color:red"></i> +91 - 8770255571
                     </div>
+                    <br />
                 </div>
-                <div class="row">
-                    <div class="form-group">
-                        <label for="EmailId">ईमेल</label>
-                        @Html.TextBoxFor(model => model.EmailId, new { @class = "form-control", placeholder = "EmailId", @maxlength = 100 })
-                        @Html.ValidationMessageFor(model => model.EmailId, "", new { @class = "text-danger" })
+                <div class="row text-left" style="margin-left:20px">
+
+                    <div class="col-md-12">
+                        <b>
+                            <u>
+                                सत्य प्रकाश राठौर
+                            </u>
+                        </b>
+                        <br /> मस्जिद बोंडा , कोण्डपुर ,
+                        <br /> हैदराबाद
+                        <br />तेलंगाना
+                        <br /> <i class="fa fa-phone" aria-hidden="true" style="color:red"></i> +91 - 7799190555
                     </div>
-                </div>
-                <div class="row">
-                    <div class="form-group">
-                        <label for="Subject">विषय</label>
-                        @Html.TextBoxFor(model => model.Subject, new { @class = "form-control", placeholder = "Subject", @maxlength = 100 })
-                        @Html.ValidationMessageFor(model => model.Subject, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="form-group">
-                        <label for="Subject">प्रधान भाग</label>
-                        @Html.TextAreaFor(model => model.Body, new { @class = "form-control", placeholder = "Body", @maxlength = 500, @height = 400 })
-                        @Html.ValidationMessageFor(model => model.Body, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-                <div class="row">
-                    <button type="submit" class="btn btn-danger">Submit</button>
+
                 </div>
             </div>
         </div>
-        }
-        <div class="col-md-2">
-            &nbsp;
-        </div>
-        <div class="col-md-4" style="font-size:20px;margin-top:20px;">
-            <div class="row text-left" style="margin-left:20px">
-
-                <div class="col-md-12">
-                    <b><u> अशोक राठौर</u> </b>
-                    <br /> सेक्टर  ४, भिलाई
-                    <br /> दुर्ग
-                    <br />छत्तीसगढ़,
-                    <br /> <i class="fa fa-phone" aria-hidden="true" style="color:red"></i> +91 - 8770756259
-                </div>
-                <br />
-
-            </div>
-            <div class="row text-left" style="margin-left:20px">
-                <div class="col-md-12">
-                    <b>
-                        <u>
-                            राकेश राठौर
-                        </u>
-                    </b>
-                    <br /> राजकिशोर नगर,
-                    <br /> बिलासपुर,
-                    <br />छत्तीसगढ़
-                    <br /> <i class="fa fa-phone" aria-hidden="true" style="color:red"></i> +91 - 8770255571
-                </div>
-                <br />
-            </div>
-            <div class="row text-left" style="margin-left:20px">
-
-                <div class="col-md-12">
-                    <b>
-                        <u>
-                            सत्य प्रकाश राठौर
-                        </u>
-                    </b>
-                    <br /> मस्जिद बोंडा , कोण्डपुर ,
-                    <br /> हैदराबाद
-                    <br />तेलंगाना
-                    <br /> <i class="fa fa-phone" aria-hidden="true" style="color:red"></i> +91 - 7799190555
-                </div>
-
-            </div>
-        </div>
+        <div class="col-md-1"> </div>
     </div>
-    <div class="col-md-1"> </div>
-</div>
-<style>
-    #Body {
-        height: 150px;
-    }
-</style>
+    <style>
+        #Body {
+            height: 150px;
+        }
+    </style>
 

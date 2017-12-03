@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using RS.DataModel;
+using RS.BusinessLogicLayer;
 
 namespace WebApplication2.Controllers
 {
@@ -11,7 +13,9 @@ namespace WebApplication2.Controllers
         // GET: RathoreDetail
         public ActionResult Index()
         {
-            return View();
+            RathoreDetailBL _rathoreDetailBL = new RathoreDetailBL();
+            RathoreDetailDisplayModel objDisplay =  _rathoreDetailBL.GetDetailsToDisplay();
+            return View(objDisplay);
         }
     }
 }

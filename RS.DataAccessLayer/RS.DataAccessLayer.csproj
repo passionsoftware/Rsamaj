@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AlbumDL.cs" />
+    <Compile Include="AutosuggestTextDL.cs" />
     <Compile Include="ContactDetailDL.cs" />
     <Compile Include="EventDL.cs" />
     <Compile Include="GallaryDL.cs" />

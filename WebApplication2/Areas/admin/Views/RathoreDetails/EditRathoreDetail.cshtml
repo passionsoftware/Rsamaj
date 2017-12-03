@@ -1,280 +1,214 @@
 ﻿@model RS.DataModel.RathoreDetailModel
 
 @{
-    ViewBag.Title = "AddRathoreDetail";
+    ViewBag.Title = "Update Rathore Details";
     Layout = "~/Areas/admin/Views/Shared/_Layout.cshtml";
 }
 
-<!DOCTYPE html>
+<h1 style="color:#146eb0;text-align:left">राठौर जानकारी सुधार करे </h1>
+<hr />
+<ol class="breadcrumb">
+    <li><a href="#">प्रारम्भ</a></li>
+    <li><a href="#">राठौर जानकारी</a></li>
+    <li class="active">जानकारी सुधार</li>
+</ol>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>EditRathoreDetail</title>
-</head>
-<body>
-    @using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
+@using (Html.BeginForm("EditRathoreDetail", "RathoreDetails", FormMethod.Post, new { role = "form", @novalidate = "novalidate" }))
+{
+    <div class="row text-right" style="padding-right:10px">
+        @Html.ActionLink("Back", "Index", "RathoreDetail", new { @class = "btn btn-default" }) &nbsp;
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+    <br />
+
+    <div class="row" style="margin: 4px">
         
-        <div class="form-horizontal">
-            <h4>RathoreDetailModel</h4>
-            <hr />
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            <div class="form-group">
-                @Html.LabelFor(model => model.RathoreDetailId, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.RathoreDetailId, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.RathoreDetailId, "", new { @class = "text-danger" })
-                </div>
+            @if (ViewBag.Saved == true)
+            {
+                <div class="alert alert-success" role="alert">@ViewBag.Message</div>
+            }
+        
+
+        <div class="alert alert-warning" role="alert"><span class="text-required">*</span> की हुई जानकारी प्रदान करना अनिवार्य है |</div>
+    </div>
+        
+
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                जरूरी जानकारी
             </div>
-    
-            <div class="form-group">
-                @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
-                </div>
-            </div>
-    
-            <div class="form-group">
-                @Html.LabelFor(model => model.FatherName, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.FatherName, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.FatherName, "", new { @class = "text-danger" })
-                </div>
-            </div>
-    
-            <div class="form-group">
-                @Html.LabelFor(model => model.MotherName, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.MotherName, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.MotherName, "", new { @class = "text-danger" })
-                </div>
-            </div>
-    
-            <div class="form-group">
-                @Html.LabelFor(model => model.FatherNameId, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.FatherNameId, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.FatherNameId, "", new { @class = "text-danger" })
-                </div>
-            </div>
-    
-            <div class="form-group">
-                @Html.LabelFor(model => model.MotherNameId, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.MotherNameId, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.MotherNameId, "", new { @class = "text-danger" })
-                </div>
-            </div>
-    
-            <div class="form-group">
-                @Html.LabelFor(model => model.DateOfBirth, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.DateOfBirth, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.DateOfBirth, "", new { @class = "text-danger" })
-                </div>
-            </div>
-    
-            <div class="form-group">
-                @Html.LabelFor(model => model.PhoneNumber, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })
-                </div>
-            </div>
-    
-            <div class="form-group">
-                @Html.LabelFor(model => model.Occupation, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Occupation, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Occupation, "", new { @class = "text-danger" })
-                </div>
-            </div>
-    
-            <div class="form-group">
-                @Html.LabelFor(model => model.IsMarried, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    <div class="checkbox">
-                        @Html.EditorFor(model => model.IsMarried)
-                        @Html.ValidationMessageFor(model => model.IsMarried, "", new { @class = "text-danger" })
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-sm-12 col-sm-4 col-lg-4">
+                        <div class="form-group">
+                            <label for="Name">पूरा नाम</label> <span class="text-required">*</span>
+                            @Html.TextBoxFor(model => model.Name, new { @class = "form-control", placeholder = "Full Name", @maxlength = 100 })
+                            @Html.HiddenFor(model => model.RathoreDetailId)
+                            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-error" })
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-sm-4 col-lg-4">
+                        <div class="form-group">
+                            <label for="FatherName">पिता का नाम </label> <span class="text-required">*</span>
+                            @Html.TextBoxFor(model => model.FatherName, new { @class = "form-control", placeholder = "Father Name", @maxlength = 100 })
+                            @Html.ValidationMessageFor(model => model.FatherName, "", new { @class = "text-error" })
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-sm-4 col-lg-4">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">माता का नाम </label> <span class="text-required">*</span>
+                            @Html.TextBoxFor(model => model.MotherName, new { @class = "form-control", placeholder = "Mother Name", @maxlength = 100 })
+                            @Html.ValidationMessageFor(model => model.MotherName, "", new { @class = "text-error" })
+                        </div>
                     </div>
                 </div>
-            </div>
-    
-            <div class="form-group">
-                @Html.LabelFor(model => model.SpouseName, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.SpouseName, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.SpouseName, "", new { @class = "text-danger" })
-                </div>
-            </div>
-    
-            <div class="form-group">
-                @Html.LabelFor(model => model.SpouseNameId, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.SpouseNameId, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.SpouseNameId, "", new { @class = "text-danger" })
-                </div>
-            </div>
-    
-            <div class="form-group">
-                @Html.LabelFor(model => model.CurrentCountry, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.CurrentCountry, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.CurrentCountry, "", new { @class = "text-danger" })
-                </div>
-            </div>
-    
-            <div class="form-group">
-                @Html.LabelFor(model => model.CurrentState, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.CurrentState, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.CurrentState, "", new { @class = "text-danger" })
-                </div>
-            </div>
-    
-            <div class="form-group">
-                @Html.LabelFor(model => model.CurrentDistrict, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.CurrentDistrict, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.CurrentDistrict, "", new { @class = "text-danger" })
-                </div>
-            </div>
-    
-            <div class="form-group">
-                @Html.LabelFor(model => model.CurrentLocation, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.CurrentLocation, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.CurrentLocation, "", new { @class = "text-danger" })
-                </div>
-            </div>
-    
-            <div class="form-group">
-                @Html.LabelFor(model => model.CurrentAddress, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.CurrentAddress, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.CurrentAddress, "", new { @class = "text-danger" })
-                </div>
-            </div>
-    
-            <div class="form-group">
-                @Html.LabelFor(model => model.NativeCountry, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.NativeCountry, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.NativeCountry, "", new { @class = "text-danger" })
-                </div>
-            </div>
-    
-            <div class="form-group">
-                @Html.LabelFor(model => model.NativeState, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.NativeState, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.NativeState, "", new { @class = "text-danger" })
-                </div>
-            </div>
-    
-            <div class="form-group">
-                @Html.LabelFor(model => model.NativeDistrict, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.NativeDistrict, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.NativeDistrict, "", new { @class = "text-danger" })
-                </div>
-            </div>
-    
-            <div class="form-group">
-                @Html.LabelFor(model => model.NativeLocation, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.NativeLocation, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.NativeLocation, "", new { @class = "text-danger" })
-                </div>
-            </div>
-    
-            <div class="form-group">
-                @Html.LabelFor(model => model.NativeAddress, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.NativeAddress, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.NativeAddress, "", new { @class = "text-danger" })
-                </div>
-            </div>
-    
-            <div class="form-group">
-                @Html.LabelFor(model => model.EmailId, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.EmailId, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.EmailId, "", new { @class = "text-danger" })
-                </div>
-            </div>
-    
-            <div class="form-group">
-                @Html.LabelFor(model => model.FinalEducation, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.FinalEducation, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.FinalEducation, "", new { @class = "text-danger" })
-                </div>
-            </div>
-    
-            <div class="form-group">
-                @Html.LabelFor(model => model.NoOfChildern, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.NoOfChildern, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.NoOfChildern, "", new { @class = "text-danger" })
-                </div>
-            </div>
-    
-            <div class="form-group">
-                @Html.LabelFor(model => model.CreatedOn, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.CreatedOn, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.CreatedOn, "", new { @class = "text-danger" })
-                </div>
-            </div>
-    
-            <div class="form-group">
-                @Html.LabelFor(model => model.CreatedBy, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.CreatedBy, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.CreatedBy, "", new { @class = "text-danger" })
-                </div>
-            </div>
-    
-            <div class="form-group">
-                @Html.LabelFor(model => model.ModifiedBy, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.ModifiedBy, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.ModifiedBy, "", new { @class = "text-danger" })
-                </div>
-            </div>
-    
-            <div class="form-group">
-                @Html.LabelFor(model => model.ModifiedOn, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.ModifiedOn, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.ModifiedOn, "", new { @class = "text-danger" })
-                </div>
-            </div>
-    
-            <div class="form-group">
-                @Html.LabelFor(model => model.IsActive, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    <div class="checkbox">
-                        @Html.EditorFor(model => model.IsActive)
-                        @Html.ValidationMessageFor(model => model.IsActive, "", new { @class = "text-danger" })
+                <div class="row">
+                    <div class="col-sm-12 col-sm-4 col-lg-4">
+                        <div class="form-group">
+                            <label for="DateOfBirthFormated">जन्म तारीख</label> <span class="text-required">*</span>
+                            @Html.TextBoxFor(model => model.DateOfBirthFormated, new { @class = "form-control", placeholder = "Date Of Birth", @type = "date", @maxlength = 10 })
+                            @Html.ValidationMessageFor(model => model.DateOfBirthFormated, "", new { @class = "text-error" })
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-sm-4 col-lg-4">
+                        <div class="form-group">
+                            <label for="PhoneNumber">फ़ोन नंबर </label> <span class="text-required">*</span>
+                            @Html.TextBoxFor(model => model.PhoneNumber, new { @class = "form-control", placeholder = "Phone Number", @maxlength = 11 })
+                            @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-error" })
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-sm-4 col-lg-4">
+                        <div class="form-group">
+                            <label for="Occupation">ईमेल</label>
+                            @Html.TextBoxFor(model => model.EmailId, new { @class = "form-control", placeholder = "Email ID", @maxlength = 100 })
+                            @Html.ValidationMessageFor(model => model.EmailId, "", new { @class = "text-error" })
+                        </div>
                     </div>
                 </div>
-            </div>
-    
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Save" class="btn btn-default" />
+                <div class="row">
+                    <div class="col-sm-12 col-sm-4 col-lg-4">
+                        <div class="form-group">
+                            <label for="IsMarried">शादी होंगे </label>
+                            @Html.EditorFor(model => model.IsMarried, new { @class = "form-control", @maxlength = 100 })
+                            @*@Html.EditorFor(model => model.IsMarried, new { @class = "checkbox" })*@
+                            @*@Html.ValidationMessageFor(model => model.DateOfBirth, "", new { @class = "text-error" })*@
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-sm-4 col-lg-4">
+                        <div class="form-group">
+                            <label for="SpouseName">पति या पत्नी का नाम </label>
+                            @Html.TextBoxFor(model => model.SpouseName, new { @class = "form-control", placeholder = "SpouseName", @maxlength = 100 })
+                            @Html.ValidationMessageFor(model => model.SpouseName, "", new { @class = "text-error" })
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-sm-4 col-lg-4">
+                        <div class="form-group">
+                            <label for="Occupation">व्यवसाय</label>
+                            @Html.TextBoxFor(model => model.Occupation, new { @class = "form-control", placeholder = "Occupation", @maxlength = 10 })
+                            @Html.ValidationMessageFor(model => model.Occupation, "", new { @class = "text-error" })
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    }
-    
-    <div>
-        @Html.ActionLink("Back to List", "Index")
-    </div>
-</body>
-</html>
+
+
+
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                रहने के स्थान की  जानकारी
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-sm-12 col-sm-4 col-lg-4">
+                        <div class="form-group">
+                            <label for="CurrentCountryName">वर्तमान देश </label> <span class="text-required">*</span>
+                            @Html.EditorFor(model => model.CurrentCountryName, new { @class = "form-control", placeholder = "Current Country", @maxlength = 100 })
+                            @Html.ValidationMessageFor(model => model.CurrentCountryName, "", new { @class = "text-error" })
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-sm-4 col-lg-4">
+                        <div class="form-group">
+                            <label for="CurrentStateName">वर्तमान राज्य </label> <span class="text-required">*</span>
+                            @Html.EditorFor(model => model.CurrentStateName, new { @class = "form-control", placeholder = "Current State", @maxlength = 100 })
+                            @Html.ValidationMessageFor(model => model.CurrentStateName, "", new { @class = "text-error" })
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-sm-4 col-lg-4">
+                        <div class="form-group">
+                            <label for="CurrentDistrictName">वर्तमान जिला  </label> <span class="text-required">*</span>
+                            @Html.EditorFor(model => model.CurrentDistrictName, new { @class = "form-control", placeholder = "Current District", @maxlength = 100 })
+                            @Html.ValidationMessageFor(model => model.CurrentDistrictName, "", new { @class = "text-error" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 col-sm-4 col-lg-4">
+                        <div class="form-group">
+                            <label for="CurrentLocationName">वर्तमान स्थान</label> <span class="text-required">*</span>
+                            @Html.EditorFor(model => model.CurrentLocationName, new { @class = "form-control", placeholder = "Current Location", @type = "date", @maxlength = 10 })
+                            @Html.ValidationMessageFor(model => model.CurrentLocationName, "", new { @class = "text-error" })
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-sm-4 col-lg-4">
+                        <div class="form-group">
+                            <label for="CurrentAddress">वर्तमान पता </label>
+                            @Html.TextBoxFor(model => model.CurrentAddress, new { @class = "form-control", placeholder = "CurrentAddress", @maxlength = 200 })
+                            @Html.ValidationMessageFor(model => model.CurrentAddress, "", new { @class = "text-error" })
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-sm-4 col-lg-4">
+                        &nbsp;
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 col-sm-4 col-lg-4">
+                        <div class="form-group">
+                            <label for="NativeCountryName">स्थायी  देश </label> <span class="text-required">*</span>
+                            @Html.EditorFor(model => model.NativeCountryName, new { @class = "form-control", placeholder = "NativeCountry", @maxlength = 100 })
+                            @Html.ValidationMessageFor(model => model.NativeCountryName, "", new { @class = "text-error" })
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-sm-4 col-lg-4">
+                        <div class="form-group">
+                            <label for="NativeStateName">स्थायी राज्य  </label> <span class="text-required">*</span>
+                            @Html.EditorFor(model => model.NativeStateName, new { @class = "form-control", placeholder = "NativeState", @maxlength = 100 })
+                            @Html.ValidationMessageFor(model => model.NativeStateName, "", new { @class = "text-error" })
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-sm-4 col-lg-4">
+                        <div class="form-group">
+                            <label for="NativeDistrictName">स्थायी जिला </label> <span class="text-required">*</span>
+                            @Html.EditorFor(model => model.NativeDistrictName, new { @class = "form-control", placeholder = "NativeDistrict", @maxlength = 10 })
+                            @Html.ValidationMessageFor(model => model.NativeDistrictName, "", new { @class = "text-error" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 col-sm-4 col-lg-4">
+                        <div class="form-group">
+                            <label for="NativeLocationName">स्थायी स्थान</label> <span class="text-required">*</span>
+                            @Html.EditorFor(model => model.NativeLocationName, new { @class = "form-control", placeholder = "Native Location", @type = "date", @maxlength = 10 })
+                            @Html.ValidationMessageFor(model => model.NativeLocationName, "", new { @class = "text-error" })
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-sm-4 col-lg-4">
+                        <div class="form-group">
+                            <label for="NativeAddress">स्थायी पता  </label>
+                            @Html.TextBoxFor(model => model.NativeAddress, new { @class = "form-control", placeholder = "Native Address", @maxlength = 200 })
+                            @Html.ValidationMessageFor(model => model.NativeAddress, "", new { @class = "text-error" })
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-sm-4 col-lg-4">
+                        &nbsp;
+                    </div>
+                </div>
+            </div>
+        </div>
+
+}
+
+<link href="~/Content/jquery-ui.css" rel="stylesheet" />
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<script src="~/Scripts/application/admin/EditRathoreDetails.js"></script>

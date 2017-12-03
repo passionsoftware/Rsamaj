@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AlbumBL.cs" />
+    <Compile Include="AutoSuggestTextBL.cs" />
     <Compile Include="ContactDetailBL.cs" />
     <Compile Include="EventBL.cs" />
     <Compile Include="GallaryBL.cs" />

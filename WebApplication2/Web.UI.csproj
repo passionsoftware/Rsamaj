@@ -157,6 +157,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\admin\adminAreaRegistration.cs" />
     <Compile Include="Areas\admin\Controllers\AlbumsController.cs" />
+    <Compile Include="Areas\admin\Controllers\BaseController.cs" />
     <Compile Include="Areas\admin\Controllers\ContactsController.cs" />
     <Compile Include="Areas\admin\Controllers\EventsController.cs" />
     <Compile Include="Areas\admin\Controllers\GallaryController.cs" />
@@ -180,6 +181,7 @@
     <Content Include="Content\admin.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\Gridmvc.css" />
+    <Content Include="Content\jquery-ui.css" />
     <Content Include="Gallary.html" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -206,6 +208,8 @@
     <Content Include="Scripts\application.js" />
     <Content Include="Scripts\angular-route.min.js" />
     <Content Include="Scripts\application\About.js" />
+    <Content Include="Scripts\application\admin\EditRathoreDetails.js" />
+    <Content Include="Scripts\application\admin\AddRathoreDetails.js" />
     <Content Include="Scripts\application\Gallary.js" />
     <Content Include="Scripts\application\Contact.js" />
     <Content Include="Scripts\application\Events.js" />
@@ -231,6 +235,7 @@
     <Content Include="Areas\admin\Views\Login\Index.cshtml" />
     <Content Include="Grid.mvc.readme" />
     <Content Include="Areas\admin\Views\RathoreDetails\EditRathoreDetail.cshtml" />
+    <Content Include="Areas\admin\Views\Contacts\EditContactusDetail.cshtml" />
     <None Include="Properties\PublishProfiles\rathoresamaj.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\gridmvc.js" />
@@ -277,6 +282,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\admin\Models\" />
+    <Folder Include="Areas\admin\Views\Base\" />
     <Folder Include="Content\font\" />
     <Folder Include="Models\" />
   </ItemGroup>

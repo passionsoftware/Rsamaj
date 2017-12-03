@@ -4,9 +4,10 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace RSam.Areas.admin.Controllers
+namespace WebApplication2.Areas.admin.Controllers
 {
-    public class GallaryController : Controller
+    [RathoreSamajAuth]
+    public class GallaryController : BaseController
     {
         // GET: admin/Gallary
         public ActionResult Index()

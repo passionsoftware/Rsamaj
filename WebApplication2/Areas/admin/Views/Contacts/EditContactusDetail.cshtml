@@ -1,0 +1,77 @@
+﻿@model RS.DataModel.ContactModel
+
+
+    @{
+        ViewBag.Title = "Contact Us";
+        Layout = "~/Areas/admin/Views/Shared/_Layout.cshtml";
+    }
+
+
+<h1 style="color:#146eb0;text-align:left">संपर्क की जानकारी  </h1>
+<hr />
+<ol class="breadcrumb">
+    <li><a href="#">प्रारम्भ</a></li>
+    <li><a href="#">संपर्क</a></li>
+    <li class="active">संपर्क की जानकारी</li>
+</ol>
+
+    <div class="row text-right" style="padding-right:10px">
+        @Html.ActionLink("Back", "Index", "Contacts", new { @class = "btn btn-default" }) &nbsp;
+    </div>
+    <br />
+
+
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            जानकारी
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-sm-12 col-sm-4 col-lg-4">
+                    <div class="form-group">
+                        <label for="Name">पूरा नाम</label> <span class="text-required">*</span>
+                        @Html.TextBoxFor(model => model.Name, new { @class = "form-control", placeholder = "Full Name", @maxlength = 50 })
+                    </div>
+                </div>
+                <div class="col-sm-12 col-sm-4 col-lg-4">
+                    <div class="form-group">
+                        <label for="PhoneNumber">फ़ोन नंबर</label> <span class="text-required">*</span>
+                        @Html.TextBoxFor(model => model.PhoneNumber, new { @class = "form-control", placeholder = "Phone Number", @maxlength = 10 })
+                    </div>
+                </div>
+                <div class="col-sm-12 col-sm-4 col-lg-4">
+                    <div class="form-group">
+                        <label for="EmailId">ईमेल</label>
+                        @Html.TextBoxFor(model => model.EmailId, new { @class = "form-control", placeholder = "EmailId", @maxlength = 100 })
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 col-sm-4 col-lg-4">
+                    <div class="form-group">
+                        <label for="Subject">विषय</label> <span class="text-required">*</span>
+                        @Html.TextBoxFor(model => model.Subject, new { @class = "form-control", placeholder = "Subject", @maxlength = 100 })
+                    </div>
+                </div>
+                <div class="col-sm-12 col-sm-4 col-lg-4">
+                    <div class="form-group">
+                        <label for="Subject">प्रधान भाग</label> <span class="text-required">*</span>
+                        @Html.TextAreaFor(model => model.Body, new { @class = "form-control", placeholder = "Body", @maxlength = 500, @height = 400 })
+                    </div>
+                </div>
+                <div class="col-sm-12 col-sm-4 col-lg-4">
+                    @*<div class="form-group">
+                        <label for="Occupation">ईमेल</label>
+                        @Html.TextBoxFor(model => model.IpAddress, new { @class = "form-control", placeholder = "Ip Address", @maxlength = 100 })
+                    </div>*@
+                </div>
+            </div>
+           
+        </div>
+    </div>
+
+<style>
+    #Body {
+        height: 150px;
+    }
+</style>

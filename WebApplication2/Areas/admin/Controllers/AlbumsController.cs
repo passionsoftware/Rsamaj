@@ -6,7 +6,8 @@ using System.Web.Mvc;
 
 namespace WebApplication2.Areas.admin.Controllers
 {
-    public class AlbumsController : Controller
+    [RathoreSamajAuth]
+    public class AlbumsController : BaseController
     {
         // GET: admin/Albums
         public ActionResult Index()

@@ -6,7 +6,8 @@ using System.Web.Mvc;
 
 namespace WebApplication2.Areas.admin.Controllers
 {
-    public class HomeController : Controller
+    [RathoreSamajAuth]
+    public class HomeController : BaseController
     {
         // GET: admin/Home
         public ActionResult Index()

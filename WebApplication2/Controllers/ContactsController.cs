@@ -26,17 +26,18 @@ namespace WebApplication2.Controllers
             if(ModelState.IsValid)
             {
                 ContactDetailBL _contactDetailBL = new ContactDetailBL();
-               int result = _contactDetailBL.InsertContact(obj);
+                obj.IpAddress = "Host Name - " +  Request.UserHostName + ": IP Address -" + Request.UserHostAddress;
+                obj.IpAddress = Request.UserHostName;
+                //string url = String.Format("http://iplocationtools.com/ip_query2.php?ip={0}", Request.UserHostAddress);
+                //XDocument xDoc = XDocument.Load(url);
+                int result = _contactDetailBL.InsertContact(obj);
                 ViewBag.Saved = true;
 
                 if (result == 1)
                 {
                     @ViewBag.Message = "आपका सन्देश हमें मिल गया है, धन्यवाद् ";
-                    obj.Body = "";
-                    obj.Subject = "";
-                    obj.PhoneNumber = "";
-                    obj.EmailId = "";
-                    obj.Name = "";
+                    ModelState.Clear();
+                    return View();
                 }
                 else
                 {

@@ -66,10 +66,12 @@ namespace RS.DataAccessLayer
                 result = (from odata in obj.RS_ContactUs
                         select new ContactModel
                         {
+                            ContactusId = odata.ContactusId,
                             Name = odata.Name,
                             PhoneNumber = odata.PhoneNumber,
                             EmailId = odata.EmailId,
                             Subject = odata.Subject,
+                            CreatedOn = odata.CreatedOn,
                             Body = odata.Body,
                             Location = odata.Location,
                             IpAddress = odata.IpAddress

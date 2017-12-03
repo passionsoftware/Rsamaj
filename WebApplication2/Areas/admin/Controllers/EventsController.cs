@@ -6,8 +6,9 @@ using System.Web.Mvc;
 
 namespace WebApplication2.Areas.admin.Controllers
 {
-    public class EventsController : Controller
-    {
+    [RathoreSamajAuth]
+    public class EventsController : BaseController
+    { 
         // GET: admin/Events
         public ActionResult Index()
         {

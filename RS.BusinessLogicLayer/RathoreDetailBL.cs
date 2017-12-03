@@ -51,5 +51,10 @@ namespace RS.BusinessLogicLayer
             result = _rathoreDetailDL.GetRathoreDetailId(rathoreDetailId);
             return result;
         }
+
+        public RathoreDetailDisplayModel GetDetailsToDisplay()
+        {
+            return _rathoreDetailDL.GetDetailsToDisplay();
+        }
     }
 }

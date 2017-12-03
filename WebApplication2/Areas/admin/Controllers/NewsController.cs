@@ -6,7 +6,8 @@ using System.Web.Mvc;
 
 namespace WebApplication2.Areas.admin.Controllers
 {
-    public class NewsController : Controller
+    [RathoreSamajAuth]
+    public class NewsController : BaseController
     {
         // GET: admin/News
         public ActionResult Index()
