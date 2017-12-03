@@ -236,6 +236,11 @@
     <Content Include="Grid.mvc.readme" />
     <Content Include="Areas\admin\Views\RathoreDetails\EditRathoreDetail.cshtml" />
     <Content Include="Areas\admin\Views\Contacts\EditContactusDetail.cshtml" />
+    <Content Include="Content\font\century2.ttf" />
+    <Content Include="Content\font\fontawesome-webfont.eot" />
+    <Content Include="Content\font\fontawesome-webfont.ttf" />
+    <Content Include="Content\font\fontawesome-webfont.woff" />
+    <Content Include="Content\font\fontawesome-webfont.woff2" />
     <None Include="Properties\PublishProfiles\rathoresamaj.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\gridmvc.js" />
@@ -283,7 +288,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\admin\Models\" />
     <Folder Include="Areas\admin\Views\Base\" />
-    <Folder Include="Content\font\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>

@@ -15,6 +15,8 @@ namespace WebApplication2.Controllers
         {
             RathoreDetailBL _rathoreDetailBL = new RathoreDetailBL();
             RathoreDetailDisplayModel objDisplay =  _rathoreDetailBL.GetDetailsToDisplay();
+            objDisplay.RathoreDetails = _rathoreDetailBL.GetAllRathoreDetail();
+
             return View(objDisplay);
         }
     }

@@ -30,6 +30,16 @@
 }
 
 
+.subheaderText {
+    color: #72b1e6;
+    font-size: 30px;
+    text-align: center;
+    /*text-decoration:underline;*/
+    /*border-bottom: solid 1px #0c2f67;*/
+    font-family: Buxton Sketch !important;
+}
+
+
 .headerText:after {
         background: #248c69 none repeat scroll 0 0;
         content: "";
@@ -179,3 +189,14 @@ h1 {
 p {
   font-style:italic;
 }
+
+.text-error {
+    color: #f73c2f;
+}
+
+.text-required {
+    color: #f73c2f;
+}
+
+
+

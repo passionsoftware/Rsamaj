@@ -1,4 +1,6 @@
 ﻿@model RS.DataModel.RathoreDetailDisplayModel
+@using GridMvc.Html
+
 @{
     ViewBag.Title = "Index";
 }
@@ -47,5 +49,20 @@
             }
         </div>
         </div>
+    <div class="row">
+        @Html.Grid(Model.RathoreDetails).Columns(columns =>
+{
+    columns.Add(c => c.Name).Titled("पूरा नाम");
+    columns.Add(c => c.FatherName).Titled("पिता का नाम").Filterable(true);
+    columns.Add(c => c.DateOfBirth).Titled("जन्म तारीख").Filterable(true).Sortable(true)
+            .RenderValueAs(c => Convert.ToDateTime(c.DateOfBirth).ToString("d"));
+    columns.Add(c => c.CurrentDistrictName).Titled("वर्तमान जिला").Filterable(true);
+    columns.Add(c => c.CurrentLocationName).Titled("वर्तमान स्थान").Filterable(true);
+    columns.Add(c => c.NativeDistrictName).Titled("स्थायी जिला").Filterable(true);
+    columns.Add(c => c.NativeLocationName).Titled("स्थायी स्थान").Filterable(true);
+}).WithPaging(20).Sortable(true)
+
+
+    </div>
 </div>
 
