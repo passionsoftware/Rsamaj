@@ -25,22 +25,22 @@
         <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
             @foreach (var item in Model.StateBasedDetails)
             {
-                <div class="panel panel-default">
+                <div class="panel panel-danger">
                     <div class="panel-heading" role="tab" id="headingOne">
                         <h4 class="panel-title">
-                            <a role="button" data-toggle="collapse" data-parent="#accordion" href="#@item.Name" aria-expanded="true" aria-controls="collapseOne">
-                               @item.Name                               @item.Value
-                            </a>
+                            <a role="button" data-toggle="collapse" data-parent="#accordion" href="#@item.Name.Trim()" aria-expanded="true" aria-controls="collapseOne">
+                                <i class="fa fa-arrow-circle-right" style="color:#000" aria-hidden="true"></i>&nbsp;@item.Name.Trim()
+                            </a> &nbsp; &nbsp; [ @item.Value ]
                         </h4>
                     </div>
-                    <div id="@item.Name" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                    <div id="@item.Name.Trim()" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
                         <div class="panel-body">
                             <ul>
                             @foreach (var dest in Model.DistrictBasedDetails)
                             {
                                 if (item.Id == dest.Id)
                                 {
-                                <li>@dest.Name  - @dest.Value</li>
+                                <li>@dest.Name.Trim()  - @dest.Value</li>
                                 }
                             }</ul>
                         </div>
@@ -49,20 +49,30 @@
             }
         </div>
         </div>
+    <br /><br />
     <div class="row">
         @Html.Grid(Model.RathoreDetails).Columns(columns =>
-{
-    columns.Add(c => c.Name).Titled("पूरा नाम");
-    columns.Add(c => c.FatherName).Titled("पिता का नाम").Filterable(true);
-    columns.Add(c => c.DateOfBirth).Titled("जन्म तारीख").Filterable(true).Sortable(true)
-            .RenderValueAs(c => Convert.ToDateTime(c.DateOfBirth).ToString("d"));
-    columns.Add(c => c.CurrentDistrictName).Titled("वर्तमान जिला").Filterable(true);
-    columns.Add(c => c.CurrentLocationName).Titled("वर्तमान स्थान").Filterable(true);
-    columns.Add(c => c.NativeDistrictName).Titled("स्थायी जिला").Filterable(true);
-    columns.Add(c => c.NativeLocationName).Titled("स्थायी स्थान").Filterable(true);
-}).WithPaging(20).Sortable(true)
+   {
+       columns.Add(c => c.Name).Titled("पूरा नाम");
+       columns.Add(c => c.FatherName).Titled("पिता का नाम").Filterable(true);
+       columns.Add(c => c.Gender).Titled("लिंग").Filterable(true);
+       columns.Add(c => c.Age).Titled("उम्र").Filterable(true);
+       columns.Add(c => c.CurrentDistrictName).Titled("वर्तमान जिला").Filterable(true);
+       columns.Add(c => c.CurrentLocationName).Titled("वर्तमान स्थान").Filterable(true);
+       columns.Add(c => c.NativeDistrictName).Titled("स्थायी जिला").Filterable(true);
+       columns.Add(c => c.NativeLocationName).Titled("स्थायी स्थान").Filterable(true);
+   }).WithPaging(20).Sortable(true).Filterable(true);
 
 
     </div>
 </div>
 
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.collapse').on('shown.bs.collapse', function () {
+            $(this).parent().find(".fa-arrow-circle-right").removeClass("fa-arrow-circle-right").addClass("fa-arrow-circle-down");
+        }).on('hidden.bs.collapse', function () {
+            $(this).parent().find(".fa-arrow-circle-down").removeClass("fa-arrow-circle-down").addClass("fa-arrow-circle-right");
+            });
+    });
+</script>

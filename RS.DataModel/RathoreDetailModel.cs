@@ -12,7 +12,7 @@ namespace RS.DataModel
 
         public int RathoreDetailId { get; set; }
 
-        [Required(ErrorMessage ="जानकारी अनिवार्य है !!" )]
+        [Required(ErrorMessage = "जानकारी अनिवार्य है !!")]
         [StringLength(100, MinimumLength = 4, ErrorMessage = "काम से काम 4 - 100 शब्दों में जानकारी भरे !!")]
         public string Name { get; set; }
 
@@ -27,6 +27,9 @@ namespace RS.DataModel
         public int FatherNameId { get; set; }
 
         public int MotherNameId { get; set; }
+
+        [Required(ErrorMessage = "जानकारी अनिवार्य है !!")]
+        public string Gender { get; set; }
 
         public DateTime? DateOfBirth { get; set; }
 
@@ -71,9 +74,9 @@ namespace RS.DataModel
         [StringLength(500, MinimumLength = 0, ErrorMessage = "काम से काम 0 -200 शब्दों में जानकारी भरे !!")]
         public string CurrentAddress { get; set; }
 
-       
+
         public int? NativeCountry { get; set; }
-             
+
         public int? NativeState { get; set; }
         public int? NativeDistrict { get; set; }
         public int? NativeLocation { get; set; }
@@ -107,38 +110,49 @@ namespace RS.DataModel
         public DateTime ModifiedOn { get; set; }
         public bool? IsActive { get; set; }
 
+        public int Age { get; set; }
 
-    }
+        public IEnumerable<DropdownList> GenderDropDown { get; set; }
 
-
-    public class RathoreDetailDisplayModel
-    {
-        public List<TreeResultbase> StateBasedDetails { get; set; }
-
-        public List<TreeResultbase> DistrictBasedDetails { get; set; }
-
-        public List<RathoreDetailModel> RathoreDetails { get; set; }
-
-    }
-
-    public class AdminLogin
-    {
-        public string UserName { get; set; }
-        public string Password { get; set; }
-        public DateTime LastLogin { get; set; }
-        public int LoginCount { get; set; }
-        public int Role { get; set; }
+}
 
 
-    }
+public class RathoreDetailDisplayModel
+{
+    public List<TreeResultbase> StateBasedDetails { get; set; }
+
+    public List<TreeResultbase> DistrictBasedDetails { get; set; }
+
+    public List<RathoreDetailModel> RathoreDetails { get; set; }
+
+}
+
+public class AdminLogin
+{
+    public string UserName { get; set; }
+    public string Password { get; set; }
+    public DateTime LastLogin { get; set; }
+    public int LoginCount { get; set; }
+    public int Role { get; set; }
 
 
-    public class TreeResultbase
-    {
-        public int? Id { get; set; }
-        public string Name { get; set; }
-        public int Value { get; set; }
+}
 
 
-    }
+public class TreeResultbase
+{
+    public int? Id { get; set; }
+    public string Name { get; set; }
+    public int Value { get; set; }
+
+
+}
+
+
+public class DropdownList
+{
+    public string Key { get; set; }
+    public string Value { get; set; }
+
+}
 }

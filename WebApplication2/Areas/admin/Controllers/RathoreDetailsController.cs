@@ -22,7 +22,9 @@ namespace WebApplication2.Areas.admin.Controllers
 
         public ActionResult AddRathoreDetail()
         {
-            return View();
+            RathoreDetailModel rathoreDetails = new RathoreDetailModel();
+            BindDropdown(ref rathoreDetails);
+            return View(rathoreDetails);
         }
 
         [HttpPost]
@@ -33,20 +35,21 @@ namespace WebApplication2.Areas.admin.Controllers
                 RathoreDetailBL _contactDetailBL = new RathoreDetailBL();
 
                 obj.DateOfBirth = Convert.ToDateTime(obj.DateOfBirthFormated);
+              
                 int result = _contactDetailBL.InsertRathoreDetail(obj);
                 ViewBag.Saved = true;
+               
 
                 if (result == 1)
                 {
                     @ViewBag.Message = "जानकारी डेटाबेस मे दर्ज हो गया है | धन्यवाद् ";
                     ModelState.Clear();
-                    return View();
                 }
                 else
                 {
                     @ViewBag.Message = "तकनिकी खराबी की वजह से आपका सन्देश नहीं मिला , कृपया दुबारा भेजे.  ";
                 }
-
+                BindDropdown(ref obj);
             }
             return View(obj);
         }
@@ -54,7 +57,9 @@ namespace WebApplication2.Areas.admin.Controllers
         public ActionResult EditRathoreDetail(int id)
         {
             RathoreDetailBL _rathoreDetailBL = new RathoreDetailBL();
-            RathoreDetailModel lstRathoreDetails = _rathoreDetailBL.GetRathoreDetailId(id);
+            RathoreDetailModel lstRathoreDetails = new RathoreDetailModel();
+            lstRathoreDetails = _rathoreDetailBL.GetRathoreDetailId(id);
+            BindDropdown(ref lstRathoreDetails);
             string datetime = string.Format("{0:yyyy-MM-dd}", lstRathoreDetails.DateOfBirth);
             lstRathoreDetails.DateOfBirthFormated = datetime;
             return View(lstRathoreDetails);
@@ -66,15 +71,14 @@ namespace WebApplication2.Areas.admin.Controllers
             if (ModelState.IsValid)
             {
                 RathoreDetailBL _contactDetailBL = new RathoreDetailBL();
-
                 obj.DateOfBirth = Convert.ToDateTime(obj.DateOfBirthFormated);
                 int result = _contactDetailBL.UpdateRathoreDetail(obj);
+                BindDropdown(ref obj);
                 ViewBag.Saved = true;
 
                 if (result == 1)
                 {
                     @ViewBag.Message = "जानकारी डेटाबेस मे दर्ज हो गया है | धन्यवाद् ";
-                    return View();
                 }
                 else
                 {
@@ -109,8 +113,8 @@ namespace WebApplication2.Areas.admin.Controllers
             AutoSuggestTextBL obj = new AutoSuggestTextBL();
 
             var countryList = (from N in obj.GetAllCountry()
-                            where N.Value.ToUpper().StartsWith(Prefix.ToUpper())
-                            select new { N.Value });
+                               where N.Value.ToUpper().StartsWith(Prefix.ToUpper())
+                               select new { N.Value });
             return Json(countryList, JsonRequestBehavior.AllowGet);
 
         }
@@ -150,6 +154,21 @@ namespace WebApplication2.Areas.admin.Controllers
             return Json(distlocation, JsonRequestBehavior.AllowGet);
         }
 
-      
+
+
+        private void BindDropdown(ref RathoreDetailModel rathoreDetails)
+        {
+            rathoreDetails.GenderDropDown = GetGenderDetail();
+        }
+
+        private IEnumerable<DropdownList> GetGenderDetail()
+        {
+            return new List<DropdownList>
+            {
+                new DropdownList(){Value = "Female", Key="F" },
+                new DropdownList(){Value = "Male", Key="M" }
+            };
+        }
+
     }
 }

@@ -31,88 +31,86 @@
 
         <div class="alert alert-warning" role="alert"><span class="text-required">*</span> की हुई जानकारी प्रदान करना अनिवार्य है |</div>
     </div>
-        
 
-        <div class="panel panel-info">
-            <div class="panel-heading">
-                जरूरी जानकारी
+
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            जरूरी जानकारी
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-sm-12 col-sm-4 col-lg-4">
+                    <div class="form-group">
+                        <label for="Name">पूरा नाम</label> <span class="text-required">*</span>
+                        @Html.TextBoxFor(model => model.Name, new { @class = "form-control", placeholder = "Full Name", @maxlength = 100 })
+                        @Html.HiddenFor(model => model.RathoreDetailId)
+                        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-error" })
+                    </div>
+                </div>
+                <div class="col-sm-12 col-sm-4 col-lg-4">
+                    <div class="form-group">
+                        <label for="FatherName">पिता का नाम </label> <span class="text-required">*</span>
+                        @Html.TextBoxFor(model => model.FatherName, new { @class = "form-control", placeholder = "Father Name", @maxlength = 100 })
+                        @Html.ValidationMessageFor(model => model.FatherName, "", new { @class = "text-error" })
+                    </div>
+                </div>
+                <div class="col-sm-12 col-sm-4 col-lg-4">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">माता का नाम </label> <span class="text-required">*</span>
+                        @Html.TextBoxFor(model => model.MotherName, new { @class = "form-control", placeholder = "Mother Name", @maxlength = 100 })
+                        @Html.ValidationMessageFor(model => model.MotherName, "", new { @class = "text-error" })
+                    </div>
+                </div>
             </div>
-            <div class="panel-body">
-                <div class="row">
-                    <div class="col-sm-12 col-sm-4 col-lg-4">
-                        <div class="form-group">
-                            <label for="Name">पूरा नाम</label> <span class="text-required">*</span>
-                            @Html.TextBoxFor(model => model.Name, new { @class = "form-control", placeholder = "Full Name", @maxlength = 100 })
-                            @Html.HiddenFor(model => model.RathoreDetailId)
-                            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-error" })
-                        </div>
-                    </div>
-                    <div class="col-sm-12 col-sm-4 col-lg-4">
-                        <div class="form-group">
-                            <label for="FatherName">पिता का नाम </label> <span class="text-required">*</span>
-                            @Html.TextBoxFor(model => model.FatherName, new { @class = "form-control", placeholder = "Father Name", @maxlength = 100 })
-                            @Html.ValidationMessageFor(model => model.FatherName, "", new { @class = "text-error" })
-                        </div>
-                    </div>
-                    <div class="col-sm-12 col-sm-4 col-lg-4">
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">माता का नाम </label> <span class="text-required">*</span>
-                            @Html.TextBoxFor(model => model.MotherName, new { @class = "form-control", placeholder = "Mother Name", @maxlength = 100 })
-                            @Html.ValidationMessageFor(model => model.MotherName, "", new { @class = "text-error" })
-                        </div>
+            <div class="row">
+                <div class="col-sm-12 col-sm-4 col-lg-4">
+                    <div class="form-group">
+                        <label for="DateOfBirthFormated">जन्म तारीख</label> <span class="text-required">*</span>
+                        @Html.TextBoxFor(model => model.DateOfBirthFormated, new { @class = "form-control", placeholder = "Date Of Birth", @type = "date", @maxlength = 10 })
+                        @Html.ValidationMessageFor(model => model.DateOfBirthFormated, "", new { @class = "text-error" })
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-sm-12 col-sm-4 col-lg-4">
-                        <div class="form-group">
-                            <label for="DateOfBirthFormated">जन्म तारीख</label> <span class="text-required">*</span>
-                            @Html.TextBoxFor(model => model.DateOfBirthFormated, new { @class = "form-control", placeholder = "Date Of Birth", @type = "date", @maxlength = 10 })
-                            @Html.ValidationMessageFor(model => model.DateOfBirthFormated, "", new { @class = "text-error" })
-                        </div>
-                    </div>
-                    <div class="col-sm-12 col-sm-4 col-lg-4">
-                        <div class="form-group">
-                            <label for="PhoneNumber">फ़ोन नंबर </label> <span class="text-required">*</span>
-                            @Html.TextBoxFor(model => model.PhoneNumber, new { @class = "form-control", placeholder = "Phone Number", @maxlength = 11 })
-                            @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-error" })
-                        </div>
-                    </div>
-                    <div class="col-sm-12 col-sm-4 col-lg-4">
-                        <div class="form-group">
-                            <label for="Occupation">ईमेल</label>
-                            @Html.TextBoxFor(model => model.EmailId, new { @class = "form-control", placeholder = "Email ID", @maxlength = 100 })
-                            @Html.ValidationMessageFor(model => model.EmailId, "", new { @class = "text-error" })
-                        </div>
+                <div class="col-sm-12 col-sm-4 col-lg-4">
+                    <div class="form-group">
+                        <label for="PhoneNumber">फ़ोन नंबर </label> <span class="text-required">*</span>
+                        @Html.TextBoxFor(model => model.PhoneNumber, new { @class = "form-control", placeholder = "Phone Number", @maxlength = 11 })
+                        @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-error" })
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-sm-12 col-sm-4 col-lg-4">
-                        <div class="form-group">
-                            <label for="IsMarried">शादी होंगे </label>
-                            @Html.EditorFor(model => model.IsMarried, new { @class = "form-control", @maxlength = 100 })
-                            @*@Html.EditorFor(model => model.IsMarried, new { @class = "checkbox" })*@
-                            @*@Html.ValidationMessageFor(model => model.DateOfBirth, "", new { @class = "text-error" })*@
-                        </div>
+                <div class="col-sm-12 col-sm-4 col-lg-4">
+                    <div class="form-group">
+                        <label for="Occupation">ईमेल</label>
+                        @Html.TextBoxFor(model => model.EmailId, new { @class = "form-control", placeholder = "Email ID", @maxlength = 100 })
+                        @Html.ValidationMessageFor(model => model.EmailId, "", new { @class = "text-error" })
                     </div>
-                    <div class="col-sm-12 col-sm-4 col-lg-4">
-                        <div class="form-group">
-                            <label for="SpouseName">पति या पत्नी का नाम </label>
-                            @Html.TextBoxFor(model => model.SpouseName, new { @class = "form-control", placeholder = "SpouseName", @maxlength = 100 })
-                            @Html.ValidationMessageFor(model => model.SpouseName, "", new { @class = "text-error" })
-                        </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 col-sm-4 col-lg-4">
+                    <div class="form-group">
+                        <label for="IsMarried">शादी होंगे </label>
+                        @Html.EditorFor(model => model.IsMarried, new { @class = "form-control", @maxlength = 100 })
+                        @*@Html.EditorFor(model => model.IsMarried, new { @class = "checkbox" })*@
+                        @*@Html.ValidationMessageFor(model => model.DateOfBirth, "", new { @class = "text-error" })*@
                     </div>
-                    <div class="col-sm-12 col-sm-4 col-lg-4">
-                        <div class="form-group">
-                            <label for="Occupation">व्यवसाय</label>
-                            @Html.TextBoxFor(model => model.Occupation, new { @class = "form-control", placeholder = "Occupation", @maxlength = 10 })
-                            @Html.ValidationMessageFor(model => model.Occupation, "", new { @class = "text-error" })
-                        </div>
+                </div>
+                <div class="col-sm-12 col-sm-4 col-lg-4">
+                    <div class="form-group">
+                        <label for="SpouseName">पति या पत्नी का नाम </label>
+                        @Html.TextBoxFor(model => model.SpouseName, new { @class = "form-control", placeholder = "SpouseName", @maxlength = 100 })
+                        @Html.ValidationMessageFor(model => model.SpouseName, "", new { @class = "text-error" })
+                    </div>
+                </div>
+                <div class="col-sm-12 col-sm-4 col-lg-4">
+                    <div class="form-group">
+                        <label for="Occupation">लिंग</label><span class="text-required">*</span>
+                        @Html.DropDownListFor(model => model.Gender, new SelectList(Model.GenderDropDown, "Key", "Value", "--Select Gender--"), new { @class = "form-control", placeholder = "Occupation", @maxlength = 10 })
+                        @Html.ValidationMessageFor(model => model.Occupation, "", new { @class = "text-error" })
                     </div>
                 </div>
             </div>
         </div>
-
-
+    </div>
 
         <div class="panel panel-info">
             <div class="panel-heading">
@@ -122,15 +120,15 @@
                 <div class="row">
                     <div class="col-sm-12 col-sm-4 col-lg-4">
                         <div class="form-group">
-                            <label for="CurrentCountryName">वर्तमान देश </label> <span class="text-required">*</span>
-                            @Html.EditorFor(model => model.CurrentCountryName, new { @class = "form-control", placeholder = "Current Country", @maxlength = 100 })
+                            <label for="CurrentCountryName">वर्तमान देश </label>
+                            @Html.EditorFor(model => model.CurrentCountryName, new { @class = "form-control", placeholder = "Occupation", @maxlength = 100 })
                             @Html.ValidationMessageFor(model => model.CurrentCountryName, "", new { @class = "text-error" })
                         </div>
                     </div>
                     <div class="col-sm-12 col-sm-4 col-lg-4">
                         <div class="form-group">
                             <label for="CurrentStateName">वर्तमान राज्य </label> <span class="text-required">*</span>
-                            @Html.EditorFor(model => model.CurrentStateName, new { @class = "form-control", placeholder = "Current State", @maxlength = 100 })
+                            @Html.EditorFor(model => model.CurrentStateName, new { @class = "form-control", placeholder = "Final Education", @maxlength = 100 })
                             @Html.ValidationMessageFor(model => model.CurrentStateName, "", new { @class = "text-error" })
                         </div>
                     </div>
@@ -203,6 +201,36 @@
                         &nbsp;
                     </div>
                 </div>
+            </div>
+        </div>
+
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                अतरिक्त जानकारी
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-sm-12 col-sm-4 col-lg-4">
+                        <div class="form-group">
+                            <label for="CurrentCountryName">व्यवसाय </label>
+                            @Html.TextBoxFor(model => model.Occupation, new { @class = "form-control", placeholder = "Occupation", @maxlength = 100 })
+                            @Html.ValidationMessageFor(model => model.Occupation, "", new { @class = "text-error" })
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-sm-4 col-lg-4">
+                        <div class="form-group">
+                            <label for="CurrentStateName">शिक्षा  </label>
+                            @Html.TextBoxFor(model => model.FinalEducation, new { @class = "form-control", placeholder = "Final Education", @maxlength = 100 })
+                            @Html.ValidationMessageFor(model => model.FinalEducation, "", new { @class = "text-error" })
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-sm-4 col-lg-4">
+                        <div class="form-group">
+
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
 
