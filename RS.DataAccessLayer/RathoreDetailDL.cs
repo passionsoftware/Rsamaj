@@ -28,6 +28,7 @@ namespace RS.DataAccessLayer
                 oData.PhoneNumber = obj.PhoneNumber;
                 oData.Occupation = obj.Occupation;
                 oData.IsMarried = obj.IsMarried;
+                oData.gender = obj.Gender;
                 oData.SpouseName = obj.SpouseName;
                 oData.CurrentCountry = obj.CurrentCountry;
                 oData.CurrentState = obj.CurrentState;
@@ -74,6 +75,7 @@ namespace RS.DataAccessLayer
                 oData.DateOfBirth = obj.DateOfBirth;
                 oData.PhoneNumber = obj.PhoneNumber;
                 oData.Occupation = obj.Occupation;
+                oData.gender = obj.Gender;
                 oData.IsMarried = obj.IsMarried;
                 oData.SpouseName = obj.SpouseName;
                 oData.CurrentCountry = obj.CurrentCountry;
@@ -164,6 +166,7 @@ namespace RS.DataAccessLayer
                               IsMarried = obj.IsMarried,
                               SpouseName = obj.SpouseName,
 
+                              Gender = obj.gender,
                               CurrentCountry = obj.CurrentCountry,
                               CurrentCountryName = CCs.CountryName,
 
@@ -228,6 +231,7 @@ namespace RS.DataAccessLayer
                               Occupation = obj.Occupation,
                               IsMarried = obj.IsMarried,
                               SpouseName = obj.SpouseName,
+                              Gender = obj.gender,
 
                               CurrentCountry = obj.CurrentCountry,
                               CurrentCountryName = CCs.CountryName,

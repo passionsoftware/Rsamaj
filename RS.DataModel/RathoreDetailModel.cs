@@ -43,7 +43,7 @@ namespace RS.DataModel
         [StringLength(30, MinimumLength = 0, ErrorMessage = "काम से काम 0 - 30 शब्दों में जानकारी भरे !!")]
         public string Occupation { get; set; }
 
-        public bool? IsMarried { get; set; }
+        public bool IsMarried { get; set; }
 
         [StringLength(100, MinimumLength = 0, ErrorMessage = "काम से काम 0 - 100 शब्दों में जानकारी भरे !!")]
         public string SpouseName { get; set; }
