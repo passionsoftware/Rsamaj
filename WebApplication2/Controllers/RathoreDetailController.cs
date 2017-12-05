@@ -24,7 +24,7 @@ namespace WebApplication2.Controllers
                 rathoreDetail.Add(val);
             }
 
-            objDisplay.RathoreDetails = _rathoreDetailBL.GetAllRathoreDetail();
+            objDisplay.RathoreDetails = rathoreDetail;
 
             return View(objDisplay);
         }
