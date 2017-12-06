@@ -129,6 +129,7 @@
     <EntitySetMapping Name="RS_News">
       <EntityTypeMapping TypeName="RSModel.RS_News">
         <MappingFragment StoreEntitySet="RS_News">
+          <ScalarProperty Name="IsFeatured" ColumnName="IsFeatured" />
           <ScalarProperty Name="NewsId" ColumnName="NewsId" />
           <ScalarProperty Name="Newstype" ColumnName="Newstype" />
           <ScalarProperty Name="Subject" ColumnName="Subject" />
@@ -160,6 +161,7 @@
     <EntitySetMapping Name="RS_RathoreDetails">
       <EntityTypeMapping TypeName="RSModel.RS_RathoreDetails">
         <MappingFragment StoreEntitySet="RS_RathoreDetails">
+          <ScalarProperty Name="gender" ColumnName="gender" />
           <ScalarProperty Name="RathoreDetailId" ColumnName="RathoreDetailId" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="FatherName" ColumnName="FatherName" />

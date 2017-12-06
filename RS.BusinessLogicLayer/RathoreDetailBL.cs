@@ -56,5 +56,10 @@ namespace RS.BusinessLogicLayer
         {
             return _rathoreDetailDL.GetDetailsToDisplay();
         }
+
+        public bool CheckRathoreDetailExist(string fullName, DateTime? BirthDate)
+        {
+            return _rathoreDetailDL.CheckRathoreDetailExist(fullName, BirthDate);
+        }
     }
 }

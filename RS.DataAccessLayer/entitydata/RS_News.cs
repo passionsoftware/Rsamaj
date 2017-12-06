@@ -26,5 +26,6 @@ namespace RS.DataAccessLayer.entitydata
         public Nullable<int> ModifiedBy { get; set; }
         public Nullable<System.DateTime> ModifiedOn { get; set; }
         public Nullable<bool> IsActive { get; set; }
+        public bool IsFeatured { get; set; }
     }
 }

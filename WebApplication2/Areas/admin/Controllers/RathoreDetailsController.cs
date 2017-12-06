@@ -22,6 +22,7 @@ namespace WebApplication2.Areas.admin.Controllers
 
         public ActionResult AddRathoreDetail()
         {
+            @ViewBag.Style = "alert alert-success";
             RathoreDetailModel rathoreDetails = new RathoreDetailModel();
             BindDropdown(ref rathoreDetails);
             return View(rathoreDetails);
@@ -30,35 +31,57 @@ namespace WebApplication2.Areas.admin.Controllers
         [HttpPost]
         public ActionResult AddRathoreDetail(RathoreDetailModel obj)
         {
+            @ViewBag.Style = "alert alert-success";
             if (ModelState.IsValid)
             {
                 RathoreDetailBL _contactDetailBL = new RathoreDetailBL();
 
                 obj.DateOfBirth = Convert.ToDateTime(obj.DateOfBirthFormated);
-              
-                int result = _contactDetailBL.InsertRathoreDetail(obj);
-                ViewBag.Saved = true;
-               
 
-                if (result == 1)
+                if (!_contactDetailBL.CheckRathoreDetailExist(obj.Name, obj.DateOfBirth))
                 {
-                    @ViewBag.Message = "जानकारी डेटाबेस मे दर्ज हो गया है | धन्यवाद् ";
-                    ModelState.Clear();
+                    int result = _contactDetailBL.InsertRathoreDetail(obj);
+                    BindDropdown(ref obj);
+                    ViewBag.Saved = true;
+
+                    if (result == 1)
+                    {
+                        ViewBag.Style = "alert alert-success";
+                        ViewBag.Message = "जानकारी डेटाबेस मे दर्ज हो गया है | धन्यवाद् ";
+                        ModelState.Clear();
+                    }
+                    else
+                    {
+                        ViewBag.Style = "alert alert-danger";
+                        ViewBag.Message = "तकनिकी खराबी की वजह से आपका सन्देश नहीं मिला , कृपया दुबारा भेजे.  ";
+                    }
                 }
                 else
                 {
-                    @ViewBag.Message = "तकनिकी खराबी की वजह से आपका सन्देश नहीं मिला , कृपया दुबारा भेजे.  ";
+                    ViewBag.Saved = true;
+                    ViewBag.Style = "alert alert-danger";
+                    ViewBag.Message = " इस नाम की जानकारी पहले से अंकित है. ";
                 }
+
                 BindDropdown(ref obj);
+
             }
             return View(obj);
         }
 
         public ActionResult EditRathoreDetail(int id)
         {
+            TempData.Remove("Name");
+            TempData.Remove("DateofBirth");
+
+            ViewBag.Style = "alert alert-success";
             RathoreDetailBL _rathoreDetailBL = new RathoreDetailBL();
             RathoreDetailModel lstRathoreDetails = new RathoreDetailModel();
             lstRathoreDetails = _rathoreDetailBL.GetRathoreDetailId(id);
+
+            TempData["Name"] = lstRathoreDetails.Name;
+            TempData["DateofBirth"] = lstRathoreDetails.DateOfBirth;
+
             BindDropdown(ref lstRathoreDetails);
             string datetime = string.Format("{0:yyyy-MM-dd}", lstRathoreDetails.DateOfBirth);
             lstRathoreDetails.DateOfBirthFormated = datetime;
@@ -68,22 +91,49 @@ namespace WebApplication2.Areas.admin.Controllers
         [HttpPost]
         public ActionResult EditRathoreDetail(RathoreDetailModel obj)
         {
+            @ViewBag.Style = "alert alert-success";
             if (ModelState.IsValid)
             {
                 RathoreDetailBL _contactDetailBL = new RathoreDetailBL();
                 obj.DateOfBirth = Convert.ToDateTime(obj.DateOfBirthFormated);
-                int result = _contactDetailBL.UpdateRathoreDetail(obj);
-                BindDropdown(ref obj);
-                ViewBag.Saved = true;
+                string Name = Convert.ToString(TempData["Name"]).Trim();
+                DateTime DateofBirth = Convert.ToDateTime(TempData["DateofBirth"]);
 
-                if (result == 1)
+                TempData.Keep("Name");
+                TempData.Keep("DateofBirth");
+
+
+                if (Name != obj.Name.Trim()  || (!obj.DateOfBirth.Equals(DateofBirth)))
                 {
-                    @ViewBag.Message = "जानकारी डेटाबेस मे दर्ज हो गया है | धन्यवाद् ";
+
+                    if (_contactDetailBL.CheckRathoreDetailExist(obj.Name, obj.DateOfBirth))
+                    {
+                        ViewBag.Saved = true;
+                        ViewBag.Style = "alert alert-danger";
+                        ViewBag.Message = " इस नाम की जानकारी पहले से अंकित है. ";
+                        BindDropdown(ref obj);
+                        return View(obj);
+                    }
                 }
-                else
-                {
-                    @ViewBag.Message = "तकनिकी खराबी की वजह से आपका सन्देश नहीं मिला , कृपया दुबारा भेजे.  ";
-                }
+              
+
+                int result = _contactDetailBL.UpdateRathoreDetail(obj);
+                   
+                    ViewBag.Saved = true;
+
+                    if (result == 1)
+                    {
+                        ViewBag.Style = "alert alert-success";
+                        ViewBag.Message = "जानकारी डेटाबेस मे दर्ज हो गया है | धन्यवाद् ";
+                    }
+                    else
+                    {
+                        ViewBag.Style = "alert alert-danger";
+                        ViewBag.Message = "तकनिकी खराबी की वजह से आपका सन्देश नहीं मिला , कृपया दुबारा भेजे.  ";
+                    }
+               
+
+                BindDropdown(ref obj);
 
             }
             return View(obj);
