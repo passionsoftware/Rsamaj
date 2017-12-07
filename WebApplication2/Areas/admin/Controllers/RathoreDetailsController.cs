@@ -8,10 +8,12 @@ using RS.BusinessLogicLayer;
 
 namespace WebApplication2.Areas.admin.Controllers
 {
-    [RathoreSamajAuth]
+   
     public class RathoreDetailsController : BaseController
     {
         // GET: admin/RathoreDetail
+
+        [RathoreSamajAuth(Order= 1, Roles = "1,2,99",Users = null)]
         public ActionResult Index()
         {
             RathoreDetailBL _rathoreDetailBL = new RathoreDetailBL();
@@ -20,6 +22,7 @@ namespace WebApplication2.Areas.admin.Controllers
         }
 
 
+        [RathoreSamajAuth(Order = 1, Roles = "1,2,99", Users = null)]
         public ActionResult AddRathoreDetail()
         {
             @ViewBag.Style = "alert alert-success";
@@ -29,6 +32,7 @@ namespace WebApplication2.Areas.admin.Controllers
         }
 
         [HttpPost]
+        [RathoreSamajAuth(Order = 1, Roles = "1,2,99", Users = null)]
         public ActionResult AddRathoreDetail(RathoreDetailModel obj)
         {
             @ViewBag.Style = "alert alert-success";
@@ -37,11 +41,11 @@ namespace WebApplication2.Areas.admin.Controllers
                 RathoreDetailBL _contactDetailBL = new RathoreDetailBL();
 
                 obj.DateOfBirth = Convert.ToDateTime(obj.DateOfBirthFormated);
-
+                obj.CreatedBy = LoginUserID;
                 if (!_contactDetailBL.CheckRathoreDetailExist(obj.Name, obj.DateOfBirth))
                 {
                     int result = _contactDetailBL.InsertRathoreDetail(obj);
-                    BindDropdown(ref obj);
+                   // BindDropdown(ref obj);
                     ViewBag.Saved = true;
 
                     if (result == 1)
@@ -63,12 +67,12 @@ namespace WebApplication2.Areas.admin.Controllers
                     ViewBag.Message = " इस नाम की जानकारी पहले से अंकित है. ";
                 }
 
-                BindDropdown(ref obj);
-
             }
+            BindDropdown(ref obj);
             return View(obj);
         }
 
+        [RathoreSamajAuth(Order = 1, Roles = "1,2,99", Users = null)]
         public ActionResult EditRathoreDetail(int id)
         {
             TempData.Remove("Name");
@@ -89,6 +93,7 @@ namespace WebApplication2.Areas.admin.Controllers
         }
 
         [HttpPost]
+        [RathoreSamajAuth(Order = 1, Roles = "1,2,99", Users = null)]
         public ActionResult EditRathoreDetail(RathoreDetailModel obj)
         {
             @ViewBag.Style = "alert alert-success";
@@ -115,7 +120,8 @@ namespace WebApplication2.Areas.admin.Controllers
                         return View(obj);
                     }
                 }
-              
+
+                obj.ModifiedBy = LoginUserID;
 
                 int result = _contactDetailBL.UpdateRathoreDetail(obj);
                    
@@ -139,6 +145,7 @@ namespace WebApplication2.Areas.admin.Controllers
             return View(obj);
         }
 
+        [RathoreSamajAuth(Order = 1, Roles = "1,99", Users = null)]
         public ActionResult DeleteRathoreDetail(int id)
         {
             RathoreDetailBL _contactDetailBL = new RathoreDetailBL();

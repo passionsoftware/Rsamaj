@@ -46,6 +46,9 @@ namespace RS.DataAccessLayer
                 oData.CreatedBy = obj.CreatedBy;
                 oData.CreatedOn = DateTime.Now;
                 oData.IsActive = true;
+                oData.UserName = obj.UserName;
+                oData.Password = obj.Password;
+                oData.Role = obj.Role;
 
                 //oData.CreatedOn = ;
                 //oData.Location = obj.Location;
@@ -94,6 +97,10 @@ namespace RS.DataAccessLayer
                 oData.ModifiedBy = obj.ModifiedBy;
                 oData.ModifiedOn = DateTime.Now;
                 oData.IsActive = true;
+
+                oData.UserName = obj.UserName;
+                oData.Password = obj.Password;
+                oData.Role = obj.Role;
 
                 //oData.CreatedOn = ;
                 //oData.Location = obj.Location;

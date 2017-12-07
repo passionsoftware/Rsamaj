@@ -69,7 +69,7 @@ namespace RS.DataAccessLayer
                               LastLogin = odata.LastLogin,
                               LoginCount = odata.LoginCount,
                               Role = odata.Role
-                          }).First();
+                          }).FirstOrDefault();
             }
 
             return result;
@@ -91,7 +91,7 @@ namespace RS.DataAccessLayer
                 var oData = obj.RS_RathoreDetails.First(i => i.RathoreDetailId == lm.RathoreDetailId);
 
                 oData.LastLogin = DateTime.Now;
-                oData.LoginCount = oData.LoginCount + 1;
+                oData.LoginCount = oData.LoginCount == null ? 1 : oData.LoginCount + 1;
                 oData.ModifiedOn = DateTime.Now;
                 oData.ModifiedBy = lm.RathoreDetailId;
                 result =  obj.SaveChanges();

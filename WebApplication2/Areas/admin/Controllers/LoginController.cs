@@ -13,6 +13,7 @@ namespace WebApplication2.Areas.admin.Controllers
         // GET: admin/Login
         public ActionResult Index()
         {
+            Session["LoginSuccesFull"] = null;
             @ViewBag.Message = string.Empty;
             return View();
         }
@@ -21,7 +22,7 @@ namespace WebApplication2.Areas.admin.Controllers
         [HttpPost]
         public ActionResult Index(LoginModel obj)
         {
-
+            Session["LoginSuccesFull"] = null;
             if (ModelState.IsValid)
             {
                 if (obj.UserName == "admin" && obj.Password == "admin123")
@@ -36,8 +37,24 @@ namespace WebApplication2.Areas.admin.Controllers
                 }
                 else
                 {
-                    @ViewBag.Message = "Please provide valid username and password.";
-                    return View(obj);
+                    LoginBL _loginBL = new LoginBL();
+                    //Session["LoginSuccesFull"] = null;
+
+                    LoginModel result = _loginBL.CheckLoginDetail(obj);
+                    ViewBag.Saved = true;
+
+                    if (result != null && result.Name != string.Empty)
+                    {
+                        _loginBL.UpdateLoginInfoDetail(result);
+                        Session["LoginSuccesFull"] = result;
+                        return RedirectToAction("Index", "Home", new { area = "Admin" });
+                    }
+                    else
+                    {
+                        @ViewBag.Message = "Please provide valid username and password.";
+                        return View(obj);
+                    }
+                   
                 }
 
                 //LoginBL _loginBL = new LoginBL();
