@@ -9,15 +9,17 @@ else
 {
     <div class="grid-mvc" data-lang="@Model.Language" data-gridname="@Model.RenderOptions.GridName" data-selectable="@Model.RenderOptions.Selectable.ToString().ToLower()" data-multiplefilters ="@Model.RenderOptions.AllowMultipleFilters.ToString().ToLower()">
         <div class="grid-wrap">
-            <table class="table table-striped grid-table">
-                @* Draw grid header *@
-                <thead>
-                    @RenderGridHeader()
-                </thead>
-                <tbody>
-                    @RenderGridBody()
-                </tbody>
-            </table>
+            <div style="overflow-x:auto;overflow-x:auto;min-height:240px;" id="griddiv">
+                <table class="table table-striped grid-table">
+                    @* Draw grid header *@
+                    <thead>
+                        @RenderGridHeader()
+                    </thead>
+                    <tbody>
+                        @RenderGridBody()
+                    </tbody>
+                </table>
+            </div>
             @RenderGridPager()
         </div>
     </div>
@@ -63,3 +65,11 @@ else
     </div>
     }
 }
+
+<script>
+    var winWidth = "";
+    $(document).ready(function () {
+        winWidth = $(document).width - 100 + "px";
+        $("#griddiv").width(winWidth);
+    });
+</script>

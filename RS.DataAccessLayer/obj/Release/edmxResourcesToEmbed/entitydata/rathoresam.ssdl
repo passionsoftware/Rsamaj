@@ -133,6 +133,7 @@
     <Property Name="ModifiedBy" Type="int" />
     <Property Name="ModifiedOn" Type="datetime" />
     <Property Name="IsActive" Type="bit" />
+    <Property Name="IsFeatured" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="RS_NewsType">
     <Key>
@@ -159,7 +160,6 @@
     <Property Name="DateOfBirth" Type="datetime" />
     <Property Name="PhoneNumber" Type="nvarchar" MaxLength="50" />
     <Property Name="Occupation" Type="nvarchar" MaxLength="200" />
-    <Property Name="IsMarried" Type="bit" />
     <Property Name="SpouseName" Type="nvarchar" MaxLength="200" />
     <Property Name="SpouseNameId" Type="int" />
     <Property Name="CurrentCountry" Type="int" />
@@ -185,6 +185,8 @@
     <Property Name="LastLogin" Type="datetime" />
     <Property Name="LoginCount" Type="int" />
     <Property Name="Role" Type="int" />
+    <Property Name="gender" Type="varchar" MaxLength="15" />
+    <Property Name="IsMarried" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="RS_Role">
     <Key>

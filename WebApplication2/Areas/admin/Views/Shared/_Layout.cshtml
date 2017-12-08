@@ -65,7 +65,7 @@
                     {
                         <li>@Html.ActionLink("संपर्क ", "Index", "Contacts")</li>
                     }
-                    <li>  @Html.ActionLink("बहार निकले", "Index", "Login", new {  @id="Logout"})</li>
+                    <li> @Html.ActionLink("बहार निकले", "Index", "Login", new { Area = "Admin" }, new { @id = "Logout" } )  @*@Html.ActionLink("बहार निकले", "Index", "Login", new {  @id="Logout"})*@</li>
                    
 
                 </ul>

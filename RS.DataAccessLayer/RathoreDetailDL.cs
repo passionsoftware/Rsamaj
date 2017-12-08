@@ -262,6 +262,9 @@ namespace RS.DataAccessLayer
                               NativeDistrictName = NDs.DistrictName,
                               NativeLocationName = NLs.LocationName,
 
+                              UserName = obj.UserName,
+                              Password = obj.Password,
+                              Role = obj.Role,
 
                               CurrentAddress = obj.CurrentAddress,
                               NativeAddress = obj.NativeAddress,

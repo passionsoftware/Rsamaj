@@ -129,6 +129,7 @@
     <EntitySetMapping Name="RS_News">
       <EntityTypeMapping TypeName="RSModel.RS_News">
         <MappingFragment StoreEntitySet="RS_News">
+          <ScalarProperty Name="IsFeatured" ColumnName="IsFeatured" />
           <ScalarProperty Name="NewsId" ColumnName="NewsId" />
           <ScalarProperty Name="Newstype" ColumnName="Newstype" />
           <ScalarProperty Name="Subject" ColumnName="Subject" />
@@ -154,47 +155,6 @@
           <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
           <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
           <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="RS_RathoreDetails">
-      <EntityTypeMapping TypeName="RSModel.RS_RathoreDetails">
-        <MappingFragment StoreEntitySet="RS_RathoreDetails">
-          <ScalarProperty Name="RathoreDetailId" ColumnName="RathoreDetailId" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="FatherName" ColumnName="FatherName" />
-          <ScalarProperty Name="MotherName" ColumnName="MotherName" />
-          <ScalarProperty Name="FatherNameId" ColumnName="FatherNameId" />
-          <ScalarProperty Name="MotherNameId" ColumnName="MotherNameId" />
-          <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
-          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
-          <ScalarProperty Name="Occupation" ColumnName="Occupation" />
-          <ScalarProperty Name="IsMarried" ColumnName="IsMarried" />
-          <ScalarProperty Name="SpouseName" ColumnName="SpouseName" />
-          <ScalarProperty Name="SpouseNameId" ColumnName="SpouseNameId" />
-          <ScalarProperty Name="CurrentCountry" ColumnName="CurrentCountry" />
-          <ScalarProperty Name="CurrentState" ColumnName="CurrentState" />
-          <ScalarProperty Name="CurrentDistrict" ColumnName="CurrentDistrict" />
-          <ScalarProperty Name="CurrentLocation" ColumnName="CurrentLocation" />
-          <ScalarProperty Name="CurrentAddress" ColumnName="CurrentAddress" />
-          <ScalarProperty Name="NativeCountry" ColumnName="NativeCountry" />
-          <ScalarProperty Name="NativeState" ColumnName="NativeState" />
-          <ScalarProperty Name="NativeDistrict" ColumnName="NativeDistrict" />
-          <ScalarProperty Name="NativeLocation" ColumnName="NativeLocation" />
-          <ScalarProperty Name="NativeAddress" ColumnName="NativeAddress" />
-          <ScalarProperty Name="EmailId" ColumnName="EmailId" />
-          <ScalarProperty Name="FinalEducation" ColumnName="FinalEducation" />
-          <ScalarProperty Name="NoOfChildern" ColumnName="NoOfChildern" />
-          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
-          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
-          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
-          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-          <ScalarProperty Name="UserName" ColumnName="UserName" />
-          <ScalarProperty Name="Password" ColumnName="Password" />
-          <ScalarProperty Name="LastLogin" ColumnName="LastLogin" />
-          <ScalarProperty Name="LoginCount" ColumnName="LoginCount" />
-          <ScalarProperty Name="Role" ColumnName="Role" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -236,6 +196,48 @@
           <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
           <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
           <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RS_RathoreDetails">
+      <EntityTypeMapping TypeName="RSModel.RS_RathoreDetails">
+        <MappingFragment StoreEntitySet="RS_RathoreDetails">
+          <ScalarProperty Name="IsMarried" ColumnName="IsMarried" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+          <ScalarProperty Name="Role" ColumnName="Role" />
+          <ScalarProperty Name="LoginCount" ColumnName="LoginCount" />
+          <ScalarProperty Name="LastLogin" ColumnName="LastLogin" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="NoOfChildern" ColumnName="NoOfChildern" />
+          <ScalarProperty Name="FinalEducation" ColumnName="FinalEducation" />
+          <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+          <ScalarProperty Name="NativeAddress" ColumnName="NativeAddress" />
+          <ScalarProperty Name="NativeLocation" ColumnName="NativeLocation" />
+          <ScalarProperty Name="NativeDistrict" ColumnName="NativeDistrict" />
+          <ScalarProperty Name="NativeState" ColumnName="NativeState" />
+          <ScalarProperty Name="NativeCountry" ColumnName="NativeCountry" />
+          <ScalarProperty Name="CurrentAddress" ColumnName="CurrentAddress" />
+          <ScalarProperty Name="CurrentLocation" ColumnName="CurrentLocation" />
+          <ScalarProperty Name="CurrentDistrict" ColumnName="CurrentDistrict" />
+          <ScalarProperty Name="CurrentState" ColumnName="CurrentState" />
+          <ScalarProperty Name="CurrentCountry" ColumnName="CurrentCountry" />
+          <ScalarProperty Name="SpouseNameId" ColumnName="SpouseNameId" />
+          <ScalarProperty Name="SpouseName" ColumnName="SpouseName" />
+          <ScalarProperty Name="Occupation" ColumnName="Occupation" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+          <ScalarProperty Name="MotherNameId" ColumnName="MotherNameId" />
+          <ScalarProperty Name="FatherNameId" ColumnName="FatherNameId" />
+          <ScalarProperty Name="MotherName" ColumnName="MotherName" />
+          <ScalarProperty Name="FatherName" ColumnName="FatherName" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="RathoreDetailId" ColumnName="RathoreDetailId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

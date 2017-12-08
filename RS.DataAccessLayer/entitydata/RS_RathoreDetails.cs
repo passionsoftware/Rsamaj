@@ -23,7 +23,6 @@ namespace RS.DataAccessLayer.entitydata
         public Nullable<System.DateTime> DateOfBirth { get; set; }
         public string PhoneNumber { get; set; }
         public string Occupation { get; set; }
-        public bool IsMarried { get; set; }
         public string SpouseName { get; set; }
         public Nullable<int> SpouseNameId { get; set; }
         public Nullable<int> CurrentCountry { get; set; }
@@ -50,5 +49,6 @@ namespace RS.DataAccessLayer.entitydata
         public Nullable<int> LoginCount { get; set; }
         public Nullable<int> Role { get; set; }
         public string gender { get; set; }
+        public bool IsMarried { get; set; }
     }
 }

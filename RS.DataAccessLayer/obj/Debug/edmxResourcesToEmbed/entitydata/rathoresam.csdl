@@ -147,47 +147,6 @@
     <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
     <Property Name="IsActive" Type="Boolean" />
   </EntityType>
-  <EntityType Name="RS_RathoreDetails">
-    <Key>
-      <PropertyRef Name="RathoreDetailId" />
-    </Key>
-    <Property Name="RathoreDetailId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-    <Property Name="FatherName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-    <Property Name="MotherName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-    <Property Name="FatherNameId" Type="Int32" />
-    <Property Name="MotherNameId" Type="Int32" />
-    <Property Name="DateOfBirth" Type="DateTime" Precision="3" />
-    <Property Name="PhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Occupation" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-    <Property Name="IsMarried" Type="Boolean" Nullable="false" />
-    <Property Name="SpouseName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-    <Property Name="SpouseNameId" Type="Int32" />
-    <Property Name="CurrentCountry" Type="Int32" />
-    <Property Name="CurrentState" Type="Int32" />
-    <Property Name="CurrentDistrict" Type="Int32" />
-    <Property Name="CurrentLocation" Type="Int32" />
-    <Property Name="CurrentAddress" Type="String" MaxLength="400" FixedLength="false" Unicode="false" />
-    <Property Name="NativeCountry" Type="Int32" />
-    <Property Name="NativeState" Type="Int32" />
-    <Property Name="NativeDistrict" Type="Int32" />
-    <Property Name="NativeLocation" Type="Int32" />
-    <Property Name="NativeAddress" Type="String" MaxLength="400" FixedLength="false" Unicode="false" />
-    <Property Name="EmailId" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-    <Property Name="FinalEducation" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-    <Property Name="NoOfChildern" Type="Int32" />
-    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
-    <Property Name="CreatedBy" Type="Int32" />
-    <Property Name="ModifiedBy" Type="Int32" />
-    <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
-    <Property Name="IsActive" Type="Boolean" />
-    <Property Name="UserName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Name="Password" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-    <Property Name="LastLogin" Type="DateTime" Precision="3" />
-    <Property Name="LoginCount" Type="Int32" />
-    <Property Name="Role" Type="Int32" />
-    <Property Name="gender" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
-  </EntityType>
   <EntityType Name="RS_Role">
     <Key>
       <PropertyRef Name="RoleId" />
@@ -237,9 +196,50 @@
     <EntitySet Name="RS_Location" EntityType="Self.RS_Location" />
     <EntitySet Name="RS_News" EntityType="Self.RS_News" />
     <EntitySet Name="RS_NewsType" EntityType="Self.RS_NewsType" />
-    <EntitySet Name="RS_RathoreDetails" EntityType="Self.RS_RathoreDetails" />
     <EntitySet Name="RS_Role" EntityType="Self.RS_Role" />
     <EntitySet Name="RS_State" EntityType="Self.RS_State" />
     <EntitySet Name="RS_UserDetail" EntityType="Self.RS_UserDetail" />
+    <EntitySet Name="RS_RathoreDetails" EntityType="RSModel.RS_RathoreDetails" />
   </EntityContainer>
+  <EntityType Name="RS_RathoreDetails">
+    <Key>
+      <PropertyRef Name="RathoreDetailId" />
+    </Key>
+    <Property Name="RathoreDetailId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="FatherName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="MotherName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="FatherNameId" Type="Int32" />
+    <Property Name="MotherNameId" Type="Int32" />
+    <Property Name="DateOfBirth" Type="DateTime" Precision="3" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Occupation" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="SpouseName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="SpouseNameId" Type="Int32" />
+    <Property Name="CurrentCountry" Type="Int32" />
+    <Property Name="CurrentState" Type="Int32" />
+    <Property Name="CurrentDistrict" Type="Int32" />
+    <Property Name="CurrentLocation" Type="Int32" />
+    <Property Name="CurrentAddress" Type="String" MaxLength="400" FixedLength="false" Unicode="false" />
+    <Property Name="NativeCountry" Type="Int32" />
+    <Property Name="NativeState" Type="Int32" />
+    <Property Name="NativeDistrict" Type="Int32" />
+    <Property Name="NativeLocation" Type="Int32" />
+    <Property Name="NativeAddress" Type="String" MaxLength="400" FixedLength="false" Unicode="false" />
+    <Property Name="EmailId" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="FinalEducation" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="NoOfChildern" Type="Int32" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="ModifiedBy" Type="Int32" />
+    <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="UserName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="LastLogin" Type="DateTime" Precision="3" />
+    <Property Name="LoginCount" Type="Int32" />
+    <Property Name="Role" Type="Int32" />
+    <Property Name="gender" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="IsMarried" Type="Boolean" Nullable="false" />
+  </EntityType>
 </Schema>

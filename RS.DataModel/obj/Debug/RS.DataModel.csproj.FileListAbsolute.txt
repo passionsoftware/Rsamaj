@@ -1,6 +1,5 @@
 E:\rathore samaj\applicationcode\WebApplication2\RS.DataModel\bin\Debug\RS.DataModel.dll
 E:\rathore samaj\applicationcode\WebApplication2\RS.DataModel\bin\Debug\RS.DataModel.pdb
-E:\rathore samaj\applicationcode\WebApplication2\RS.DataModel\obj\Debug\RS.DataModel.csprojResolveAssemblyReference.cache
 E:\rathore samaj\applicationcode\WebApplication2\RS.DataModel\obj\Debug\RS.DataModel.dll
 E:\rathore samaj\applicationcode\WebApplication2\RS.DataModel\obj\Debug\RS.DataModel.pdb
 C:\devlopment\testapp_rs\Rsamaj\RS.DataModel\bin\Debug\RS.DataModel.dll
@@ -9,3 +8,4 @@ C:\devlopment\testapp_rs\Rsamaj\RS.DataModel\obj\Debug\RS.DataModel.csprojResolv
 C:\devlopment\testapp_rs\Rsamaj\RS.DataModel\obj\Debug\RS.DataModel.csproj.CoreCompileInputs.cache
 C:\devlopment\testapp_rs\Rsamaj\RS.DataModel\obj\Debug\RS.DataModel.dll
 C:\devlopment\testapp_rs\Rsamaj\RS.DataModel\obj\Debug\RS.DataModel.pdb
+E:\rathore samaj\applicationcode\WebApplication2\RS.DataModel\obj\Debug\RS.DataModel.csprojResolveAssemblyReference.cache

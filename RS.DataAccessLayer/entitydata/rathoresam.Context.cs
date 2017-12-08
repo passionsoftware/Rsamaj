@@ -35,9 +35,9 @@ namespace RS.DataAccessLayer.entitydata
         public virtual DbSet<RS_Location> RS_Location { get; set; }
         public virtual DbSet<RS_News> RS_News { get; set; }
         public virtual DbSet<RS_NewsType> RS_NewsType { get; set; }
-        public virtual DbSet<RS_RathoreDetails> RS_RathoreDetails { get; set; }
         public virtual DbSet<RS_Role> RS_Role { get; set; }
         public virtual DbSet<RS_State> RS_State { get; set; }
         public virtual DbSet<RS_UserDetail> RS_UserDetail { get; set; }
+        public virtual DbSet<RS_RathoreDetails> RS_RathoreDetails { get; set; }
     }
 }

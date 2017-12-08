@@ -1,4 +1,5 @@
 ﻿@model RS.DataModel.RathoreDetailModel
+@using RS.DataModel;
 
 @{
     ViewBag.Title = "AddRathoreDetail";
@@ -25,7 +26,7 @@
 
         @if (ViewBag.Saved == true)
         {
-            <div class="alert alert-success" role="alert">@ViewBag.Message</div>
+            <div class="@ViewBag.Style" role="alert">@ViewBag.Message</div>
         }
 
 
@@ -70,7 +71,7 @@
                     <div class="col-sm-12 col-sm-4 col-lg-4">
                         <div class="form-group">
                             <label for="PhoneNumber">फ़ोन नंबर </label> <span class="text-required">*</span>
-                            @Html.TextBoxFor(model => model.PhoneNumber, new { @class = "form-control", placeholder = "Phone Number", @maxlength = 11 })
+                            @Html.TextBoxFor(model => model.PhoneNumber, new { @class = "form-control", placeholder = "Phone Number", @maxlength = 10 })
                             @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-error" })
                         </div>
                     </div>
@@ -100,16 +101,14 @@
                     </div>
                     <div class="col-sm-12 col-sm-4 col-lg-4">
                         <div class="form-group">
-                            <label for="Occupation">व्यवसाय</label>
-                            @Html.TextBoxFor(model => model.Occupation, new { @class = "form-control", placeholder = "Occupation", @maxlength = 10 })
+                            <label for="Occupation">लिंग</label><span class="text-required">*</span>
+                            @Html.DropDownListFor(model => model.Gender, new  SelectList(Model.GenderDropDown,"Key","Value", "--Select Gender--" ), new { @class = "form-control", placeholder = "Occupation", @maxlength = 10 })
                             @Html.ValidationMessageFor(model => model.Occupation, "", new { @class = "text-error" })
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
-
 
         <div class="panel panel-info">
             <div class="panel-heading">
@@ -119,15 +118,15 @@
                 <div class="row">
                     <div class="col-sm-12 col-sm-4 col-lg-4">
                         <div class="form-group">
-                            <label for="CurrentCountryName">वर्तमान देश </label> <span class="text-required">*</span>
-                            @Html.EditorFor(model => model.CurrentCountryName, new { @class = "form-control", placeholder = "Current Country", @maxlength = 100 })
+                            <label for="CurrentCountryName">वर्तमान देश </label> 
+                            @Html.EditorFor(model => model.CurrentCountryName, new { @class = "form-control", placeholder = "Occupation", @maxlength = 100 })
                             @Html.ValidationMessageFor(model => model.CurrentCountryName, "", new { @class = "text-error" })
                         </div>
                     </div>
                     <div class="col-sm-12 col-sm-4 col-lg-4">
                         <div class="form-group">
                             <label for="CurrentStateName">वर्तमान राज्य </label> <span class="text-required">*</span>
-                            @Html.EditorFor(model => model.CurrentStateName, new { @class = "form-control", placeholder = "Current State", @maxlength = 100 })
+                            @Html.EditorFor(model => model.CurrentStateName, new { @class = "form-control", placeholder = "Final Education", @maxlength = 100 })
                             @Html.ValidationMessageFor(model => model.CurrentStateName, "", new { @class = "text-error" })
                         </div>
                     </div>
@@ -202,6 +201,71 @@
                 </div>
             </div>
         </div>
+
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                अतरिक्त जानकारी 
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-sm-12 col-sm-4 col-lg-4">
+                        <div class="form-group">
+                            <label for="CurrentCountryName">व्यवसाय </label> 
+                            @Html.TextBoxFor(model => model.Occupation, new { @class = "form-control", placeholder = "Occupation", @maxlength = 100 })
+                            @Html.ValidationMessageFor(model => model.Occupation, "", new { @class = "text-error" })
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-sm-4 col-lg-4">
+                        <div class="form-group">
+                            <label for="CurrentStateName">शिक्षा  </label> 
+                            @Html.TextBoxFor(model => model.FinalEducation, new { @class = "form-control", placeholder = "Final Education", @maxlength = 100 })
+                            @Html.ValidationMessageFor(model => model.FinalEducation, "", new { @class = "text-error" })
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-sm-4 col-lg-4">
+                        <div class="form-group">
+                            
+                        </div>
+                    </div>
+                </div>
+               
+            </div>
+        </div>
+
+        if (Session["LoginSuccesFull"] != null && ((LoginModel)Session["LoginSuccesFull"]).Role == 99)
+        {
+        <div class="panel panel-danger">
+            <div class="panel-heading">
+               Login Detail
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-sm-12 col-sm-4 col-lg-4">
+                        <div class="form-group">
+                            <label for="UserName">UserName </label>
+                            @Html.TextBoxFor(model => model.UserName, new { @class = "form-control", placeholder = "User Name", @maxlength = 100 })
+                            @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-error" })
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-sm-4 col-lg-4">
+                        <div class="form-group">
+                            <label for="Password">Password  </label>
+                            @Html.TextBoxFor(model => model.Password, new { @class = "form-control", placeholder = "Password", @maxlength = 100 })
+                            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-error" })
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-sm-4 col-lg-4">
+                        <div class="form-group">
+                            <label for="Password">Role  </label>
+                            @Html.TextBoxFor(model => model.Role, new { @class = "form-control", placeholder = "Role", @maxlength = 100 })
+                            @Html.ValidationMessageFor(model => model.Role, "", new { @class = "text-error" })
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+            }
 
 }
 
