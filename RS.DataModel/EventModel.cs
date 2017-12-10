@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
 
 namespace RS.DataModel
 {
@@ -12,8 +15,11 @@ namespace RS.DataModel
 
         public int EventType { get; set; }
 
+        public string EventTypeName { get; set; }
+
         public string Subject { get; set; }
 
+       
         public string Body { get; set; }
 
         public DateTime? EventDateFrom { get; set; }
@@ -37,6 +43,8 @@ namespace RS.DataModel
         public DateTime? CreatedOn { get; set; }
 
         public int? CreatedBy { get; set; }
+
+        public string CreatedByName { get; set; }
 
         public string CreaterName { get; set; }
 

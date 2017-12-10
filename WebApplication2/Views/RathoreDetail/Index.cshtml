@@ -56,14 +56,17 @@
 
         @Html.Grid(Model.RathoreDetails).Columns(columns =>
    {
-       columns.Add(c => c.Name).Titled("पूरा नाम");
+       columns.Add(c => c.Name).Titled("पूरा नाम").ThenSortByDescending(x => x.Name);
        columns.Add(c => c.FatherName).Titled("पिता का नाम").Filterable(true);
-       columns.Add(c => c.Gender).Titled("लिंग").Filterable(true);
+       columns.Add(c => c.Gender).RenderValueAs(o => o.Gender == "F" ? "F" : "M").Titled("लिंग").Filterable(true); ;
        columns.Add(c => c.Age).Titled("उम्र").Filterable(true);
+       columns.Add(c => c.IsMarried).RenderValueAs(o => o.IsMarried == true ? "Yes" : "No").Titled("शादीशुदा").Filterable(true);
        columns.Add(c => c.CurrentDistrictName).Titled("वर्तमान जिला").Filterable(true);
        columns.Add(c => c.CurrentLocationName).Titled("वर्तमान स्थान").Filterable(true);
        columns.Add(c => c.NativeDistrictName).Titled("स्थायी जिला").Filterable(true);
        columns.Add(c => c.NativeLocationName).Titled("स्थायी स्थान").Filterable(true);
+
+
    }).WithPaging(20).Sortable(true).Filterable(true);
 
 

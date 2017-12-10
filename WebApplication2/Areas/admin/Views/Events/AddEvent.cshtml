@@ -1,0 +1,205 @@
+﻿@model RS.DataModel.EventModel
+@using RS.DataModel;
+
+@{
+    ViewBag.Title = "AddEvent";
+    Layout = "~/Areas/admin/Views/Shared/_Layout.cshtml";
+
+}
+
+<h1 style="color:#146eb0;text-align:left">नया कार्यक्रम</h1>
+<hr />
+<ol class="breadcrumb">
+    <li><a href="#">प्रारम्भ</a></li>
+    <li><a href="#">कार्यक्रम</a></li>
+    <li class="active">नया कार्यक्रम </li>
+</ol>
+
+@using (Html.BeginForm("AddRathoreDetail", "RathoreDetails", FormMethod.Post, new { role = "form", @novalidate = "novalidate" }))
+{
+    <div class="row text-right" style="padding-right:10px">
+        @Html.ActionLink("पीछे जाये", "Index", "RathoreDetail", new { @class = "btn btn-default" }) &nbsp;
+        <button type="submit" class="btn btn-primary">जमा करें</button>
+    </div>
+    <br />
+
+    <div class="row" style="margin: 4px">
+
+        @if (ViewBag.Saved == true)
+        {
+            <div class="@ViewBag.Style" role="alert">@ViewBag.Message</div>
+        }
+
+
+@using (Html.BeginForm("AddRathoreDetail", "RathoreDetails", FormMethod.Post, new { role = "form", @novalidate = "novalidate" }))
+{
+    <div class="row text-right" style="padding-right:10px">
+        @Html.ActionLink("पीछे जाये", "Index", "RathoreDetail", new { @class = "btn btn-default" }) &nbsp;
+        <button type="submit" class="btn btn-primary">जमा करें</button>
+    </div>
+    <br />
+
+    <div class="row" style="margin: 4px">
+
+        @if (ViewBag.Saved == true)
+        {
+            <div class="@ViewBag.Style" role="alert">@ViewBag.Message</div>
+        }
+
+
+        <div class="alert alert-warning" role="alert">
+            <span class="text-required">*</span> की हुई जानकारी प्रदान करना अनिवार्य है |
+            <b style="font-size:16px;color:red">** जानकारी किसी भी भाषा में दर्ज कर सकते हैं  **</b>
+        </div>
+    </div>
+
+
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            जरूरी जानकारी
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-sm-12 col-sm-4 col-lg-4">
+                    <div class="form-group">
+                        <label for="EventTypeName">कार्यक्रम प्रकार</label> <span class="text-required">*</span>
+                        @Html.TextBoxFor(model => model.EventTypeName, new { @class = "form-control", placeholder = "Event Type", @maxlength = 100 })
+                        @Html.ValidationMessageFor(model => model.EventTypeName, "", new { @class = "text-error" })
+                    </div>
+                </div>
+                <div class="col-sm-12 col-sm-4 col-lg-4">
+                    <div class="form-group">
+                        <label for="Subject">विषय </label> <span class="text-required">*</span>
+                        @Html.TextAreaFor(model => model.Subject, new { @class = "form-control", placeholder = "Subject", @maxlength = 200 })
+                        @Html.ValidationMessageFor(model => model.Subject, "", new { @class = "text-error" })
+                    </div>
+                </div>
+                <div class="col-sm-12 col-sm-4 col-lg-4">
+                    <div class="form-group">
+                      
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            स्थान की  जानकारी
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-sm-12 col-sm-4 col-lg-4">
+                    <div class="form-group">
+                        <label for="LocationName">स्थान</label> <span class="text-required">*</span>
+                        @Html.TextBoxFor(model => model.LocationName, new { @class = "form-control", placeholder = "Event Type", @maxlength = 100 })
+                        @Html.ValidationMessageFor(model => model.LocationName, "", new { @class = "text-error" })
+                    </div>
+                </div>
+                <div class="col-sm-12 col-sm-4 col-lg-4">
+                    <div class="form-group">
+                        <label for="DistrictName">जिला </label> <span class="text-required">*</span>
+                        @Html.TextBoxFor(model => model.DistrictName, new { @class = "form-control", placeholder = "Subject", @maxlength = 200 })
+                        @Html.ValidationMessageFor(model => model.DistrictName, "", new { @class = "text-error" })
+                    </div>
+                </div>
+                <div class="col-sm-12 col-sm-4 col-lg-4">
+                    <div class="form-group">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            समय की जानकारी
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-sm-12 col-sm-4 col-lg-4">
+                    <div class="form-group">
+                        <label for="EventDateFrom">दिनांक से</label> <span class="text-required">*</span>
+                        @Html.TextBoxFor(model => model.EventDateFrom, new { @class = "form-control", placeholder = "Event Date From ", @maxlength = 10,@type = "date" })
+                        @Html.ValidationMessageFor(model => model.EventDateFrom, "", new { @class = "text-error" })
+                    </div>
+                </div>
+                <div class="col-sm-12 col-sm-4 col-lg-4">
+                    <div class="form-group">
+                        <label for="EventDateTo">दिनांक तक </label> <span class="text-required">*</span>
+                        @Html.TextBoxFor(model => model.EventDateTo, new { @class = "form-control", placeholder = "Event Date To", @maxlength = 10, @type = "date" })
+                        @Html.ValidationMessageFor(model => model.EventDateTo, "", new { @class = "text-error" })
+                    </div>
+                </div>
+                <div class="col-sm-12 col-sm-4 col-lg-4">
+                    <div class="form-group">
+
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 col-sm-4 col-lg-4">
+                    <div class="form-group">
+                        <label for="EventTimeFrom">समय से</label> <span class="text-required">*</span>
+                        @Html.TextBoxFor(model => model.EventTimeFrom, new { @class = "form-control", placeholder = "Event Time From ", @maxlength = 100 })
+                        @Html.ValidationMessageFor(model => model.EventDateFrom, "", new { @class = "text-error" })
+                    </div>
+                </div>
+                <div class="col-sm-12 col-sm-4 col-lg-4">
+                    <div class="form-group">
+                        <label for="EventTimeTo">समय तक </label> <span class="text-required">*</span>
+                        @Html.TextBoxFor(model => model.EventTimeTo, new { @class = "form-control", placeholder = "Event Time To", @maxlength = 200 })
+                        @Html.ValidationMessageFor(model => model.EventTimeTo, "", new { @class = "text-error" })
+                    </div>
+                </div>
+                <div class="col-sm-12 col-sm-4 col-lg-4">
+                    <div class="form-group">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            पूर्ण जानकारी
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-sm-12 col-sm-4 col-lg-4">
+                    <div class="form-group">
+                        <label for="Body">विस्तृत जानकारी </label> <span class="text-required">*</span>
+                        @Html.TextAreaFor(model => model.Body, new { @class = "form-control", placeholder = "Event Type", @maxlength = 100 })
+                        @Html.ValidationMessageFor(model => model.Body, "", new { @class = "text-error" })
+                    </div>
+                </div>
+                <div class="col-sm-12 col-sm-4 col-lg-4">
+                    <div class="form-group">
+                      
+                    </div>
+                </div>
+                <div class="col-sm-12 col-sm-4 col-lg-4">
+                    <div class="form-group">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+
+<link href="~/Content/jquery-ui.css" rel="stylesheet" />
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<script src="~/Scripts/application/admin/AddRathoreDetails.js"></script>
+<script type="text/javascript" src="//tinymce.cachefly.net/4.0/tinymce.min.js"></script>
+<script type="text/javascript">
+    tinymce.init({ selector: 'textarea', width: 500 });
+</script>
+
+
+
+

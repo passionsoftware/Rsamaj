@@ -178,6 +178,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\addtohomescreen.css" />
     <Content Include="Content\admin.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\FSGridmvc.css" />
@@ -191,6 +192,13 @@
     <Content Include="images\posted\koshaadhyakash.jpg" />
     <Content Include="images\posted\rathoremahasachiv.jpg" />
     <Content Include="images\veer-durgadas.jpg" />
+    <Content Include="imgs\action-icon-android.png" />
+    <Content Include="imgs\action-icon-ios6.png" />
+    <Content Include="imgs\action-icon-ios7.png" />
+    <Content Include="imgs\icon-152x152.png" />
+    <Content Include="imgs\icon-16x16.png" />
+    <Content Include="imgs\icon-196x196.png" />
+    <Content Include="imgs\icon.svg" />
     <Content Include="Places.html" />
     <Content Include="favicon.ico" />
     <Content Include="About.html" />
@@ -203,6 +211,7 @@
     <Content Include="Home.html" />
     <Content Include="Events.html" />
     <Content Include="RathoreDetail.html" />
+    <Content Include="Scripts\AddToHomeScreen.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="Scripts\angular.min.js" />
@@ -242,6 +251,7 @@
     <Content Include="Content\font\fontawesome-webfont.ttf" />
     <Content Include="Content\font\fontawesome-webfont.woff" />
     <Content Include="Content\font\fontawesome-webfont.woff2" />
+    <Content Include="Areas\admin\Views\Events\AddEvent.cshtml" />
     <None Include="Properties\PublishProfiles\rathoresamaj.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\gridmvc.js" />

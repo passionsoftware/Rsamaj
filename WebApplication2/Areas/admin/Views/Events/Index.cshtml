@@ -1,6 +1,9 @@
-﻿
+﻿@model IEnumerable<RS.DataModel.EventModel>
+@using GridMvc.Html
+@using RS.DataModel;
+
 @{
-    ViewBag.Title = ".:: कार्यक्रम ::..";
+    ViewBag.Title = ".:: Events ::..";
     Layout = "~/Areas/admin/Views/Shared/_Layout.cshtml";
 }
 
@@ -8,13 +11,69 @@
 <hr />
 <ol class="breadcrumb">
     <li><a href="#">प्रारम्भ</a></li>
-    <li class="active">कार्यक्रम</li>
+    <li class="active">कार्यक्रम </li>
 </ol>
 <p style="text-align:left">
     <b> क्षत्रिय राठौर समाज के एडमिन पोर्टल मे आप का बहुत बहुत स्वागत है.</b> <br /><br />
-
-    अवसक्ता अनुसार आप ऊपर दिए हुए लिंक को प्रेस करे. ये आपके कार्य सरूप आपको उस पृष्ठ पर ले  जायेगा जहा आप अपना कार्य पूरा कर सकते हैं. <br />
-    अगर आप गलती से इस पेज पर लॉगिन हुए है तो कृपया लॉगआउट को दबा कर बहार निकल जाये
-    <br /><br /><b style="font-size:20px">"धन्यवाद"</b>
 </p>
+
+<div class="col-lg-12 col-sm-12 col-md-12 text-right">
+    @Html.ActionLink("नया कार्यक्रम", "AddEvent", "Events", new { @class = "btn btn-primary" })
+    @*<button type="button" class="btn btn-danger"></button>*@
+</div>
+
+
+<div class="row">
+    <div class="col-md-12">
+        @if (TempData["Message"] != null)
+            {
+            <div class="alert alert-success" role="alert">@TempData["Message"]</div>
+        }
+    </div>
+</div>
+
+<br />
+
+<div class="row">
+    <div class="col-md-12">
+        @Html.Grid(Model).Columns(columns =>
+       {
+           columns.Add(c => c.EventTypeName).Titled("कार्यक्रम प्रकार ");
+           columns.Add(c => c.Subject).Titled("विषय").Filterable(true);
+           columns.Add(c => c.EventDateFrom).Titled("दिनांक से  ").Filterable(true).Sortable(true)
+                   .RenderValueAs(c => Convert.ToDateTime(c.EventDateFrom).ToString("d"));
+           columns.Add(c => c.EventTimeFrom).Titled("समय  से ").Filterable(true);
+           columns.Add(c => c.EventDateTo).Titled("दिनांक तक ").Filterable(true).Filterable(true).Sortable(true)
+                   .RenderValueAs(c => Convert.ToDateTime(c.EventDateTo).ToString("d"));
+           columns.Add(c => c.EventTimeTo).Titled("समय  तक ").Filterable(true);
+           columns.Add(c => c.LocationName).Titled("स्थान ").Filterable(true);
+           columns.Add(c => c.DistrictName).Titled("जिला").Filterable(true);
+           columns.Add(c => c.CreatedByName).Titled("अंकित करने वाला ").Filterable(true);
+           columns.Add()
+                  .Titled("")
+                  .SetWidth(10)
+                  .Filterable(true)
+                  .Sanitized(false)
+                  .Encoded(false)
+                  .RenderValueAs(c => Html.ActionLink(" ", "EditRathoreDetail", "RathoreDetails", new { id = c.EventId }, new { @class = "glyphicon glyphicon-edit" })
+                  .ToHtmlString());
+
+           if (Session["LoginSuccesFull"] != null && (((LoginModel)Session["LoginSuccesFull"]).Role == 99 || ((LoginModel)Session["LoginSuccesFull"]).Role == 1))
+           {
+               columns.Add()
+                   .Titled("")
+                   .SetWidth(10)
+                   .Filterable(true)
+                   .Sanitized(false)
+                   .Encoded(false)
+                   .RenderValueAs(c => Html.ActionLink(" ", "DeleteRathoreDetail", "RathoreDetails", new { id = c.EventId }, new { onclick = "return confirm('Are you sure you wish to delete this Rathore details?');", @class = "glyphicon glyphicon-trash" })
+                   .ToHtmlString());
+           }
+
+       }).WithPaging(20).Sortable(true)
+
+
+    </div>
+
+</div>
 
