@@ -15,20 +15,6 @@
     <li class="active">नया कार्यक्रम </li>
 </ol>
 
-@using (Html.BeginForm("AddRathoreDetail", "RathoreDetails", FormMethod.Post, new { role = "form", @novalidate = "novalidate" }))
-{
-    <div class="row text-right" style="padding-right:10px">
-        @Html.ActionLink("पीछे जाये", "Index", "RathoreDetail", new { @class = "btn btn-default" }) &nbsp;
-        <button type="submit" class="btn btn-primary">जमा करें</button>
-    </div>
-    <br />
-
-    <div class="row" style="margin: 4px">
-
-        @if (ViewBag.Saved == true)
-        {
-            <div class="@ViewBag.Style" role="alert">@ViewBag.Message</div>
-        }
 
 
 @using (Html.BeginForm("AddRathoreDetail", "RathoreDetails", FormMethod.Post, new { role = "form", @novalidate = "novalidate" }))
@@ -172,7 +158,7 @@
                     <div class="form-group">
                         <label for="Body">विस्तृत जानकारी </label> <span class="text-required">*</span>
                         @Html.TextAreaFor(model => model.Body, new { @class = "form-control", placeholder = "Event Type", @maxlength = 100 })
-                        @Html.ValidationMessageFor(model => model.Body, "", new { @class = "text-error" })
+    @Html.ValidationMessageFor(model => model.Body, "", new { @class = "text-error" })
                     </div>
                 </div>
                 <div class="col-sm-12 col-sm-4 col-lg-4">
@@ -197,7 +183,7 @@
 <script src="~/Scripts/application/admin/AddRathoreDetails.js"></script>
 <script type="text/javascript" src="//tinymce.cachefly.net/4.0/tinymce.min.js"></script>
 <script type="text/javascript">
-    tinymce.init({ selector: 'textarea', width: 500 });
+    tinymce.init({  selector: 'textarea', width: 500 });
 </script>
 
 

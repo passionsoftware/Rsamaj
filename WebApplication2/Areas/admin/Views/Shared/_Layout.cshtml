@@ -53,13 +53,13 @@
                     {
                         <li>@Html.ActionLink("समाचार", "Index", "News")</li>
                     }
-                    @if (Session["LoginSuccesFull"] != null && ((LoginModel)Session["LoginSuccesFull"]).Role != null && (((LoginModel)Session["LoginSuccesFull"]).Role == 1 || ((LoginModel)Session["LoginSuccesFull"]).Role == 2 ||
+                    @*@if (Session["LoginSuccesFull"] != null && ((LoginModel)Session["LoginSuccesFull"]).Role != null && (((LoginModel)Session["LoginSuccesFull"]).Role == 1 || ((LoginModel)Session["LoginSuccesFull"]).Role == 2 ||
                                                                          ((LoginModel)Session["LoginSuccesFull"]).Role == 3 || ((LoginModel)Session["LoginSuccesFull"]).Role == 99))
                     {
                         <li>@Html.ActionLink("एल्बम", "Index", "Albums")</li>
 
                         <li>@Html.ActionLink("चित्र", "Index", "Gallary")</li>
-                    }
+                    }*@
 
                     @if (Session["LoginSuccesFull"] != null && ((LoginModel)Session["LoginSuccesFull"]).Role != null && (((LoginModel)Session["LoginSuccesFull"]).Role == 1 || ((LoginModel)Session["LoginSuccesFull"]).Role == 99))
                     {
