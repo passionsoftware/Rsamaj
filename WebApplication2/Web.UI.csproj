@@ -198,6 +198,12 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Contact.html" />
+    <Content Include="google1f4988eb3612e9b3.html" />
+    <Content Include="images\distlevelpost\arunrathore.jpg" />
+    <Content Include="images\distlevelpost\kishorerathore.jpg" />
+    <Content Include="images\distlevelpost\noimage.png" />
+    <Content Include="images\distlevelpost\RakeshRathore.jpg" />
+    <Content Include="images\distlevelpost\vivekrathore.jpg" />
     <Content Include="images\posted\adhyaksha.jpg" />
     <Content Include="images\posted\koshaadhyakash.jpg" />
     <Content Include="images\posted\rathoremahasachiv.jpg" />
