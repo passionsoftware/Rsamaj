@@ -13,8 +13,8 @@ namespace RS.DataModel
     {
         public int EventId { get; set; }
 
-        
-        public int EventType { get; set; }
+
+        public int? EventType { get; set; }
 
         [Required(ErrorMessage = "जानकारी अनिवार्य है !!")]
         [StringLength(15, MinimumLength = 3, ErrorMessage = "काम से काम 3 - 15 शब्दों में जानकारी भरे !!")]
@@ -25,20 +25,25 @@ namespace RS.DataModel
         public string Subject { get; set; }
 
         [Required(ErrorMessage = "जानकारी अनिवार्य है !!")]
-        [StringLength(300, MinimumLength = 10, ErrorMessage = "काम से काम 4 - 300 शब्दों में जानकारी भरे !!")]
+        [StringLength(1000, MinimumLength = 10, ErrorMessage = "काम से काम 4 - 1000 शब्दों में जानकारी भरे !!")]
         [AllowHtml]
         public string Body { get; set; }
 
-        [Required(ErrorMessage = "जानकारी अनिवार्य है !!")]
-        [StringLength(10, MinimumLength = 10, ErrorMessage = "काम से काम 10 शब्दों में जानकारी भरे !!")]
+
         public DateTime? EventDateFrom { get; set; }
+
+
+        [Required(ErrorMessage = "जानकारी अनिवार्य है !!")]
+        public string EventDateFromFormated { get; set; }
 
         [Required(ErrorMessage = "जानकारी अनिवार्य है !!")]
         public string EventTimeFrom { get; set; }
 
-        [Required(ErrorMessage = "जानकारी अनिवार्य है !!")]
-        [StringLength(10, MinimumLength = 10, ErrorMessage = "काम से काम 10 शब्दों में जानकारी भरे !!")]
+
         public DateTime? EventDateTo { get; set; }
+
+        [Required(ErrorMessage = "जानकारी अनिवार्य है !!")]
+        public string EventDateToFormated { get; set; }
 
         [Required(ErrorMessage = "जानकारी अनिवार्य है !!")]
         public string EventTimeTo { get; set; }
@@ -70,5 +75,11 @@ namespace RS.DataModel
         public DateTime? ModifiedOn { get; set; }
 
         public bool IsActive { get; set; }
+    }
+
+    public class EventModelDetails
+    {
+        public List<EventModel> CurrentMonthEvent { get; set; }
+        public List<EventModel> TotalEvent { get; set; }
     }
 }

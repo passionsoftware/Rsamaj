@@ -39,23 +39,14 @@
         <div class="col-md-12">
             @Html.Grid(Model).Columns(columns =>
        {
-           columns.Add(c => c.Name).Titled("पूरा नाम");
-           columns.Add(c => c.FatherName).Titled("पिता का नाम").Filterable(true);
-           columns.Add(c => c.DateOfBirth).Titled("जन्म तारीख").Filterable(true).Sortable(true)
-                   .RenderValueAs(c => Convert.ToDateTime(c.DateOfBirth).ToString("d"));
-           columns.Add(c => c.PhoneNumber).Titled("फ़ोन नंबर").Filterable(true);
-           columns.Add(c => c.CurrentDistrictName).Titled("वर्तमान जिला").Filterable(true);
-           columns.Add(c => c.CurrentLocationName).Titled("वर्तमान स्थान").Filterable(true);
-           columns.Add(c => c.NativeDistrictName).Titled("स्थायी जिला").Filterable(true);
-           columns.Add(c => c.NativeLocationName).Titled("स्थायी स्थान").Filterable(true);
            columns.Add()
-                  .Titled("")
-                  .SetWidth(10)
-                  .Filterable(true)
-                  .Sanitized(false)
-                  .Encoded(false)
-                  .RenderValueAs(c => Html.ActionLink(" ", "EditRathoreDetail", "RathoreDetails", new { id = c.RathoreDetailId }, new { @class = "glyphicon glyphicon-edit" })
-                  .ToHtmlString());
+                 .Titled("")
+                 .SetWidth(10)
+                 .Filterable(true)
+                 .Sanitized(false)
+                 .Encoded(false)
+                 .RenderValueAs(c => Html.ActionLink(" ", "EditRathoreDetail", "RathoreDetails", new { id = c.RathoreDetailId }, new { @class = "glyphicon glyphicon-edit" })
+                 .ToHtmlString());
 
            if (Session["LoginSuccesFull"] != null && (((LoginModel)Session["LoginSuccesFull"]).Role == 99 || ((LoginModel)Session["LoginSuccesFull"]).Role == 1))
            {
@@ -68,8 +59,17 @@
                    .RenderValueAs(c => Html.ActionLink(" ", "DeleteRathoreDetail", "RathoreDetails", new { id = c.RathoreDetailId }, new { onclick = "return confirm('Are you sure you wish to delete this Rathore details?');", @class = "glyphicon glyphicon-trash" })
                    .ToHtmlString());
            }
+           columns.Add(c => c.Name).Titled("पूरा नाम").Filterable(true).Sortable(true);
+           columns.Add(c => c.FatherName).Titled("पिता का नाम").Filterable(true);
+           columns.Add(c => c.DateOfBirth).Titled("जन्म तारीख").Filterable(true).Sortable(true)
+                   .RenderValueAs(c => Convert.ToDateTime(c.DateOfBirth).ToString("d"));
+           columns.Add(c => c.PhoneNumber).Titled("फ़ोन नंबर").Filterable(true);
+           columns.Add(c => c.CurrentDistrictName).Titled("वर्तमान जिला").Filterable(true);
+           columns.Add(c => c.CurrentLocationName).Titled("वर्तमान स्थान").Filterable(true);
+           columns.Add(c => c.NativeDistrictName).Titled("स्थायी जिला").Filterable(true);
+           columns.Add(c => c.NativeLocationName).Titled("स्थायी स्थान").Filterable(true);
 
-       }).WithPaging(20).Sortable(true)
+       }).WithPaging(10).Sortable(true)
 
 
         </div>

@@ -37,40 +37,41 @@
 <div class="row">
     <div class="col-md-12">
         @Html.Grid(Model).Columns(columns =>
+   {
+       columns.Add()
+             .Titled("")
+             .SetWidth(10)
+             .Filterable(true)
+             .Sanitized(false)
+             .Encoded(false)
+             .RenderValueAs(c => Html.ActionLink(" ", "EditEvent", "Events", new { id = c.EventId }, new { @class = "glyphicon glyphicon-edit" })
+             .ToHtmlString());
+
+       if (Session["LoginSuccesFull"] != null && (((LoginModel)Session["LoginSuccesFull"]).Role == 99 || ((LoginModel)Session["LoginSuccesFull"]).Role == 1))
        {
-           columns.Add(c => c.EventTypeName).Titled("कार्यक्रम प्रकार ");
-           columns.Add(c => c.Subject).Titled("विषय").Filterable(true);
-           columns.Add(c => c.EventDateFrom).Titled("दिनांक से  ").Filterable(true).Sortable(true)
-                   .RenderValueAs(c => Convert.ToDateTime(c.EventDateFrom).ToString("d"));
-           columns.Add(c => c.EventTimeFrom).Titled("समय  से ").Filterable(true);
-           columns.Add(c => c.EventDateTo).Titled("दिनांक तक ").Filterable(true).Filterable(true).Sortable(true)
-                   .RenderValueAs(c => Convert.ToDateTime(c.EventDateTo).ToString("d"));
-           columns.Add(c => c.EventTimeTo).Titled("समय  तक ").Filterable(true);
-           columns.Add(c => c.LocationName).Titled("स्थान ").Filterable(true);
-           columns.Add(c => c.DistrictName).Titled("जिला").Filterable(true);
-           columns.Add(c => c.CreatedByName).Titled("अंकित करने वाला ").Filterable(true);
            columns.Add()
-                  .Titled("")
-                  .SetWidth(10)
-                  .Filterable(true)
-                  .Sanitized(false)
-                  .Encoded(false)
-                  .RenderValueAs(c => Html.ActionLink(" ", "EditRathoreDetail", "RathoreDetails", new { id = c.EventId }, new { @class = "glyphicon glyphicon-edit" })
-                  .ToHtmlString());
+               .Titled("")
+               .SetWidth(10)
+               .Filterable(true)
+               .Sanitized(false)
+               .Encoded(false)
+               .RenderValueAs(c => Html.ActionLink(" ", "DeleteEvent", "Events", new { id = c.EventId }, new { onclick = "return confirm('Are you sure you wish to delete this Rathore details?');", @class = "glyphicon glyphicon-trash" })
+               .ToHtmlString());
+       }
+       columns.Add(c => c.EventTypeName).Titled("कार्यक्रम प्रकार ");
+       columns.Add(c => c.Subject).Titled("विषय").Filterable(true);
+       columns.Add(c => c.EventDateFrom).Titled("दिनांक से  ").Filterable(true).Sortable(true)
+               .RenderValueAs(c => Convert.ToDateTime(c.EventDateFrom).ToString("d"));
+       columns.Add(c => c.EventTimeFrom).Titled("समय  से ").Filterable(true);
+       columns.Add(c => c.EventDateTo).Titled("दिनांक तक ").Filterable(true).Filterable(true).Sortable(true)
+               .RenderValueAs(c => Convert.ToDateTime(c.EventDateTo).ToString("d"));
+       columns.Add(c => c.EventTimeTo).Titled("समय  तक ").Filterable(true);
+       columns.Add(c => c.LocationName).Titled("स्थान ").Filterable(true);
+       columns.Add(c => c.DistrictName).Titled("जिला").Filterable(true);
+       columns.Add(c => c.CreatedByName).Titled("अंकित करने वाला ").Filterable(true);
 
-           if (Session["LoginSuccesFull"] != null && (((LoginModel)Session["LoginSuccesFull"]).Role == 99 || ((LoginModel)Session["LoginSuccesFull"]).Role == 1))
-           {
-               columns.Add()
-                   .Titled("")
-                   .SetWidth(10)
-                   .Filterable(true)
-                   .Sanitized(false)
-                   .Encoded(false)
-                   .RenderValueAs(c => Html.ActionLink(" ", "DeleteRathoreDetail", "RathoreDetails", new { id = c.EventId }, new { onclick = "return confirm('Are you sure you wish to delete this Rathore details?');", @class = "glyphicon glyphicon-trash" })
-                   .ToHtmlString());
-           }
 
-       }).WithPaging(20).Sortable(true)
+   }).WithPaging(10).Sortable(true)
 
 
     </div>

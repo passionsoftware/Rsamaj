@@ -175,6 +175,7 @@
     <Compile Include="Areas\admin\Controllers\RathoreDetailsController.cs" />
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\ContactsController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\EventController.cs" />
     <Compile Include="Controllers\GallaryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -186,6 +187,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\admin\images\rathore-rajput-logo-wallpapers.jpg" />
     <Content Include="Content\addtohomescreen.css" />
     <Content Include="Content\admin.css" />
     <Content Include="Content\font-awesome.min.css" />
@@ -442,6 +444,8 @@
     <Content Include="Scripts\application.js" />
     <Content Include="Scripts\angular-route.min.js" />
     <Content Include="Scripts\application\About.js" />
+    <Content Include="Scripts\application\admin\EditEventDetails.js" />
+    <Content Include="Scripts\application\admin\AddEventDetails.js" />
     <Content Include="Scripts\application\admin\EditRathoreDetails.js" />
     <Content Include="Scripts\application\admin\AddRathoreDetails.js" />
     <Content Include="Scripts\application\Gallary.js" />
@@ -479,6 +483,7 @@
     <Content Include="net_cs\Web.config" />
     <Content Include="net_cs\uploads\_cache\_cache_image.cache" />
     <Content Include="net_cs\uploads\Guest\_cache\_cache_image.cache" />
+    <Content Include="Areas\admin\Views\Events\EditEvent.cshtml" />
     <None Include="Properties\PublishProfiles\rathoresamaj.pubxml" />
     <Content Include="richtexteditor.lic" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
@@ -522,6 +527,9 @@
     <Content Include="Views\Event\Index.cshtml" />
     <Content Include="Views\Gallary\Index.cshtml" />
     <Content Include="Views\News\Index.cshtml" />
+    <Content Include="Views\Error\Index.cshtml" />
+    <Content Include="Views\Error\PageNotFound.cshtml" />
+    <Content Include="Views\Error\UnAuthorized.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

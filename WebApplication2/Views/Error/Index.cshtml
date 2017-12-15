@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "..:: Rathore Samaj : Error on Page ::..";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="form-group">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1 headerText">
+            तकनिकी खराबी
+        </div>
+    </div>
+    <br /><br />
+    <div class="col-lg-12 col-sm-12 col-md-12">
+        <div class="form-group text-center">
+            <div class="alert alert-info" style="font-size:14px;font-weight:bold;">
+                कृपया किये गए कार्य को दुबारा करने की कोशिश करे . कुछ तकनिकी ख़राबी के वजह से कार्य नहीं हो पाया या फिर एडमिन को कांटेक्ट करे| <br />
+                <a href="javascript:void(0)" onclick="ShowErrorDetail();" style="text-decoration:none">@ViewBag.ErrorId</a>
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="col-lg-12 col-sm-12 col-md-12">
+        <div class="form-group text-center" id="ErrorDetail" style="display:none">
+            <div class="alert alert-danger">
+                <b>@ViewBag.Message</b>
+                @ViewBag.StackTrace
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    function ShowErrorDetail()
+    {
+        $("#ErrorDetail").toggle();
+    }
+
+</script>

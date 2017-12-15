@@ -16,6 +16,8 @@ namespace RS.DataAccessLayer
         {
             int result = 0;
 
+            CheckForLocation_Event(ref obj, obj);
+
             using (RSEntities objEnt = new RSEntities())
             {
 
@@ -48,6 +50,9 @@ namespace RS.DataAccessLayer
         public int UpdateEvent(EventModel obj)
         {
             int result = 0;
+
+            CheckForLocation_Event(ref obj, obj);
+
 
             using (RSEntities objEnt = new RSEntities())
             {
@@ -100,6 +105,7 @@ namespace RS.DataAccessLayer
 
                           select new EventModel
                           {
+                              EventId = obj.EventId,
                               Subject = obj.Subject,
                               Body   = obj.Body,
                               EventDateFrom = obj.EventDateFrom,
@@ -114,6 +120,8 @@ namespace RS.DataAccessLayer
                               CreatedOn = obj.CreatedOn,
                               CreatedBy = obj.CreatedBy,
                               CreaterName = RD.Name,
+
+                              EventTypeName = ET.EventType,
 
                               ModifiedBy = obj.ModifiedBy,
                           }).ToList();
@@ -136,6 +144,7 @@ namespace RS.DataAccessLayer
                           where obj.EventId == Id
                           select new EventModel
                           {
+                              EventId = obj.EventId,
                               Subject = obj.Subject,
                               Body = obj.Body,
                               EventDateFrom = obj.EventDateFrom,
@@ -151,11 +160,108 @@ namespace RS.DataAccessLayer
                               CreatedBy = obj.CreatedBy,
                               CreaterName = RD.Name,
 
+                              EventTypeName = ET.EventType,
+
                               ModifiedBy = obj.ModifiedBy,
                           }).ToList().FirstOrDefault();
             }
 
             return result;
+        }
+
+
+        private EventModel CheckForLocation_Event(ref EventModel result, EventModel obj)
+        {
+
+            RS_District CurrentDistrictResult = new RS_District();
+            RS_Location CurrentLocationResult = new RS_Location();
+            RS_EventType EventTypeResult = new RS_EventType();
+
+
+            using (RSEntities objEnt = new RSEntities())
+            {
+                if (obj.DistrictName.Trim() != string.Empty)
+                {
+                    /// Checking for current district present or not
+                    var CurrentDistrict = objEnt.RS_District.Where(o => o.DistrictName.Trim().ToUpper() == obj.DistrictName.Trim().ToUpper());
+
+                    if (CurrentDistrict.Count() > 0)
+                    {
+                        CurrentDistrictResult = CurrentDistrict.FirstOrDefault();
+                    }
+                    else
+                    {
+                        RS_District oData = new RS_District();
+                        oData.DistrictName = obj.DistrictName;
+                        oData.CreatedOn = DateTime.Now;
+                        oData.CreatedBy = obj.CreatedBy;
+                        objEnt.RS_District.Add(oData);
+                        objEnt.SaveChanges();
+                        CurrentDistrictResult = oData;
+                    }
+                }
+
+                result.District = CurrentDistrictResult != null && CurrentDistrictResult.DistrictId != 0 ? CurrentDistrictResult.DistrictId : (int?)null;
+            }
+
+            using (RSEntities objEnt = new RSEntities())
+            {
+                if (obj.LocationName.Trim() != string.Empty)
+                {
+                    /// Checking for current location present or not
+                    var CurrentLocation = objEnt.RS_Location.Where(o => o.LocationName.Trim().ToUpper() == obj.LocationName.Trim().ToUpper());
+
+                    if (CurrentLocation.Count() > 0)
+                    {
+                        CurrentLocationResult = CurrentLocation.FirstOrDefault();
+                    }
+                    else
+                    {
+                        RS_Location oData = new RS_Location();
+                        oData.LocationName = obj.LocationName;
+                        oData.DistrictId = CurrentDistrictResult.DistrictId;
+                        oData.CreatedOn = DateTime.Now;
+                        oData.CreatedBy = obj.CreatedBy;
+                        objEnt.RS_Location.Add(oData);
+                        objEnt.SaveChanges();
+                        CurrentLocationResult = oData;
+                    }
+                }
+
+                result.Location = CurrentLocationResult != null && CurrentLocationResult.LocationId != 0 ? CurrentLocationResult.LocationId : (int?)null;
+
+            }
+
+
+            using (RSEntities objEnt = new RSEntities())
+            {
+                if (obj.EventTypeName.Trim() != string.Empty)
+                {
+                    /// Checking for current location present or not
+                    var EventType = objEnt.RS_EventType.Where(o => o.EventType.Trim().ToUpper() == obj.EventTypeName.Trim().ToUpper());
+
+                    if (EventType.Count() > 0)
+                    {
+                        EventTypeResult = EventType.FirstOrDefault();
+                    }
+                    else
+                    {
+                        RS_EventType oData = new RS_EventType();
+                        oData.EventType = obj.EventTypeName;
+                        oData.CreatedOn = DateTime.Now;
+                        oData.CreatedBy = obj.CreatedBy;
+                        objEnt.RS_EventType.Add(oData);
+                        objEnt.SaveChanges();
+                        EventTypeResult = oData;
+                    }
+                }
+
+                result.EventType = EventTypeResult != null && EventTypeResult.EventTypeId != 0 ? EventTypeResult.EventTypeId : (int?)null;
+
+            }
+
+            return result;
+
         }
     }
 }
