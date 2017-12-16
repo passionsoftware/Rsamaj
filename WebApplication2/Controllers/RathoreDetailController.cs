@@ -24,7 +24,7 @@ namespace WebApplication2.Controllers
                 rathoreDetail.Add(val);
             }
 
-            objDisplay.RathoreDetails = rathoreDetail;
+            objDisplay.RathoreDetails = rathoreDetail.OrderBy(o => o.Name).ToList();
 
             return View(objDisplay);
         }

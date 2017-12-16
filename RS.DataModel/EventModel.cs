@@ -17,15 +17,14 @@ namespace RS.DataModel
         public int? EventType { get; set; }
 
         [Required(ErrorMessage = "जानकारी अनिवार्य है !!")]
-        [StringLength(15, MinimumLength = 3, ErrorMessage = "काम से काम 3 - 15 शब्दों में जानकारी भरे !!")]
+        [StringLength(20, MinimumLength = 3, ErrorMessage = "काम से काम 3 - 20 शब्दों में जानकारी भरे !!")]
         public string EventTypeName { get; set; }
 
         [Required(ErrorMessage = "जानकारी अनिवार्य है !!")]
-        [StringLength(100, MinimumLength = 4, ErrorMessage = "काम से काम 4 - 100 शब्दों में जानकारी भरे !!")]
+        [StringLength(200, MinimumLength = 4, ErrorMessage = "काम से काम 4 - 200 शब्दों में जानकारी भरे !!")]
         public string Subject { get; set; }
 
         [Required(ErrorMessage = "जानकारी अनिवार्य है !!")]
-        [StringLength(1000, MinimumLength = 10, ErrorMessage = "काम से काम 4 - 1000 शब्दों में जानकारी भरे !!")]
         [AllowHtml]
         public string Body { get; set; }
 
@@ -81,5 +80,12 @@ namespace RS.DataModel
     {
         public List<EventModel> CurrentMonthEvent { get; set; }
         public List<EventModel> TotalEvent { get; set; }
+    }
+
+
+    public class EventModelView
+    {
+        public List<EventModel> CurrentMonthEvent { get; set; }
+        public EventModel SelectedEvent { get; set; }
     }
 }

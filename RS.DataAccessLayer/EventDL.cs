@@ -101,7 +101,7 @@ namespace RS.DataAccessLayer
                           from ET in ent.RS_EventType.Where(ET => ET.EventTypeId  == obj.EventType).DefaultIfEmpty() // <== makes join left join
                           from CDs in ent.RS_District.Where(CD => CD.DistrictId == obj.District).DefaultIfEmpty() // <== makes join left join
                           from CLs in ent.RS_Location.Where(CL => CL.LocationId == obj.Location).DefaultIfEmpty() // <== makes join left join
-                          from RD in ent.RS_RathoreDetails.Where(CL => CL.RathoreDetailId == obj.CreatedBy).DefaultIfEmpty() // <== makes join left join
+                          from RD in ent.RS_RathoreDetails.Where(RDs => RDs.RathoreDetailId == obj.CreatedBy).DefaultIfEmpty() // <== makes join left join
 
                           select new EventModel
                           {
@@ -119,7 +119,7 @@ namespace RS.DataAccessLayer
                               DistrictName = CDs.DistrictName,
                               CreatedOn = obj.CreatedOn,
                               CreatedBy = obj.CreatedBy,
-                              CreaterName = RD.Name,
+                              CreatedByName = RD.Name,
 
                               EventTypeName = ET.EventType,
 
@@ -140,7 +140,7 @@ namespace RS.DataAccessLayer
                           from ET in ent.RS_EventType.Where(ET => ET.EventTypeId == obj.EventType).DefaultIfEmpty() // <== makes join left join
                           from CDs in ent.RS_District.Where(CD => CD.DistrictId == obj.District).DefaultIfEmpty() // <== makes join left join
                           from CLs in ent.RS_Location.Where(CL => CL.LocationId == obj.Location).DefaultIfEmpty() // <== makes join left join
-                          from RD in ent.RS_RathoreDetails.Where(CL => CL.RathoreDetailId == obj.CreatedBy).DefaultIfEmpty() // <== makes join left join
+                          from RD in ent.RS_RathoreDetails.Where(RDs => RDs.RathoreDetailId == obj.CreatedBy).DefaultIfEmpty() // <== makes join left join
                           where obj.EventId == Id
                           select new EventModel
                           {
@@ -158,7 +158,7 @@ namespace RS.DataAccessLayer
                               DistrictName = CDs.DistrictName,
                               CreatedOn = obj.CreatedOn,
                               CreatedBy = obj.CreatedBy,
-                              CreaterName = RD.Name,
+                              CreatedByName = RD.Name,
 
                               EventTypeName = ET.EventType,
 

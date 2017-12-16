@@ -5546,6 +5546,44 @@ a.list-group-item:focus {
   border-bottom-color: #eed3d7;
 }
 
+
+.panel-Events {
+    border-color: #86aa09;
+}
+
+    .panel-Events > .panel-heading {
+        color: #3e5f07;
+        background-color: #e0fa84;
+        border-color: #86aa09;
+    }
+
+        .panel-Events > .panel-heading + .panel-collapse .panel-body {
+            border-top-color: #86aa09;
+        }
+
+    .panel-Events > .panel-footer + .panel-collapse .panel-body {
+        border-bottom-color: #86aa09;
+    }
+
+
+.panel-Events-Main {
+    border-color: #17586d;
+}
+
+    .panel-Events-Main > .panel-heading {
+        color: #17586d;
+        background-color: #4ec4ea;
+        border-color: #17586d;
+    }
+
+        .panel-Events-Main > .panel-heading + .panel-collapse .panel-body {
+            border-top-color: #17586d;
+        }
+
+    .panel-Events-Main > .panel-footer + .panel-collapse .panel-body {
+        border-bottom-color: #17586d;
+    }
+
 .panel-info {
   border-color: #bce8f1;
 }

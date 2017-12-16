@@ -1,0 +1,112 @@
+﻿@model RS.DataModel.EventModelView
+@{
+    ViewBag.Title = "EventDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        @Html.ActionLink("पीछे जाये", "Index", "Event", new { @class = "btn btn-danger" }) &nbsp;
+        <br />
+        <br />
+        <div class="panel panel-Events-Main">
+            <div class="panel-heading" role="tab" id="headingOne">
+                <h4 class="panel-title">
+                    <i class="fa fa-calendar" style="color:#000" aria-hidden="true"></i>&nbsp;<b>@Model.SelectedEvent.Subject.Trim()</b>
+                    <b> @(string.Format("{0:dd-MM-yyyy}", Model.SelectedEvent.EventDateFrom)  ) </b> @(Model.SelectedEvent.EventDateFrom >= DateTime.Now ? "मे होने वाला है" : "को हुआ है " )
+                </h4>
+            </div>
+            <div class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                <div class="panel-body">
+                    <div class="col-md-12">
+                        <b style="color:#0d4398">कार्यक्रम  प्रकार  : </b> <span style="color:#000000;font-size: 15px;font-weight:bold"> @Model.SelectedEvent.EventTypeName </span>
+</div>
+                    <div class="col-md-12">
+                        <b style="color:#0d4398">स्थान   : </b>  <span style="color:#ff6a00;font-size: 15px;font-weight:bold">   @Model.SelectedEvent.LocationName, @Model.SelectedEvent.DistrictName </span>
+                    </div>
+                    <div class="col-md-12">
+                        <b style="color:#0d4398">समय    : </b>  <span style="color:#000000;font-size: 15px;font-weight:bold">   @(string.Format("{0:dd-MM-yyyy}", Model.SelectedEvent.EventDateFrom)  )   @Model.SelectedEvent.EventTimeFrom से @(string.Format("{0:dd-MM-yyyy}", Model.SelectedEvent.EventDateTo))  @Model.SelectedEvent.EventTimeTo </span>
+</div>
+                    <hr />
+                    <div class="col-md-12">
+                         @Html.Raw(Model.SelectedEvent.Body)
+                    </div>
+                    <div class="col-md-12 text-right">
+                        <hr />
+                        <b style="color:#13836f"> ~  @(Model.SelectedEvent.CreatedBy == 0 ? "Admin" : Model.SelectedEvent.CreatedByName)</b>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12 text-left">
+        @Html.ActionLink("पीछे जाये", "Index", "Event", new { @class = "btn btn-danger" }) &nbsp;
+        <a href="whatsapp://send" data-text="@(Model.SelectedEvent.Subject + " on " + string.Format("{0:dd-MM-yyyy}", @Model.SelectedEvent.EventDateFrom))" class="wa_btn wa_btn_s" data-href="http://rathoresamaj.clinikage.com/Event/EventDetails/@Model.SelectedEvent.EventId"
+           onClick="ga('send', 'event', { eventCategory: 'Social', eventAction: 'Share', eventLabel: 'WhatsAppShare', eventValue: 0});">
+            <button class="btn btn-success"><i class="fa fa-whatsapp" aria-hidden="true"></i></button>
+
+            <div class="fb-like"  data-href="http://rathoresamaj.clinikage.com/Event/EventDetails/@Model.SelectedEvent.EventId" data-layout="button_count"
+                 data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
+
+        </a>
+    </div>
+</div>
+<br />
+<div class="row">
+    <div class="col-md-12 subheaderText" style="text-align:left">
+        <u> तत्कालीन महीने के कार्यक्रम </u>
+    </div>
+    </div>
+<br />
+    <div class="row">
+        <div class="col-md-12">
+
+            @if (Model.CurrentMonthEvent.Count() > 0)
+            {
+                foreach (var item in Model.CurrentMonthEvent)
+                {
+                    <div class="panel panel-Events-Main">
+                        <div class="panel-heading" role="tab" id="headingOne">
+                            <h4 class="panel-title">
+                                <a role="button" data-toggle="collapse" style="text-decoration:none" data-parent="#accordion" href="#@(item.EventId + "_" + 1)" aria-expanded="true" aria-controls="collapseOne">
+                                    <i class="fa fa-calendar" style="color:#000" aria-hidden="true"></i>&nbsp;<b>
+                                        @Html.ActionLink(item.Subject.Trim(), "EventDetails", "Event", new { id = item.EventId })
+                                    </b>
+                                </a> on <b> @(string.Format("{0:dd-MM-yyyy}", item.EventDateFrom)  )</b>
+                            </h4>
+                        </div>
+                    </div>
+                }
+            }
+            else
+            {
+                <div class="panel-body">
+                    <div class="col-md-12 text-center">
+                        <div class="alert alert-active" role="alert">
+                            <b style="font-size:14px">  इस महीने के कोई भी कार्यक्रम दर्ज नहीं है. </b>
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+
+    </div>
+
+    <br /><br />
+
+
+    <div id="fb-root"></div>
+    <script>
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = 'https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.11';
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+
+
+

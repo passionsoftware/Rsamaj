@@ -13,9 +13,9 @@
     <br />
     <div class="row">
         <div class="col-md-12">
-            @foreach (var item in Model.TotalEvent)
+            @foreach (var item in Model.CurrentMonthEvent)
             {
-                <div class="panel panel-info">
+                <div class="panel panel-Events-Main">
                     <div class="panel-heading" role="tab" id="headingOne">
                         <h4 class="panel-title">
                             <a role="button" data-toggle="collapse" style="text-decoration:none" data-parent="#accordion" href="#@(item.EventId + "_" + 1)" aria-expanded="true" aria-controls="collapseOne">
@@ -35,7 +35,12 @@
                                 <b style="color:#0d4398">समय    : </b>   @(string.Format("{0:dd-MM-yyyy}", item.EventDateFrom)  )   @item.EventTimeFrom से @(string.Format("{0:dd-MM-yyyy}", item.EventDateTo))  @item.EventTimeTo
                             </div>
                             <div class="col-md-12">
-                                <b style="color:#0d4398">विषय   : </b> @Html.Raw(item.Body)
+                                <b style="color:#0d4398">विषय   : </b> @Html.Raw(item.Body.Length > 2000 ? item.Body.Substring(0, 1990) : item.Body) ...
+                            </div>
+                            <div class="col-md-12">
+                                <br />
+                                <br />
+                                @Html.ActionLink("विस्तार से देखे", "EventDetails", "Event", new { id = item.EventId }, new { @class = "btn btn-danger" })
                             </div>
                             <div class="col-md-12 text-right">
                                 <b style="color:#13836f"> ~  @(item.CreatedBy == 0 ? "Admin" : @item.CreatedByName)</b>
@@ -59,19 +64,19 @@
         <div class="col-md-12">
             @foreach (var item in Model.TotalEvent)
             {
-                <div class="panel panel-danger">
+                <div class="panel panel-Events">
                     <div class="panel-heading" role="tab" id="headingOne">
                         <h4 class="panel-title">
                             <a role="button" data-toggle="collapse" style="text-decoration:none" data-parent="#accordion" href="#@item.EventId" aria-expanded="true" aria-controls="collapseOne">
                                 <i class="fa fa-arrow-circle-right" style="color:#000" aria-hidden="true"></i>&nbsp;<b>@item.Subject.Trim()</b>
-                            </a> on <b> @(string.Format("{0:dd-MM-yyyy}", item.EventDateFrom)  )</b>
+                            </a> मे  <b> @(string.Format("{0:dd-MM-yyyy}", item.EventDateFrom)  )</b>
                         </h4>
                     </div>
                     <div id="@item.EventId" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
                         <div class="panel-body">
-                           <div class="col-md-12">
-                               <b style="color:#0d4398">कार्यक्रम  प्रकार  : </b>  @item.EventTypeName 
-                           </div>
+                            <div class="col-md-12">
+                                <b style="color:#0d4398">कार्यक्रम  प्रकार  : </b>  @item.EventTypeName
+                            </div>
                             <div class="col-md-12">
                                 <b style="color:#0d4398">स्थान   : </b>  <span style="color:#ff6a00;font-size: 15px">   @item.LocationName, @item.DistrictName </span>
                             </div>
@@ -79,33 +84,38 @@
                                 <b style="color:#0d4398">समय    : </b>   @(string.Format("{0:dd-MM-yyyy}", item.EventDateFrom)  )   @item.EventTimeFrom से @(string.Format("{0:dd-MM-yyyy}", item.EventDateTo))  @item.EventTimeTo
                             </div>
                             <div class="col-md-12">
-                                <b style="color:#0d4398">विषय   : </b> @Html.Raw(item.Body)
+                                <b style="color:#0d4398">विषय   : </b> @Html.Raw(item.Body.Length > 2000 ? item.Body.Substring(0, 1990) : item.Body) ...
+                                <br /><br />
+                            </div>
+                            <div class="col-md-12">
+                                <br /><br />
+                                @Html.ActionLink("विस्तार से देखे", "EventDetails", "Event", new { id = item.EventId }, new { @class = "btn btn-danger" })
                             </div>
                             <div class="col-md-12 text-right">
-                                    <b style="color:#13836f"> ~  @(item.CreatedBy == 0 ? "Admin" : @item.CreatedByName)</b>
+                                <b style="color:#13836f"> ~  @(item.CreatedBy == 0 ? "Admin" : @item.CreatedByName)</b>
                             </div>
                         </div>
                     </div>
                 </div>
             }
 
-   @*@Html.Grid(Model).Columns(columns =>
-{
-    columns.Add(c => c.EventTypeName).RenderValueAs(o => "<table><tr><td>" + o.EventTypeName + "</td></tr><tr><td>" + o.LocationName + "</ td ></ tr ></table>").Titled(" ").Encoded(true);
-    //columns.Add(c => c.EventTypeName).Titled("कार्यक्रम प्रकार ");
-    //columns.Add(c => c.Subject).Titled("विषय").Filterable(true);
-    //columns.Add(c => c.EventDateFrom).Titled("दिनांक से  ").Filterable(true).Sortable(true)
-    //        .RenderValueAs(c => Convert.ToDateTime(c.EventDateFrom).ToString("d"));
-    //columns.Add(c => c.EventTimeFrom).Titled("समय  से ").Filterable(true);
-    //columns.Add(c => c.EventDateTo).Titled("दिनांक तक ").Filterable(true).Filterable(true).Sortable(true)
-    //        .RenderValueAs(c => Convert.ToDateTime(c.EventDateTo).ToString("d"));
-    //columns.Add(c => c.EventTimeTo).Titled("समय  तक ").Filterable(true);
-    //columns.Add(c => c.LocationName).Titled("स्थान ").Filterable(true);
-    //columns.Add(c => c.DistrictName).Titled("जिला").Filterable(true);
-    //columns.Add(c => c.CreatedByName).Titled("अंकित करने वाला ").Filterable(true);
+            @*@Html.Grid(Model).Columns(columns =>
+                {
+                    columns.Add(c => c.EventTypeName).RenderValueAs(o => "<table><tr><td>" + o.EventTypeName + "</td></tr><tr><td>" + o.LocationName + "</ td ></ tr ></table>").Titled(" ").Encoded(true);
+                    //columns.Add(c => c.EventTypeName).Titled("कार्यक्रम प्रकार ");
+                    //columns.Add(c => c.Subject).Titled("विषय").Filterable(true);
+                    //columns.Add(c => c.EventDateFrom).Titled("दिनांक से  ").Filterable(true).Sortable(true)
+                    //        .RenderValueAs(c => Convert.ToDateTime(c.EventDateFrom).ToString("d"));
+                    //columns.Add(c => c.EventTimeFrom).Titled("समय  से ").Filterable(true);
+                    //columns.Add(c => c.EventDateTo).Titled("दिनांक तक ").Filterable(true).Filterable(true).Sortable(true)
+                    //        .RenderValueAs(c => Convert.ToDateTime(c.EventDateTo).ToString("d"));
+                    //columns.Add(c => c.EventTimeTo).Titled("समय  तक ").Filterable(true);
+                    //columns.Add(c => c.LocationName).Titled("स्थान ").Filterable(true);
+                    //columns.Add(c => c.DistrictName).Titled("जिला").Filterable(true);
+                    //columns.Add(c => c.CreatedByName).Titled("अंकित करने वाला ").Filterable(true);
 
 
-}).WithPaging(10).Sortable(true).Named("FullEventDetails")*@
+                }).WithPaging(10).Sortable(true).Named("FullEventDetails")*@
 
 
         </div>
@@ -119,6 +129,6 @@
             $(this).parent().find(".fa-arrow-circle-right").removeClass("fa-arrow-circle-right").addClass("fa-arrow-circle-down");
         }).on('hidden.bs.collapse', function () {
             $(this).parent().find(".fa-arrow-circle-down").removeClass("fa-arrow-circle-down").addClass("fa-arrow-circle-right");
-            });
+        });
     });
 </script>

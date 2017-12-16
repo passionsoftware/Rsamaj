@@ -27,5 +27,15 @@ namespace WebApplication2.Controllers
             lstEventDetails.TotalEvent = allEvents;
             return View(lstEventDetails);
         }
+
+        public ActionResult EventDetails(int id)
+        {
+            ViewBag.Style = "alert alert-success";
+            EventModelView eventModelView = new EventModelView();
+            eventModelView.SelectedEvent = _eventDetailBL.GetEventId(id);
+            eventModelView.CurrentMonthEvent = _eventDetailBL.GetAllEvent().Where(o => o.EventDateFrom.Value.Month == DateTime.Now.Month).ToList();
+
+            return View(eventModelView);
+        }
     }
 }

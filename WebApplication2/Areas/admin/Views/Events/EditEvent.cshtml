@@ -79,14 +79,14 @@
                 <div class="col-sm-12 col-sm-4 col-lg-4">
                     <div class="form-group">
                         <label for="DistrictName">जिला </label> <span class="text-required">*</span>
-                        @Html.TextBoxFor(model => model.DistrictName, new { @class = "form-control", placeholder = "Subject", @maxlength = 200 })
+                        @Html.TextBoxFor(model => model.DistrictName, new { @class = "form-control", placeholder = "District Name", @maxlength = 200 })
                         @Html.ValidationMessageFor(model => model.DistrictName, "", new { @class = "text-error" })
                     </div>
                 </div>
                 <div class="col-sm-12 col-sm-4 col-lg-4">
                     <div class="form-group">
                         <label for="LocationName">स्थान</label> <span class="text-required">*</span>
-                        @Html.TextBoxFor(model => model.LocationName, new { @class = "form-control", placeholder = "Event Type", @maxlength = 100 })
+                        @Html.TextBoxFor(model => model.LocationName, new { @class = "form-control", placeholder = "Location Name", @maxlength = 100 })
                         @Html.ValidationMessageFor(model => model.LocationName, "", new { @class = "text-error" })
                     </div>
                 </div>
@@ -169,10 +169,10 @@
 
 
 <link href="~/Content/jquery-ui.css" rel="stylesheet" />
-<script src="//code.jquery.com/jquery-1.10.2.js"></script>
-<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<script src="~/Scripts/jquery-ui.js"></script>
+<script src="//tinymce.cachefly.net/4.0/tinymce.min.js"></script>
 <script src="~/Scripts/application/admin/EditEventDetails.js"></script>
-<script type="text/javascript" src="//tinymce.cachefly.net/4.0/tinymce.min.js"></script>
+
 <script type="text/javascript">
 
     var winWidth = "";
