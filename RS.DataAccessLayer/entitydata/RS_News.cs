@@ -19,13 +19,13 @@ namespace RS.DataAccessLayer.entitydata
         public string Subject { get; set; }
         public string Body { get; set; }
         public string Photo { get; set; }
-        public Nullable<int> Location { get; set; }
-        public Nullable<int> District { get; set; }
         public Nullable<System.DateTime> CreatedOn { get; set; }
         public Nullable<int> CreatedBy { get; set; }
         public Nullable<int> ModifiedBy { get; set; }
         public Nullable<System.DateTime> ModifiedOn { get; set; }
         public Nullable<bool> IsActive { get; set; }
         public bool IsFeatured { get; set; }
+        public string Location { get; set; }
+        public string District { get; set; }
     }
 }

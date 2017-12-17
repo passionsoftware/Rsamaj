@@ -42,9 +42,9 @@
                                 <br />
                                 @Html.ActionLink("विस्तार से देखे", "EventDetails", "Event", new { id = item.EventId }, new { @class = "btn btn-danger" })
                             </div>
-                            <div class="col-md-12 text-right">
+                            @*<div class="col-md-12 text-right">
                                 <b style="color:#13836f"> ~  @(item.CreatedBy == 0 ? "Admin" : @item.CreatedByName)</b>
-                            </div>
+                            </div>*@
                         </div>
                     </div>
                 </div>
@@ -91,9 +91,9 @@
                                 <br /><br />
                                 @Html.ActionLink("विस्तार से देखे", "EventDetails", "Event", new { id = item.EventId }, new { @class = "btn btn-danger" })
                             </div>
-                            <div class="col-md-12 text-right">
+                            @*<div class="col-md-12 text-right">
                                 <b style="color:#13836f"> ~  @(item.CreatedBy == 0 ? "Admin" : @item.CreatedByName)</b>
-                            </div>
+                            </div>*@
                         </div>
                     </div>
                 </div>

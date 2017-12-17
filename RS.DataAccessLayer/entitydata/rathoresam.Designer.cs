@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'E:\rathore samaj\applicationcode\WebApplication2\RS.DataAccessLayer\entitydata\rathoresam.edmx'. 
+﻿// T4 code generation is enabled for model 'E:\rathore samaj\Code\Rsamaj\RS.DataAccessLayer\entitydata\rathoresam.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

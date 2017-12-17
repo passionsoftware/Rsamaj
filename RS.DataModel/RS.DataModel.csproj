@@ -73,6 +73,7 @@
     <Compile Include="ContactModel.cs" />
     <Compile Include="EventModel.cs" />
     <Compile Include="GallaryModel.cs" />
+    <Compile Include="HierarchicalDetail.cs" />
     <Compile Include="LoginModel.cs" />
     <Compile Include="NewsModel.cs" />
     <Compile Include="RathoreDetailModel.cs" />

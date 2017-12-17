@@ -9,16 +9,16 @@
         <EntityTypeShape EntityType="RSModel.RS_ContactUs" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="RSModel.RS_Country" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="RSModel.RS_District" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="RSModel.RS_Event" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="RSModel.RS_EventType" Width="1.5" PointX="4.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="RSModel.RS_Gallary" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="RSModel.RS_Location" Width="1.5" PointX="6.75" PointY="5.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="RSModel.RS_News" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="RSModel.RS_NewsType" Width="1.5" PointX="8.75" PointY="5.75" IsExpanded="true" />
         <EntityTypeShape EntityType="RSModel.RS_Role" Width="1.5" PointX="2.75" PointY="9.75" IsExpanded="true" />
         <EntityTypeShape EntityType="RSModel.RS_State" Width="1.5" PointX="4.75" PointY="9.75" IsExpanded="true" />
         <EntityTypeShape EntityType="RSModel.RS_UserDetail" Width="1.5" PointX="6.75" PointY="9.75" IsExpanded="true" />
         <EntityTypeShape EntityType="RSModel.RS_RathoreDetails" Width="1.5" PointX="9.375" PointY="9.75" />
+        <EntityTypeShape EntityType="RSModel.RS_Event" Width="1.5" PointX="9.375" PointY="0.75" />
+        <EntityTypeShape EntityType="RSModel.RS_News" Width="1.5" PointX="11.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

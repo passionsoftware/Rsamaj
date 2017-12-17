@@ -16,7 +16,7 @@ namespace WebApplication2.Controllers
             RathoreDetailBL _rathoreDetailBL = new RathoreDetailBL();
             RathoreDetailDisplayModel objDisplay =  _rathoreDetailBL.GetDetailsToDisplay();
 
-
+          
             List<RathoreDetailModel> rathoreDetail = new List<RathoreDetailModel>();
             foreach(var val in _rathoreDetailBL.GetAllRathoreDetail())
             {
@@ -24,11 +24,34 @@ namespace WebApplication2.Controllers
                 rathoreDetail.Add(val);
             }
 
+
+
             objDisplay.RathoreDetails = rathoreDetail.OrderBy(o => o.Name).ToList();
 
             return View(objDisplay);
         }
 
+        public ActionResult GetChartView(int id)
+        {
+            TempData["rathoreDetailId"] = id;
+            return View();
+        }
+
+
+        [HttpGet]
+        public JsonResult GetHierarchicalDetail()
+        {
+            int rathoreDetailId = 0;
+            RathoreDetailBL _rathoreDetailBL = new RathoreDetailBL();
+
+            if (TempData["rathoreDetailId"] != null)
+                rathoreDetailId = Convert.ToInt32(TempData["rathoreDetailId"]);
+
+            List<HRathoreDetails> empChartList = new List<HRathoreDetails>();
+            empChartList = _rathoreDetailBL.GetHierarchicalDetail(rathoreDetailId);
+
+            return Json(empChartList, JsonRequestBehavior.AllowGet);
+        }
 
         /// <summary>  
         /// For calculating only age  

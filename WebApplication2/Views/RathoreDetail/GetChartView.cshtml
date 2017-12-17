@@ -1,0 +1,50 @@
+﻿
+@{
+    ViewBag.Title = "GetChartView";
+}
+<style>
+    .google-visualization-orgchart-node {
+        text-align: center;
+        vertical-align: middle;
+        font-family: arial,helvetica;
+        cursor: default;
+        border: 0px solid transparent !important;
+        -moz-border-radius: 5px;
+        -webkit-border-radius: 5px;
+        -webkit-box-shadow: rgba(0, 0, 0, 0.5) 3px 3px 3px;
+        -moz-box-shadow: rgba(0, 0, 0, 0.5) 3px 3px 3px;
+        background-color: #edf7ff;
+        background: -webkit-gradient(linear, left top, left bottom, from(#edf7ff), to(#cde7ee));
+    }
+</style>
+<div class="form-group">
+    <div class="row">
+        <div class="col-md-12 subheaderText " style="text-align:left">
+            <u>पारिवारिक वृक्ष </u>
+        </div>
+    </div>
+    <br />
+    @Html.ActionLink("पीछे जाये", "Index", "RathoreDetail", new { @class = "btn btn-danger" }) &nbsp;
+    <hr />
+    <div class="row">
+        <div class="col-md-12" style="text-align:center">
+            <div id="chart_div"></div>
+        </div>
+    </div>
+    <hr />
+    @Html.ActionLink("पीछे जाये", "Index", "RathoreDetail", new { @class = "btn btn-danger" }) &nbsp;
+</div>
+
+@*<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>*@
+@*<script type="text/javascript" src="https://www.google.com/jsapi"></script>*@
+<script src="~/Scripts/application/admin/ChartDetail.js"></script>
+
+<script type="text/javascript">
+
+
+  
+
+   
+
+    
+</script>  

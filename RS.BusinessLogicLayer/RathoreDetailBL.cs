@@ -61,5 +61,11 @@ namespace RS.BusinessLogicLayer
         {
             return _rathoreDetailDL.CheckRathoreDetailExist(fullName, BirthDate);
         }
+
+
+        public List<HRathoreDetails> GetHierarchicalDetail(int RathoreId)
+        {
+            return _rathoreDetailDL.GetHierarchicalDetail(RathoreId);
+        }
     }
 }

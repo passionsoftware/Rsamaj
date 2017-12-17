@@ -8,7 +8,7 @@
 <div class="form-group">
     <div class="row">
         <div class="col-md-12 subheaderText " style="text-align:left">
-            <u> स्थान के आधार पर राठौड़ का विस्तार</u>
+            <u>छत्तीसगढ़ राठौर की जानकारी</u>
         </div>
     </div>
     <br />
@@ -28,12 +28,12 @@
                 <div class="panel panel-danger">
                     <div class="panel-heading" role="tab" id="headingOne">
                         <h4 class="panel-title">
-                            <a role="button" data-toggle="collapse" data-parent="#accordion" href="#@item.Name.Trim()" aria-expanded="true" aria-controls="collapseOne">
+                            <a role="button" data-toggle="collapse" data-parent="#accordion" href="#@(item.Id + "_" + 1)" aria-expanded="true" aria-controls="collapseOne">
                                 <i class="fa fa-arrow-circle-right" style="color:#000" aria-hidden="true"></i>&nbsp;@item.Name.Trim()
                             </a> &nbsp; &nbsp; [ @item.Value ]
                         </h4>
                     </div>
-                    <div id="@item.Name.Trim()" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                    <div id="@(item.Id + "_" + 1)" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
                         <div class="panel-body">
                             <ul>
                             @foreach (var dest in Model.DistrictBasedDetails)
@@ -65,6 +65,14 @@
        columns.Add(c => c.CurrentLocationName).Titled("वर्तमान स्थान").Filterable(true);
        columns.Add(c => c.NativeDistrictName).Titled("स्थायी जिला").Filterable(true);
        columns.Add(c => c.NativeLocationName).Titled("स्थायी स्थान").Filterable(true);
+       columns.Add()
+                .Titled("")
+                .SetWidth(10)
+                .Filterable(true)
+                .Sanitized(false)
+                .Encoded(false)
+                .RenderValueAs(c => Html.ActionLink(" ", "GetChartView", "RathoreDetail", new { id = c.RathoreDetailId }, new { @class = "fa fa-sitemap" })
+                .ToHtmlString());
 
 
    }).WithPaging(10).Sortable(true).Filterable(true)

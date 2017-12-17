@@ -29,8 +29,8 @@ namespace RS.DataAccessLayer
                 oData.EventTimeFrom = obj.EventTimeFrom;
                 oData.EventDateTo = obj.EventDateTo;
                 oData.EventTimeTo = obj.EventTimeTo;
-                oData.Location = obj.Location;
-                oData.District = obj.District;
+                oData.Location = obj.LocationName;
+                oData.District = obj.DistrictName;
                 oData.CreatedBy = obj.CreatedBy;
                 oData.CreatedOn = DateTime.Now;
                 oData.IsActive = true;
@@ -64,8 +64,8 @@ namespace RS.DataAccessLayer
                 oData.EventTimeFrom = obj.EventTimeFrom;
                 oData.EventDateTo = obj.EventDateTo;
                 oData.EventTimeTo = obj.EventTimeTo;
-                oData.Location = obj.Location;
-                oData.District = obj.District;
+                oData.Location = obj.LocationName;
+                oData.District = obj.DistrictName;
                 oData.ModifiedBy = obj.ModifiedBy;
                 oData.ModifiedOn = DateTime.Now;
                 oData.IsActive = true;
@@ -99,8 +99,8 @@ namespace RS.DataAccessLayer
 
                 result = (from obj in ent.RS_Event
                           from ET in ent.RS_EventType.Where(ET => ET.EventTypeId  == obj.EventType).DefaultIfEmpty() // <== makes join left join
-                          from CDs in ent.RS_District.Where(CD => CD.DistrictId == obj.District).DefaultIfEmpty() // <== makes join left join
-                          from CLs in ent.RS_Location.Where(CL => CL.LocationId == obj.Location).DefaultIfEmpty() // <== makes join left join
+                         // from CDs in ent.RS_District.Where(CD => CD.DistrictId == obj.District).DefaultIfEmpty() // <== makes join left join
+                         // from CLs in ent.RS_Location.Where(CL => CL.LocationId == obj.Location).DefaultIfEmpty() // <== makes join left join
                           from RD in ent.RS_RathoreDetails.Where(RDs => RDs.RathoreDetailId == obj.CreatedBy).DefaultIfEmpty() // <== makes join left join
 
                           select new EventModel
@@ -112,11 +112,10 @@ namespace RS.DataAccessLayer
                               EventTimeFrom = obj.EventTimeFrom,
                               EventDateTo = obj.EventDateTo,
                               EventTimeTo = obj.EventTimeTo,
-                              Location = obj.Location,
-                              LocationName = CLs.LocationName,
+                              LocationName = obj.Location,
 
-                              District = obj.District,
-                              DistrictName = CDs.DistrictName,
+                             // District = obj.District,
+                              DistrictName = obj.District,
                               CreatedOn = obj.CreatedOn,
                               CreatedBy = obj.CreatedBy,
                               CreatedByName = RD.Name,
@@ -138,8 +137,8 @@ namespace RS.DataAccessLayer
 
                 result = (from obj in ent.RS_Event
                           from ET in ent.RS_EventType.Where(ET => ET.EventTypeId == obj.EventType).DefaultIfEmpty() // <== makes join left join
-                          from CDs in ent.RS_District.Where(CD => CD.DistrictId == obj.District).DefaultIfEmpty() // <== makes join left join
-                          from CLs in ent.RS_Location.Where(CL => CL.LocationId == obj.Location).DefaultIfEmpty() // <== makes join left join
+                        //  from CDs in ent.RS_District.Where(CD => CD.DistrictId == obj.District).DefaultIfEmpty() // <== makes join left join
+                         // from CLs in ent.RS_Location.Where(CL => CL.LocationId == obj.Location).DefaultIfEmpty() // <== makes join left join
                           from RD in ent.RS_RathoreDetails.Where(RDs => RDs.RathoreDetailId == obj.CreatedBy).DefaultIfEmpty() // <== makes join left join
                           where obj.EventId == Id
                           select new EventModel
@@ -151,11 +150,8 @@ namespace RS.DataAccessLayer
                               EventTimeFrom = obj.EventTimeFrom,
                               EventDateTo = obj.EventDateTo,
                               EventTimeTo = obj.EventTimeTo,
-                              Location = obj.Location,
-                              LocationName = CLs.LocationName,
-
-                              District = obj.District,
-                              DistrictName = CDs.DistrictName,
+                              LocationName = obj.Location,
+                              DistrictName = obj.District,
                               CreatedOn = obj.CreatedOn,
                               CreatedBy = obj.CreatedBy,
                               CreatedByName = RD.Name,
@@ -173,65 +169,7 @@ namespace RS.DataAccessLayer
         private EventModel CheckForLocation_Event(ref EventModel result, EventModel obj)
         {
 
-            RS_District CurrentDistrictResult = new RS_District();
-            RS_Location CurrentLocationResult = new RS_Location();
             RS_EventType EventTypeResult = new RS_EventType();
-
-
-            using (RSEntities objEnt = new RSEntities())
-            {
-                if (obj.DistrictName.Trim() != string.Empty)
-                {
-                    /// Checking for current district present or not
-                    var CurrentDistrict = objEnt.RS_District.Where(o => o.DistrictName.Trim().ToUpper() == obj.DistrictName.Trim().ToUpper());
-
-                    if (CurrentDistrict.Count() > 0)
-                    {
-                        CurrentDistrictResult = CurrentDistrict.FirstOrDefault();
-                    }
-                    else
-                    {
-                        RS_District oData = new RS_District();
-                        oData.DistrictName = obj.DistrictName;
-                        oData.CreatedOn = DateTime.Now;
-                        oData.CreatedBy = obj.CreatedBy;
-                        objEnt.RS_District.Add(oData);
-                        objEnt.SaveChanges();
-                        CurrentDistrictResult = oData;
-                    }
-                }
-
-                result.District = CurrentDistrictResult != null && CurrentDistrictResult.DistrictId != 0 ? CurrentDistrictResult.DistrictId : (int?)null;
-            }
-
-            using (RSEntities objEnt = new RSEntities())
-            {
-                if (obj.LocationName.Trim() != string.Empty)
-                {
-                    /// Checking for current location present or not
-                    var CurrentLocation = objEnt.RS_Location.Where(o => o.LocationName.Trim().ToUpper() == obj.LocationName.Trim().ToUpper());
-
-                    if (CurrentLocation.Count() > 0)
-                    {
-                        CurrentLocationResult = CurrentLocation.FirstOrDefault();
-                    }
-                    else
-                    {
-                        RS_Location oData = new RS_Location();
-                        oData.LocationName = obj.LocationName;
-                        oData.DistrictId = CurrentDistrictResult.DistrictId;
-                        oData.CreatedOn = DateTime.Now;
-                        oData.CreatedBy = obj.CreatedBy;
-                        objEnt.RS_Location.Add(oData);
-                        objEnt.SaveChanges();
-                        CurrentLocationResult = oData;
-                    }
-                }
-
-                result.Location = CurrentLocationResult != null && CurrentLocationResult.LocationId != 0 ? CurrentLocationResult.LocationId : (int?)null;
-
-            }
-
 
             using (RSEntities objEnt = new RSEntities())
             {

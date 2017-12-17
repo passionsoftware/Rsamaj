@@ -194,6 +194,8 @@
     <Content Include="Content\FSGridmvc.css" />
     <Content Include="Content\Gridmvc.css" />
     <Content Include="Content\jquery-ui.css" />
+    <Content Include="Scripts\application\admin\ChartDetail.js" />
+    <Content Include="Scripts\loader.js" />
     <Content Include="Gallary.html" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -539,6 +541,7 @@
     <Content Include="Views\Error\PageNotFound.cshtml" />
     <Content Include="Views\Error\UnAuthorized.cshtml" />
     <Content Include="Views\Event\EventDetails.cshtml" />
+    <Content Include="Views\RathoreDetail\GetChartView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

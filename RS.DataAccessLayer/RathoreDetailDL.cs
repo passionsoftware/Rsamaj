@@ -320,6 +320,7 @@ namespace RS.DataAccessLayer
                 var resultsDist = rathoreDetails.GroupBy(p => new { p.CurrentState, p.CurrentDistrictName }, p => p,
                    (key, g) => new { CurrentState = key.CurrentState, CurrentDistrictName = key.CurrentDistrictName, Count = g.Count() });
 
+                List<TreeResultbase> stateBasedDetail =   new List<TreeResultbase>();
                 objRathoreDetails.StateBasedDetails = new List<TreeResultbase>();
                 foreach (var val in results)
                 {
@@ -328,8 +329,11 @@ namespace RS.DataAccessLayer
                     oValue.Name = val.CurrentStateName;
                     oValue.Value = val.Count;
 
-                    objRathoreDetails.StateBasedDetails.Add(oValue);
+                    stateBasedDetail.Add(oValue);
                 }
+
+                // foreach(var o in )
+                objRathoreDetails.StateBasedDetails = stateBasedDetail.OrderByDescending(o => o.Value).ToList();
 
                 objRathoreDetails.DistrictBasedDetails = new List<TreeResultbase>();
                 foreach (var val in resultsDist)
@@ -604,5 +608,72 @@ namespace RS.DataAccessLayer
 
         }
 
+
+
+        public List<HRathoreDetails> GetHierarchicalDetail(int RathoreId)
+        {
+            List<HRathoreDetails> oResult = new List<HRathoreDetails>();
+            List<RathoreDetailModel> rathoreDetailsCol = GetAllRathoreDetail();
+            RathoreDetailModel rathoreDetails = rathoreDetailsCol.Where(r => r.RathoreDetailId == RathoreId).FirstOrDefault();
+            oResult.Add(new HRathoreDetails() {RathoreDetailId= 0, Name = rathoreDetails.FatherName,ParentId=-1,SpouseName = rathoreDetails.MotherName });
+            oResult.Add(new HRathoreDetails() { RathoreDetailId = rathoreDetails.RathoreDetailId, Name = rathoreDetails.Name, District = rathoreDetails.CurrentDistrictName,Location = rathoreDetails.CurrentLocationName,Age = CalculateAge(rathoreDetails.DateOfBirth).ToString(), ParentId = 0,SpouseName = rathoreDetails.SpouseName });
+            if(rathoreDetails.IsMarried == true)
+            {
+                GetListOfChild(rathoreDetails.Name, rathoreDetails.SpouseName, rathoreDetails.Gender, RathoreId, rathoreDetailsCol, ref oResult);
+            }
+
+            return oResult;
+        }
+
+        public List<HRathoreDetails> GetListOfChild(string SelfName,string SpouseName,string Gender, int ParentId, List<RathoreDetailModel> rathoreDetailsCol,ref List<HRathoreDetails> oResult)
+        {
+            List<RathoreDetailModel> childrenCol = new List<RathoreDetailModel>();
+            if (Gender.ToUpper() == "M")
+            {
+                childrenCol = rathoreDetailsCol.Where(r => r.FatherName.ToUpper().Trim() == SelfName.ToUpper().Trim() && r.MotherName.ToUpper().Trim() == SpouseName.ToUpper().Trim()).ToList();
+            }
+            else
+            {
+                childrenCol = rathoreDetailsCol.Where(r => r.MotherName.ToUpper().Trim() == SelfName.ToUpper().Trim() && r.FatherName.ToUpper().Trim() == SpouseName.ToUpper().Trim()).ToList();
+            }
+            if (childrenCol.Count() > 0)
+            {
+                foreach (var child in childrenCol)
+                {
+                    oResult.Add(new HRathoreDetails()
+                    {
+                        RathoreDetailId = child.RathoreDetailId,
+                        Name = child.Name,
+                        District = child.CurrentDistrictName,
+                        Location = child.CurrentLocationName,
+                        Age = CalculateAge(child.DateOfBirth).ToString(),
+                        ParentId = ParentId,
+                        SpouseName = child.SpouseName
+                    });
+                   // ParentId = child.RathoreDetailId;
+                    GetListOfChild(child.Name, child.SpouseName, child.Gender, child.RathoreDetailId, rathoreDetailsCol,ref  oResult);
+                }
+            }
+            else
+            {
+                return oResult;
+            }
+
+            return oResult;
+        }
+
+        /// <summary>  
+        /// For calculating only age  
+        /// </summary>  
+        private static int CalculateAge(DateTime? dateOfBirth)
+        {
+            DateTime Dt = Convert.ToDateTime(dateOfBirth);
+            int age = 0;
+            age = DateTime.Now.Year - Dt.Year;
+            if (DateTime.Now.DayOfYear < Dt.DayOfYear)
+                age = age - 1;
+
+            return age;
+        }
     }
 }

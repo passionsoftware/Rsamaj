@@ -71,13 +71,13 @@
           <Property Name="EventTimeFrom" Type="nvarchar" MaxLength="100" />
           <Property Name="EventDateTo" Type="datetime" />
           <Property Name="EventTimeTo" Type="nvarchar" MaxLength="100" />
-          <Property Name="Location" Type="int" />
-          <Property Name="District" Type="int" />
           <Property Name="CreatedOn" Type="datetime" />
           <Property Name="CreatedBy" Type="int" />
           <Property Name="ModifiedBy" Type="int" />
           <Property Name="ModifiedOn" Type="datetime" />
           <Property Name="IsActive" Type="bit" />
+          <Property Name="Location" Type="nvarchar" MaxLength="300" />
+          <Property Name="District" Type="nvarchar" MaxLength="300" />
         </EntityType>
         <EntityType Name="RS_EventType">
           <Key>
@@ -131,14 +131,14 @@
           <Property Name="Subject" Type="nvarchar" MaxLength="500" />
           <Property Name="Body" Type="ntext" />
           <Property Name="Photo" Type="varchar" MaxLength="200" />
-          <Property Name="Location" Type="int" />
-          <Property Name="District" Type="int" />
           <Property Name="CreatedOn" Type="datetime" />
           <Property Name="CreatedBy" Type="int" />
           <Property Name="ModifiedBy" Type="int" />
           <Property Name="ModifiedOn" Type="datetime" />
           <Property Name="IsActive" Type="bit" />
           <Property Name="IsFeatured" Type="bit" Nullable="false" />
+          <Property Name="Location" Type="nvarchar" MaxLength="300" />
+          <Property Name="District" Type="nvarchar" MaxLength="300" />
         </EntityType>
         <EntityType Name="RS_NewsType">
           <Key>
@@ -305,26 +305,6 @@
           <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
           <Property Name="IsActive" Type="Boolean" />
         </EntityType>
-        <EntityType Name="RS_Event">
-          <Key>
-            <PropertyRef Name="EventId" />
-          </Key>
-          <Property Name="EventId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="EventType" Type="Int32" />
-          <Property Name="Subject" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="Body" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="EventDateFrom" Type="DateTime" Precision="3" />
-          <Property Name="EventTimeFrom" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="EventDateTo" Type="DateTime" Precision="3" />
-          <Property Name="EventTimeTo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="Location" Type="Int32" />
-          <Property Name="District" Type="Int32" />
-          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
-          <Property Name="CreatedBy" Type="Int32" />
-          <Property Name="ModifiedBy" Type="Int32" />
-          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
-          <Property Name="IsActive" Type="Boolean" />
-        </EntityType>
         <EntityType Name="RS_EventType">
           <Key>
             <PropertyRef Name="EventTypeId" />
@@ -367,24 +347,6 @@
           <Property Name="ModifiedBy" Type="Int32" />
           <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
           <Property Name="IsActive" Type="Boolean" />
-        </EntityType>
-        <EntityType Name="RS_News">
-          <Key>
-            <PropertyRef Name="NewsId" />
-          </Key>
-          <Property Name="NewsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Newstype" Type="Int32" />
-          <Property Name="Subject" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="Body" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Photo" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="Location" Type="Int32" />
-          <Property Name="District" Type="Int32" />
-          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
-          <Property Name="CreatedBy" Type="Int32" />
-          <Property Name="ModifiedBy" Type="Int32" />
-          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
-          <Property Name="IsActive" Type="Boolean" />
-          <Property Name="IsFeatured" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="RS_NewsType">
           <Key>
@@ -441,16 +403,16 @@
           <EntitySet Name="RS_ContactUs" EntityType="Self.RS_ContactUs" />
           <EntitySet Name="RS_Country" EntityType="Self.RS_Country" />
           <EntitySet Name="RS_District" EntityType="Self.RS_District" />
-          <EntitySet Name="RS_Event" EntityType="Self.RS_Event" />
           <EntitySet Name="RS_EventType" EntityType="Self.RS_EventType" />
           <EntitySet Name="RS_Gallary" EntityType="Self.RS_Gallary" />
           <EntitySet Name="RS_Location" EntityType="Self.RS_Location" />
-          <EntitySet Name="RS_News" EntityType="Self.RS_News" />
           <EntitySet Name="RS_NewsType" EntityType="Self.RS_NewsType" />
           <EntitySet Name="RS_Role" EntityType="Self.RS_Role" />
           <EntitySet Name="RS_State" EntityType="Self.RS_State" />
           <EntitySet Name="RS_UserDetail" EntityType="Self.RS_UserDetail" />
           <EntitySet Name="RS_RathoreDetails" EntityType="RSModel.RS_RathoreDetails" />
+          <EntitySet Name="RS_Event" EntityType="RSModel.RS_Event" />
+          <EntitySet Name="RS_News" EntityType="RSModel.RS_News" />
         </EntityContainer>
         <EntityType Name="RS_RathoreDetails">
           <Key>
@@ -492,6 +454,44 @@
           <Property Name="Role" Type="Int32" />
           <Property Name="gender" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
           <Property Name="IsMarried" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RS_Event">
+          <Key>
+            <PropertyRef Name="EventId" />
+          </Key>
+          <Property Name="EventId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EventType" Type="Int32" />
+          <Property Name="Subject" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Body" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EventDateFrom" Type="DateTime" Precision="3" />
+          <Property Name="EventTimeFrom" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="EventDateTo" Type="DateTime" Precision="3" />
+          <Property Name="EventTimeTo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="ModifiedBy" Type="Int32" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="Location" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="District" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="RS_News">
+          <Key>
+            <PropertyRef Name="NewsId" />
+          </Key>
+          <Property Name="NewsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Newstype" Type="Int32" />
+          <Property Name="Subject" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Body" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Photo" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="ModifiedBy" Type="Int32" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="IsFeatured" Type="Boolean" Nullable="false" />
+          <Property Name="Location" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="District" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -557,27 +557,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="RS_Event">
-            <EntityTypeMapping TypeName="RSModel.RS_Event">
-              <MappingFragment StoreEntitySet="RS_Event">
-                <ScalarProperty Name="EventId" ColumnName="EventId" />
-                <ScalarProperty Name="EventType" ColumnName="EventType" />
-                <ScalarProperty Name="Subject" ColumnName="Subject" />
-                <ScalarProperty Name="Body" ColumnName="Body" />
-                <ScalarProperty Name="EventDateFrom" ColumnName="EventDateFrom" />
-                <ScalarProperty Name="EventTimeFrom" ColumnName="EventTimeFrom" />
-                <ScalarProperty Name="EventDateTo" ColumnName="EventDateTo" />
-                <ScalarProperty Name="EventTimeTo" ColumnName="EventTimeTo" />
-                <ScalarProperty Name="Location" ColumnName="Location" />
-                <ScalarProperty Name="District" ColumnName="District" />
-                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
-                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
-                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="RS_EventType">
             <EntityTypeMapping TypeName="RSModel.RS_EventType">
               <MappingFragment StoreEntitySet="RS_EventType">
@@ -616,25 +595,6 @@
                 <ScalarProperty Name="LocationId" ColumnName="LocationId" />
                 <ScalarProperty Name="DistrictId" ColumnName="DistrictId" />
                 <ScalarProperty Name="LocationName" ColumnName="LocationName" />
-                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
-                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
-                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="RS_News">
-            <EntityTypeMapping TypeName="RSModel.RS_News">
-              <MappingFragment StoreEntitySet="RS_News">
-                <ScalarProperty Name="IsFeatured" ColumnName="IsFeatured" />
-                <ScalarProperty Name="NewsId" ColumnName="NewsId" />
-                <ScalarProperty Name="Newstype" ColumnName="Newstype" />
-                <ScalarProperty Name="Subject" ColumnName="Subject" />
-                <ScalarProperty Name="Body" ColumnName="Body" />
-                <ScalarProperty Name="Photo" ColumnName="Photo" />
-                <ScalarProperty Name="Location" ColumnName="Location" />
-                <ScalarProperty Name="District" ColumnName="District" />
                 <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
                 <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
                 <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
@@ -736,6 +696,46 @@
                 <ScalarProperty Name="FatherName" ColumnName="FatherName" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="RathoreDetailId" ColumnName="RathoreDetailId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RS_Event">
+            <EntityTypeMapping TypeName="RSModel.RS_Event">
+              <MappingFragment StoreEntitySet="RS_Event">
+                <ScalarProperty Name="District" ColumnName="District" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="EventTimeTo" ColumnName="EventTimeTo" />
+                <ScalarProperty Name="EventDateTo" ColumnName="EventDateTo" />
+                <ScalarProperty Name="EventTimeFrom" ColumnName="EventTimeFrom" />
+                <ScalarProperty Name="EventDateFrom" ColumnName="EventDateFrom" />
+                <ScalarProperty Name="Body" ColumnName="Body" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="EventType" ColumnName="EventType" />
+                <ScalarProperty Name="EventId" ColumnName="EventId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RS_News">
+            <EntityTypeMapping TypeName="RSModel.RS_News">
+              <MappingFragment StoreEntitySet="RS_News">
+                <ScalarProperty Name="District" ColumnName="District" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="IsFeatured" ColumnName="IsFeatured" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+                <ScalarProperty Name="Body" ColumnName="Body" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="Newstype" ColumnName="Newstype" />
+                <ScalarProperty Name="NewsId" ColumnName="NewsId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
